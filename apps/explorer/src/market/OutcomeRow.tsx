@@ -1,0 +1,4 @@
+import { Avatar } from '../components/Avatar';
+import type { Market } from '../data/types';
+import { percent } from '../data/format';
+export function OutcomeRow({market:m,index,selected,onSelect,onHover}:{market:Market;index:number;selected:boolean;onSelect:()=>void;onHover:(index:number|null)=>void}) { return <button className="outcome-row" role="radio" aria-checked={selected} onClick={onSelect} onMouseEnter={()=>onHover(index)} onMouseLeave={()=>onHover(null)} onFocus={()=>onHover(index)} onBlur={()=>onHover(null)}><span>#{index+1}</span><Avatar name={m.outcomes[index]} src={m.outcomeImages[index]} size={24}/><span>{m.outcomes[index]}</span><span className="outcome-bar"><i style={{width:`${Math.min(100,Math.max(0,m.odds[index]??0))}%`}}/></span><strong>{m.type==='Multi Scalar' && m.odds[index]!==null ? `~${m.outcomeValues[index]} ${m.unit}` : percent(m.odds[index])}</strong></button>; }

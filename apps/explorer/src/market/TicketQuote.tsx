@@ -1,0 +1,6 @@
+import { useState } from 'react';
+import type { quote } from '../data/quote';
+export function TicketQuote({result,unit,multiScalar,amount,quoting=false}:{result:ReturnType<typeof quote>;unit:string;multiScalar:boolean;amount:number;quoting?:boolean}){
+ const [settings,setSettings]=useState(false),[slippage,setSlippage]=useState('1');
+ return <div className="ticket-quote"><div><span>Avg price</span><span>{result?.avgPrice.toFixed(4)??'—'} {unit}</span></div><div><span>Price after buy</span><span>—</span></div><div><span>{multiScalar&&!amount?'Calculate your potential return':'Potential return'}</span>{quoting?<span className="quote-skeleton" aria-label="Updating…"/>:<span>{result?`${(result.shares-amount).toFixed(4)} ${unit} (${amount?((result.shares/amount-1)*100).toFixed(2):'0.00'}%)`:'—'}</span>}</div><div><span>Max slippage {slippage}%</span><button type="button" className="icon-button" aria-label="Max slippage" aria-expanded={settings} onClick={()=>setSettings(!settings)}>⚙</button></div>{settings&&<label className="slippage-settings">Max slippage <input aria-label="Max slippage" type="number" min="0" max="100" value={slippage} onChange={e=>setSlippage(e.target.value)}/>%</label>}</div>;
+}

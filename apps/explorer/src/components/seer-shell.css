@@ -1,0 +1,28 @@
+
+.seer-mark{display:block!important;height:28px!important;width:auto!important;aspect-ratio:138/64;flex:none;fill:currentColor;overflow:visible}
+a:has(>.seer-mark){display:flex!important;align-items:center;flex:none!important;padding:12px 0!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
+.seer-products{width:100%;flex:0 0 100%;order:99;font:13px 'Inter Tight Variable','Inter Tight',sans-serif;position:relative;text-align:left}
+.seer-products nav{display:flex;gap:20px;align-items:center;justify-content:flex-start;padding:0 0 8px}
+.seer-products a{color:inherit;text-decoration:none;white-space:nowrap;padding:4px 0;opacity:.6;border-bottom:2px solid transparent}
+.seer-products a:hover{opacity:.9}
+.seer-products a[aria-current=page]{opacity:1;color:#fff;font-weight:600;text-decoration:none;border-bottom-color:#8b5cf6}
+:root[data-theme=light] .seer-products a[aria-current=page]{color:#111}
+.seer-mobile{display:none}
+.seer-footer{display:flex!important;justify-content:center!important;align-items:center;gap:6px!important;flex-wrap:wrap;padding:24px 16px!important;font:12px/1.5 'Inter Tight Variable','Inter Tight',sans-serif;color:var(--text-2,#888);border-top:1px solid var(--line, #8883)}
+.seer-footer nav{display:inline!important}.seer-footer a{color:inherit;text-decoration:none}.seer-footer a:hover{text-decoration:underline}
+.site-header,.header,.top,.masthead{height:auto!important;min-height:64px;flex-wrap:wrap!important}
+.header-inner{height:auto!important;min-height:64px;flex-wrap:wrap!important}
+@media(max-width:700px){
+.seer-desktop{display:none!important}.seer-desktop{display:none!important}.seer-products{overflow-x:auto;max-width:100vw}.seer-mobile{display:none!important}
+.seer-mobile nav{flex-wrap:wrap;gap:16px}.seer-products{margin:0!important}
+.seer-footer{font-size:11px;gap:4px!important}
+}
+
+.site-header,.header,.top,.masthead{flex-shrink:0!important;flex-basis:auto!important}
+@media(max-width:700px){.masthead{gap:8px!important}.masthead .optimism{display:none}.top{gap:4px!important}.seer-risk-label{font-size:12px}.header .product-name{display:none}}
+
+.seer-footer a{display:inline!important;min-height:0!important}.seer-footer nav{padding:0!important;font:inherit!important;color:inherit!important}.seer-footer{flex-shrink:0}
+@media(max-width:700px){.masthead .seer-logo{display:flex!important}.masthead .brand{flex:none!important}.masthead .primary-nav{order:98;width:100%;justify-content:center}.seer-products nav a{display:inline-flex}}
+
+@media(max-width:700px){.seer-desktop{display:flex!important;overflow-x:auto;padding:0 16px 8px!important;scrollbar-width:none}.seer-desktop::-webkit-scrollbar{display:none}.seer-mobile{display:none!important}html,body{overflow-x:hidden}}
+.seer-products nav.seer-desktop{display:flex!important;gap:20px!important;justify-content:flex-start!important}.seer-products nav.seer-desktop a{padding:4px 0!important}

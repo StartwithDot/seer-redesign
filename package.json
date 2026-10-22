@@ -1,0 +1,9 @@
+{
+  "name": "seer-six",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:futarchy": "npm run dev -w apps/futarchy",
+    "build:futarchy": "npm run build -w apps/futarchy"
+  }
+}

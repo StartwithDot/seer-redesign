@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><title>Explorer spike</title>
+<style>body{margin:0;background:#0b0a10;color:#ddd;font:12px ui-monospace,monospace}#v{height:100vh;overflow:auto;position:relative}#fps{position:fixed;right:8px;top:8px;background:#000;padding:4px 8px;z-index:9}</style>
+<div id="fps">fps</div><div id="v"><div id="s"></div><canvas id="c" style="position:sticky;top:0;display:block"></canvas></div>
+<script>
+// 2,000-row canvas-virtualized market index; each row: title, odds bar with tick flash, 48-pt sparkline, liquidity. 300 random rows tick per second.
+const N=2000,RH=28,v=document.getElementById('v'),s=document.getElementById('s'),c=document.getElementById('c'),g=c.getContext('2d');
+s.style.height=N*RH+'px';let W,H,dpr=devicePixelRatio||1;
+function size(){W=v.clientWidth;H=v.clientHeight;c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';c.style.marginTop=-H+'px'}size();onresize=size;
+const rows=Array.from({length:N},(_,i)=>({t:'Will market #'+i+' resolve Yes before Jan 1 2027?',p:Math.random(),f:0,h:Array.from({length:48},()=>Math.random()),liq:Math.random()*5e4}));
+function tick(){for(let k=0;k<5;k++){const r=rows[Math.random()*N|0];r.p=Math.min(.99,Math.max(.01,r.p+(Math.random()-.5)*.06));r.h.push(r.p);r.h.shift();r.f=1}}
+setInterval(tick,16);
+function draw(){g.setTransform(dpr,0,0,dpr,0,0);g.fillStyle='#0b0a10';g.fillRect(0,0,W,H);const top=v.scrollTop,a=Math.floor(top/RH),b=Math.min(N,a+Math.ceil(H/RH)+1);
+for(let i=a;i<b;i++){const r=rows[i],y=i*RH-top;if(r.f>0)r.f-=.03;g.fillStyle=r.f>0?`rgba(139,92,246,${r.f*.25})`:(i%2?'#0e0d14':'#0b0a10');g.fillRect(0,y,W,RH);
+g.fillStyle='#ccc';g.fillText(r.t,8,y+18);g.fillStyle='#2a2540';g.fillRect(W-420,y+9,120,10);g.fillStyle='#8b5cf6';g.fillRect(W-420,y+9,120*r.p,10);g.fillStyle='#fff';g.fillText((r.p*100).toFixed(1)+'%',W-290,y+18);
+g.strokeStyle='#8b5cf6';g.beginPath();r.h.forEach((q,k)=>{const x=W-240+k*2.5,yy=y+22-q*16;k?g.lineTo(x,yy):g.moveTo(x,yy)});g.stroke();g.fillStyle='#888';g.fillText('$'+(r.liq/1e3).toFixed(1)+'k',W-100,y+18)}}
+let fr=0,t0=performance.now(),dir=1;window.__fps=[];
+(function loop(t){v.scrollTop+=dir*6;if(v.scrollTop>=v.scrollHeight-H-10)dir=-1;if(v.scrollTop<=0)dir=1;draw();fr++;if(t-t0>1000){const f=Math.round(fr*1000/(t-t0));window.__fps.push(f);document.getElementById('fps').textContent=f+' fps';fr=0;t0=t}requestAnimationFrame(loop)})(performance.now());
+</script>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seer | Ask the market</title>
+<meta name="description" content="Seer is Information Finance infrastructure for the agentic economy. Ask a question, markets price every answer.">
+<link rel="icon" href="assets/star.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bgfx" aria-hidden="true"></canvas>
+<canvas id="spine" aria-hidden="true"></canvas>
+<canvas id="obj" aria-hidden="true"></canvas>
+<canvas id="bird-layer" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="brand" id="nav-logo" href="#hero" aria-label="Seer home"><svg id="nav-svg" viewBox="0 0 138 64" aria-hidden="true"></svg></a>
+  <nav aria-label="Main">
+    <a class="nl hide-m" href="#protocol">Protocol</a>
+    <div class="menu" id="appsMenu">
+      <button class="nl menu-btn" id="appsBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="appsPanel">Apps<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="menu-panel" id="appsPanel" role="menu" aria-label="Seer products">
+        <div class="menu-in"></div>
+      </div>
+    </div>
+    <a class="nl hide-m" href="https://seer-3.gitbook.io/seer-documentation">Docs</a>
+    <a class="pill small" href="explorer/">Launch app</a>
+  </nav>
+</header>
+
+<main>
+<section id="hero" class="sec" data-layout="hero">
+  <div class="wheelwrap" aria-hidden="true"><div class="stage wheelstage"><div class="wheel" id="heroWheel"></div></div></div>
+  <div class="stage herostage">
+    <div class="hero-copy">
+      <h1 id="heroH1">Ask anything.<br>The market answers.</h1>
+      <p class="lead">Seer is Information Finance infrastructure for the agentic economy. A person or an AI agent asks, traders price every outcome, anyone reads the signal.</p>
+      <div class="pills">
+        <a class="pill primary" href="explorer/">Launch app</a>
+        <a class="pill ghost" href="https://seer-3.gitbook.io/seer-documentation">Read the docs</a>
+      </div>
+    </div>
+    <div class="bars" id="bars" role="img" aria-label="Sample market with ten outcomes">
+      <div class="bars-q"><span>Asked by Optimism</span>Which Optimism repository is the most original?</div>
+      <div class="bars-list" id="barsList"></div>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+
+<section id="protocol" class="sec" data-layout="protocol">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Protocol &middot; Anyone asks</p>
+      <h2>One question.<br>Every outcome priced.</h2>
+      <p class="lead">Lock one token, mint a YES and a NO, and traders price every answer. Kleros settles any dispute.</p>
+      <a class="pill primary" href="https://seer-3.gitbook.io/seer-documentation">Read the docs</a>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+<section id="seerapp" class="sec panel" data-layout="seerapp">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Seer App &middot; Anyone asks</p>
+      <h2>Every market.<br>One index.</h2>
+      <p class="lead">The explorer of every market on the protocol, the Etherscan of Seer. Read live prices, no trade needed.</p>
+      <a class="pill primary" href="explorer/">Open Seer App</a>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+<section id="deep" class="sec" data-layout="deep">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Deep &middot; An AI agent asks</p>
+      <h2>One question.<br>Many outcomes.</h2>
+      <p class="lead">Markets for AI agents. One question with many outcomes: agents forecast every option and traders price it.</p>
+      <a class="pill primary" href="deep/">Open Deep</a>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+<section id="futarchy" class="sec panel" data-layout="futarchy">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Futarchy &middot; A DAO asks</p>
+      <h2>The DAO votes.<br>The market informs.</h2>
+      <p class="lead">Conditional markets price what happens if a proposal passes and if it fails. The decision stays with the DAO.</p>
+      <a class="pill primary" href="futarchy/">Open Futarchy</a>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+<section id="opportunity" class="sec" data-layout="opportunity">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Opportunity Markets &middot; A program asks</p>
+      <h2>Forecast the shortlist.<br>Reviewers decide.</h2>
+      <p class="lead">Traders forecast which submissions get selected. Reviewers keep the final say.</p>
+      <a class="pill primary" href="opportunity/">Open Opportunity</a>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+<section id="risk" class="sec panel" data-layout="risk">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Risk Pricing &middot; A treasury asks</p>
+      <h2>Compare risk.<br>Protocol by protocol.</h2>
+      <p class="lead">Market risk estimates side by side, so survival odds become something you can compare.</p>
+      <a class="pill primary" href="risk/">Open Risk Pricing</a>
+    </div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+<section id="close" class="sec" data-layout="close">
+  <div class="bg"></div>
+  <div class="stage">
+    <div class="copy">
+      <p class="eyebrow">Information Finance &middot; Everyone asks</p>
+      <h2>Ask first.<br>Trade second.</h2>
+      <p class="lead">A market exists to find out what someone needs to know. Traders price it, and the signal is read by a person, cited by a DAO, or fetched by an agent.</p>
+      <a class="pill primary" href="https://seer-3.gitbook.io/seer-documentation">Read the docs</a>
+    </div>
+    <div id="finale-logo" class="slot"><div class="ph ph-logo" aria-hidden="true"></div></div>
+    <i class="perch" data-bird-perch aria-hidden="true"></i>
+  </div>
+</section>
+</main>
+
+<footer class="foot" data-layout="close">
+  <canvas id="footLine" aria-hidden="true"></canvas>
+  <p class="foot-big">Information<br><em>has a price.</em></p>
+  <div class="foot-grid">
+    <div class="foot-id"><img class="foot-logo" src="assets/logo.svg" alt="Seer" width="138" height="64">
+      <p class="foot-tag">Information Finance infrastructure for the agentic economy.</p></div>
+    <nav class="foot-col" aria-label="Products"><h3>Products</h3>
+      <a class="fl" href="explorer/"><span>Seer App</span></a>
+      <a class="fl" href="deep/"><span>Deep</span></a>
+      <a class="fl" href="futarchy/"><span>Futarchy</span></a>
+      <a class="fl" href="opportunity/"><span>Opportunity</span></a>
+      <a class="fl" href="risk/"><span>Risk Pricing</span></a>
+      </nav>
+    <nav class="foot-col" aria-label="Resources"><h3>Resources</h3>
+      <a class="fl" href="https://seer-3.gitbook.io/seer-documentation"><span>Docs</span></a>
+      <a class="fl" href="https://seer-pm.medium.com/"><span>Blog</span></a>
+      <a class="fl" href="https://seer-3.gitbook.io/seer-documentation"><span>Images &amp; Branding</span></a>
+      <a class="fl" href="mailto:info@seer.pm"><span>info@seer.pm</span></a></nav>
+    <nav class="foot-col" aria-label="Community"><h3>Community</h3>
+      <a class="fl" href="https://x.com/seer_pm"><span>X</span></a>
+      <a class="fl" href="https://discord.com/invite/rBEB4MYQwV"><span>Discord</span></a>
+      <a class="fl" href="https://t.me/Seerpredictionmarket"><span>Telegram</span></a>
+      <a class="fl" href="https://github.com/seer-pm"><span>GitHub</span></a>
+      <a class="fl" href="https://seer-pm.medium.com/"><span>Medium</span></a></nav>
+  </div>
+</footer>
+
+<script src="dist/app.js"></script>
+<script src="dist/glass.js"></script>
+<script src="dist/bird.js"></script>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  function ready(el) { var ph = el && el.querySelector('.ph'); if (ph) ph.classList.add('gone'); }
+  function boot() {
+    if (window.SeerBird) {
+      try { SeerBird.init({ canvas: $('#bird-layer'), logoEl: $('#nav-logo'), finaleEl: $('#finale-logo') }); } catch (e) { console.warn('bird', e); }
+    }
+  }
+  if (document.readyState === 'complete') boot(); else window.addEventListener('load', boot);
+})();
+</script>
+</body>
+</html>
+

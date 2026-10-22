@@ -1,0 +1,2368 @@
+[
+  {
+    "id": "G-01",
+    "name": "parity-beta-banner-visible-on-home",
+    "route": "#/",
+    "assertion": "Beta strip 28, above header",
+    "draft": false
+  },
+  {
+    "id": "G-02",
+    "name": "parity-header-bar-visible",
+    "route": "#/",
+    "assertion": "Header tier 1 (tonal, D6) holds all nav",
+    "draft": false
+  },
+  {
+    "id": "G-03",
+    "name": "parity-logo-links-home",
+    "route": "#/",
+    "assertion": "Wordmark → `#/`",
+    "draft": false
+  },
+  {
+    "id": "G-04",
+    "name": "parity-nav-markets-links-home",
+    "route": "#/",
+    "assertion": "Nav `Markets`",
+    "draft": false
+  },
+  {
+    "id": "G-05",
+    "name": "parity-nav-leaderboard-links-leaderboard",
+    "route": "#/",
+    "assertion": "Nav `Leaderboard`",
+    "draft": false
+  },
+  {
+    "id": "G-06",
+    "name": "parity-nav-create-market-links-create",
+    "route": "#/",
+    "assertion": "Nav `Create Market`",
+    "draft": false
+  },
+  {
+    "id": "G-07",
+    "name": "parity-chain-icon-visible",
+    "route": "#/",
+    "assertion": "Chain icon 20 in Account button",
+    "draft": false
+  },
+  {
+    "id": "G-08",
+    "name": "parity-wallet-pill-shows-truncated-address",
+    "route": "#/",
+    "assertion": "`0x0000…dEaD` in Account button",
+    "draft": false
+  },
+  {
+    "id": "G-09",
+    "name": "parity-account-button-shows-balance",
+    "route": "#/",
+    "assertion": "`24.69 xDAI` in Account button",
+    "draft": false
+  },
+  {
+    "id": "G-10",
+    "name": "parity-header-help-icon-visible",
+    "route": "#/",
+    "assertion": "Help 40×40 (starts tour)",
+    "draft": false
+  },
+  {
+    "id": "G-11",
+    "name": "parity-theme-toggle-switches-label",
+    "route": "#/",
+    "assertion": "Theme toggle, labels switch",
+    "draft": false
+  },
+  {
+    "id": "G-12",
+    "name": "parity-dark-theme-applies-globally",
+    "route": "#/",
+    "assertion": "Dark default (tonal surfaces)",
+    "draft": false
+  },
+  {
+    "id": "G-13",
+    "name": "parity-theme-toggle-preserves-content",
+    "route": "#/",
+    "assertion": "View-transition theme swap; DOM text unchanged",
+    "draft": false
+  },
+  {
+    "id": "G-14",
+    "name": "parity-disconnected-header-shows-connect",
+    "route": "#/",
+    "assertion": "`Connect` 112×40 when disconnected",
+    "draft": false
+  },
+  {
+    "id": "G-15",
+    "name": "parity-menu-overlay-keeps-page-visible",
+    "route": "#/",
+    "assertion": "HoverMenus overlay; main subtree hash unchanged",
+    "draft": false
+  },
+  {
+    "id": "G-16",
+    "name": "parity-console-walletconnect-reverse-profile-404-not-seer-resource",
+    "route": "#/",
+    "assertion": "Not a UI surface; console allowlist `rpc.walletconnect.org/v1/profile/reverse/`",
+    "draft": false
+  },
+  {
+    "id": "M-01",
+    "name": "parity-policies-menu-opens",
+    "route": "#/",
+    "assertion": "Policies HoverMenu",
+    "draft": false
+  },
+  {
+    "id": "M-02",
+    "name": "parity-policies-verified-market-policy-item-visible",
+    "route": "#/",
+    "assertion": "`Verified Market Policy` → plate",
+    "draft": false
+  },
+  {
+    "id": "M-03",
+    "name": "parity-policies-market-rules-policy-item-visible",
+    "route": "#/",
+    "assertion": "`Market Rules Policy` → plate",
+    "draft": false
+  },
+  {
+    "id": "M-04",
+    "name": "parity-app-menu-opens",
+    "route": "#/",
+    "assertion": "App HoverMenu",
+    "draft": false
+  },
+  {
+    "id": "M-05",
+    "name": "parity-app-menu-futarchy-item-visible",
+    "route": "#/",
+    "assertion": "`Futarchy` ↗ futarchy.seer.pm",
+    "draft": false
+  },
+  {
+    "id": "M-06",
+    "name": "parity-app-menu-deepfunding-item-visible",
+    "route": "#/",
+    "assertion": "`Deepfunding` ↗ deep.seer.pm",
+    "draft": false
+  },
+  {
+    "id": "M-07",
+    "name": "parity-app-menu-foresight-item-visible",
+    "route": "#/",
+    "assertion": "`Foresight` ↗ foresight.kleros.io",
+    "draft": false
+  },
+  {
+    "id": "M-08",
+    "name": "parity-app-menu-opportunity-markets-item-visible",
+    "route": "#/",
+    "assertion": "`Opportunity Markets` ↗ opportunity.seer.pm",
+    "draft": false
+  },
+  {
+    "id": "M-09",
+    "name": "parity-account-menu-opens",
+    "route": "#/",
+    "assertion": "Account button opens Account menu",
+    "draft": false
+  },
+  {
+    "id": "M-10",
+    "name": "parity-account-menu-account-item",
+    "route": "#/",
+    "assertion": "`Account` → plate",
+    "draft": false
+  },
+  {
+    "id": "M-11",
+    "name": "parity-account-menu-deposit-item",
+    "route": "#/",
+    "assertion": "`Deposit` → plate",
+    "draft": false
+  },
+  {
+    "id": "M-12",
+    "name": "parity-account-menu-portfolio-item",
+    "route": "#/",
+    "assertion": "`Portfolio` → plate",
+    "draft": false
+  },
+  {
+    "id": "M-13",
+    "name": "parity-account-menu-market-collections-item",
+    "route": "#/",
+    "assertion": "`Market Collections` → `#/collections/default`",
+    "draft": false
+  },
+  {
+    "id": "M-14",
+    "name": "parity-account-menu-trade-collateral-item",
+    "route": "#/",
+    "assertion": "`Trade Collateral` → plate",
+    "draft": false
+  },
+  {
+    "id": "M-15",
+    "name": "parity-account-menu-use-smart-account-toggle",
+    "route": "#/",
+    "assertion": "`Use smart account` switch",
+    "draft": false
+  },
+  {
+    "id": "M-16",
+    "name": "parity-account-menu-item-count",
+    "route": "#/",
+    "assertion": "5 items + switch together",
+    "draft": false
+  },
+  {
+    "id": "H-01",
+    "name": "parity-index-card-grid-columns",
+    "route": "#/",
+    "assertion": "Card grid 5@1440/6@1920/2@390 (user decision; replaces 4-col)",
+    "draft": false
+  },
+  {
+    "id": "H-02",
+    "name": "parity-index-infinite-scroll-loads-more",
+    "route": "#/",
+    "assertion": "Infinite scroll sentinel → next page (A-08)",
+    "draft": false
+  },
+  {
+    "id": "H-03",
+    "name": "parity-index-has-no-table-view",
+    "route": "#/",
+    "assertion": "Superseded: sort in rail + tags (no table, by user choice)",
+    "draft": false
+  },
+  {
+    "id": "H-04",
+    "name": "parity-index-card-title-opens-market-page",
+    "route": "#/",
+    "assertion": "Whole card (incl. title) → market page",
+    "draft": false
+  },
+  {
+    "id": "H-05",
+    "name": "parity-index-card-question-text-renders",
+    "route": "#/",
+    "assertion": "Question 2-line clamp + tooltip",
+    "draft": false
+  },
+  {
+    "id": "H-06",
+    "name": "parity-index-card-avatar-renders",
+    "route": "#/",
+    "assertion": "Avatar 32",
+    "draft": false
+  },
+  {
+    "id": "H-07",
+    "name": "parity-index-card-donut-chart-renders",
+    "route": "#/",
+    "assertion": "Donut removed → outcome tiles/rows (DIRECTION §4)",
+    "draft": false
+  },
+  {
+    "id": "H-08",
+    "name": "parity-index-card-legend-outcome-percentages",
+    "route": "#/",
+    "assertion": "Exact % per top outcome",
+    "draft": false
+  },
+  {
+    "id": "H-09",
+    "name": "parity-index-card-seer-logo",
+    "route": "#/",
+    "assertion": "SEER logo moves to the market-page meta row",
+    "draft": false
+  },
+  {
+    "id": "H-10",
+    "name": "parity-index-card-liquidity-figure-format",
+    "route": "#/",
+    "assertion": "Liquidity `$` + K → drawer row 2",
+    "draft": false
+  },
+  {
+    "id": "H-11",
+    "name": "parity-index-card-status-and-verification-icons",
+    "route": "#/",
+    "assertion": "Verification mark at rest; status in drawer row 1",
+    "draft": false
+  },
+  {
+    "id": "H-12",
+    "name": "parity-index-card-hover-breakdown-tooltip-opens",
+    "route": "#/",
+    "assertion": "Drawer `Liquidity ›` (`aria-label` \"Open interest and liquidity breakdown\")",
+    "draft": false
+  },
+  {
+    "id": "H-13",
+    "name": "parity-index-card-tooltip-open-interest-dual-unit",
+    "route": "#/",
+    "assertion": "Drawer Open interest `$7.26K` + `5.75K sDAI` in tooltip (A-09)",
+    "draft": false
+  },
+  {
+    "id": "H-14",
+    "name": "parity-index-card-tooltip-volume-and-notional",
+    "route": "#/",
+    "assertion": "Pool sub-panel header `Volume … traded, notional …`",
+    "draft": false
+  },
+  {
+    "id": "H-15",
+    "name": "parity-index-card-tooltip-per-outcome-pool-liquidity",
+    "route": "#/",
+    "assertion": "Pool sub-panel rows `4.94K YASHAR / 12.1K sDAI`",
+    "draft": false
+  },
+  {
+    "id": "H-16",
+    "name": "parity-index-card-gnosisscan-link-href",
+    "route": "#/",
+    "assertion": "Drawer Chain `Gnosis ↗`",
+    "draft": false
+  },
+  {
+    "id": "H-17",
+    "name": "parity-index-card-kleros-curation-link-href",
+    "route": "#/",
+    "assertion": "Drawer Kleros row ↗",
+    "draft": false
+  },
+  {
+    "id": "H-18",
+    "name": "parity-index-search-input-placeholder",
+    "route": "#/",
+    "assertion": "Search pill placeholder",
+    "draft": false
+  },
+  {
+    "id": "H-19",
+    "name": "parity-index-search-writes-marketname-query",
+    "route": "#/",
+    "assertion": "`?marketName=`",
+    "draft": false
+  },
+  {
+    "id": "H-20",
+    "name": "parity-index-search-state-shows-connect-with-feed",
+    "route": "#/",
+    "assertion": "Disconnected header + grid",
+    "draft": false
+  },
+  {
+    "id": "H-21",
+    "name": "parity-index-filters-button-opens-panel",
+    "route": "#/",
+    "assertion": "Rail strip / Filters button (sheet)",
+    "draft": false
+  },
+  {
+    "id": "H-22",
+    "name": "parity-index-filter-group-market-states",
+    "route": "#/",
+    "assertion": "Rail Market States",
+    "draft": false
+  },
+  {
+    "id": "H-23",
+    "name": "parity-index-filter-group-verification-status",
+    "route": "#/",
+    "assertion": "Rail Verification Status",
+    "draft": false
+  },
+  {
+    "id": "H-24",
+    "name": "parity-index-filter-group-chain",
+    "route": "#/",
+    "assertion": "Rail Chain",
+    "draft": false
+  },
+  {
+    "id": "H-25",
+    "name": "parity-index-filter-group-sort-by",
+    "route": "#/",
+    "assertion": "Rail Sort By",
+    "draft": false
+  },
+  {
+    "id": "H-26",
+    "name": "parity-index-filter-sort-direction-switch",
+    "route": "#/",
+    "assertion": "Desc/Asc segmented",
+    "draft": false
+  },
+  {
+    "id": "H-27",
+    "name": "parity-index-filter-conditional-market-toggle",
+    "route": "#/",
+    "assertion": "`Show only conditional markets` switch",
+    "draft": false
+  },
+  {
+    "id": "H-28",
+    "name": "parity-index-filter-minimum-liquidity-input",
+    "route": "#/",
+    "assertion": "Minimum Liquidity input",
+    "draft": false
+  },
+  {
+    "id": "H-29",
+    "name": "parity-index-filter-rewards-toggle",
+    "route": "#/",
+    "assertion": "`Show only markets with rewards`",
+    "draft": false
+  },
+  {
+    "id": "H-30",
+    "name": "parity-index-filter-futarchy-toggle",
+    "route": "#/",
+    "assertion": "`Show only futarchy markets`",
+    "draft": false
+  },
+  {
+    "id": "H-31",
+    "name": "parity-index-filters-cancel-button",
+    "route": "#/",
+    "assertion": "`Cancel`",
+    "draft": false
+  },
+  {
+    "id": "H-32",
+    "name": "parity-index-filters-apply-button",
+    "route": "#/",
+    "assertion": "`Apply`",
+    "draft": false
+  },
+  {
+    "id": "H-33",
+    "name": "parity-index-create-new-market-links-create",
+    "route": "#/",
+    "assertion": "Header tier 2 `Create New Market`",
+    "draft": false
+  },
+  {
+    "id": "H-34",
+    "name": "parity-index-my-collections-links-collections",
+    "route": "#/",
+    "assertion": "Header tier 2 `My collections`",
+    "draft": false
+  },
+  {
+    "id": "L-01",
+    "name": "parity-leaderboard-heading-visible",
+    "route": "#/leaderboard",
+    "assertion": "H1",
+    "draft": false
+  },
+  {
+    "id": "L-02",
+    "name": "parity-leaderboard-trader-score-explanation-copy",
+    "route": "#/leaderboard",
+    "assertion": "ⓘ popover with full prose",
+    "draft": false
+  },
+  {
+    "id": "L-03",
+    "name": "parity-leaderboard-how-it-works-link",
+    "route": "#/leaderboard",
+    "assertion": "`How it works ↗`",
+    "draft": false
+  },
+  {
+    "id": "L-04",
+    "name": "parity-leaderboard-period-1d",
+    "route": "#/leaderboard",
+    "assertion": "Period `1D`",
+    "draft": false
+  },
+  {
+    "id": "L-05",
+    "name": "parity-leaderboard-period-1w",
+    "route": "#/leaderboard",
+    "assertion": "`1W`",
+    "draft": false
+  },
+  {
+    "id": "L-06",
+    "name": "parity-leaderboard-period-1m",
+    "route": "#/leaderboard",
+    "assertion": "`1M`",
+    "draft": false
+  },
+  {
+    "id": "L-07",
+    "name": "parity-leaderboard-period-all",
+    "route": "#/leaderboard",
+    "assertion": "`ALL`",
+    "draft": false
+  },
+  {
+    "id": "L-08",
+    "name": "parity-leaderboard-filters-button-opens-panel",
+    "route": "#/leaderboard",
+    "assertion": "App/Chain menus (mobile `Filters` sheet)",
+    "draft": false
+  },
+  {
+    "id": "L-09",
+    "name": "parity-leaderboard-filter-group-app",
+    "route": "#/leaderboard",
+    "assertion": "App menu items",
+    "draft": false
+  },
+  {
+    "id": "L-10",
+    "name": "parity-leaderboard-filter-group-chain",
+    "route": "#/leaderboard",
+    "assertion": "Chain menu items",
+    "draft": false
+  },
+  {
+    "id": "L-11",
+    "name": "parity-leaderboard-your-rank-control",
+    "route": "#/leaderboard",
+    "assertion": "`Your Rank`",
+    "draft": false
+  },
+  {
+    "id": "L-12",
+    "name": "parity-leaderboard-search-input-placeholder",
+    "route": "#/leaderboard",
+    "assertion": "Search input",
+    "draft": false
+  },
+  {
+    "id": "L-13",
+    "name": "parity-leaderboard-search-button-visible",
+    "route": "#/leaderboard",
+    "assertion": "`Search` button",
+    "draft": false
+  },
+  {
+    "id": "L-14",
+    "name": "parity-leaderboard-column-rank",
+    "route": "#/leaderboard",
+    "assertion": "`#`",
+    "draft": false
+  },
+  {
+    "id": "L-15",
+    "name": "parity-leaderboard-column-account-name-formats",
+    "route": "#/leaderboard",
+    "assertion": "`Account` ENS / pseudonym",
+    "draft": false
+  },
+  {
+    "id": "L-16",
+    "name": "parity-leaderboard-column-score-value-and-band",
+    "route": "#/leaderboard",
+    "assertion": "Score + tier pill 76",
+    "draft": false
+  },
+  {
+    "id": "L-17",
+    "name": "parity-leaderboard-column-score-na-and-help-icon",
+    "route": "#/leaderboard",
+    "assertion": "`N/A` + header ⓘ",
+    "draft": false
+  },
+  {
+    "id": "L-18",
+    "name": "parity-leaderboard-column-profit-loss-usd",
+    "route": "#/leaderboard",
+    "assertion": "Profit/Loss USD 2 dp",
+    "draft": false
+  },
+  {
+    "id": "L-19",
+    "name": "parity-leaderboard-column-volume-usd",
+    "route": "#/leaderboard",
+    "assertion": "Volume USD 2 dp",
+    "draft": false
+  },
+  {
+    "id": "L-20",
+    "name": "parity-leaderboard-column-roi-signed-percent",
+    "route": "#/leaderboard",
+    "assertion": "ROI signed",
+    "draft": false
+  },
+  {
+    "id": "L-21",
+    "name": "parity-leaderboard-column-traded-markets",
+    "route": "#/leaderboard",
+    "assertion": "Traded Markets",
+    "draft": false
+  },
+  {
+    "id": "L-22",
+    "name": "parity-leaderboard-sort-by-score",
+    "route": "#/leaderboard",
+    "assertion": "Sort Score",
+    "draft": false
+  },
+  {
+    "id": "L-23",
+    "name": "parity-leaderboard-sort-by-profit-loss",
+    "route": "#/leaderboard",
+    "assertion": "Sort Profit/Loss",
+    "draft": false
+  },
+  {
+    "id": "L-24",
+    "name": "parity-leaderboard-sort-by-volume",
+    "route": "#/leaderboard",
+    "assertion": "Sort Volume",
+    "draft": false
+  },
+  {
+    "id": "L-25",
+    "name": "parity-leaderboard-sort-by-roi",
+    "route": "#/leaderboard",
+    "assertion": "Sort ROI",
+    "draft": false
+  },
+  {
+    "id": "L-26",
+    "name": "parity-leaderboard-pagination-previous",
+    "route": "#/leaderboard",
+    "assertion": "`Previous`",
+    "draft": false
+  },
+  {
+    "id": "L-27",
+    "name": "parity-leaderboard-pagination-next",
+    "route": "#/leaderboard",
+    "assertion": "`Next`",
+    "draft": false
+  },
+  {
+    "id": "L-28",
+    "name": "parity-leaderboard-sort-descriptor-visible",
+    "route": "#/leaderboard",
+    "assertion": "Sort descriptor",
+    "draft": true
+  },
+  {
+    "id": "L-29",
+    "name": "parity-leaderboard-updating-text-on-period-change",
+    "route": "#/leaderboard",
+    "assertion": "`Updating…`",
+    "draft": true
+  },
+  {
+    "id": "L-30",
+    "name": "parity-leaderboard-finding-your-rank-progress",
+    "route": "#/leaderboard",
+    "assertion": "`Finding your rank…`",
+    "draft": true
+  },
+  {
+    "id": "L-31",
+    "name": "parity-leaderboard-page-counter",
+    "route": "#/leaderboard",
+    "assertion": "`Page 1 of N`",
+    "draft": true
+  },
+  {
+    "id": "L-32",
+    "name": "parity-leaderboard-updated-timestamp",
+    "route": "#/leaderboard",
+    "assertion": "`Updated <date>` (`updatedAt`)",
+    "draft": true
+  },
+  {
+    "id": "L-33",
+    "name": "parity-leaderboard-rows-per-page",
+    "route": "#/leaderboard",
+    "assertion": "25 rows",
+    "draft": true
+  },
+  {
+    "id": "L-34",
+    "name": "parity-leaderboard-optional-sortable-rank-account-traded",
+    "route": "#/leaderboard",
+    "assertion": "`#`/Account/Traded Markets also sortable (optional)",
+    "draft": true
+  },
+  {
+    "id": "L-35",
+    "name": "parity-leaderboard-disconnected-still-shows-rows",
+    "route": "#/leaderboard",
+    "assertion": "Rows when disconnected",
+    "draft": false
+  },
+  {
+    "id": "L-36",
+    "name": "parity-leaderboard-your-rank-hidden-when-disconnected",
+    "route": "#/leaderboard",
+    "assertion": "`Your Rank` hidden when disconnected",
+    "draft": true
+  },
+  {
+    "id": "D-L-36",
+    "name": "parity-leaderboard-score-na-explanation-available",
+    "route": "#/leaderboard",
+    "assertion": "Score N/A tooltip from `scoreUnavailable`",
+    "draft": true
+  },
+  {
+    "id": "D-L-37",
+    "name": "parity-leaderboard-roi-na-explanation-available",
+    "route": "#/leaderboard",
+    "assertion": "ROI N/A tooltip `under $0.01 of capital`",
+    "draft": true
+  },
+  {
+    "id": "D-L-40",
+    "name": "parity-leaderboard-search-preserves-table-in-capture",
+    "route": "#/leaderboard",
+    "assertion": "Search with no match → `No accounts found` + `Clear search`",
+    "draft": true
+  },
+  {
+    "id": "D-L-41",
+    "name": "parity-leaderboard-api-request-params",
+    "route": "#/leaderboard",
+    "assertion": "`leaderboard.ts` request params",
+    "draft": true
+  },
+  {
+    "id": "D-L-42",
+    "name": "parity-leaderboard-api-response-meta",
+    "route": "#/leaderboard",
+    "assertion": "response meta",
+    "draft": true
+  },
+  {
+    "id": "D-L-43",
+    "name": "parity-leaderboard-api-row-fields",
+    "route": "#/leaderboard",
+    "assertion": "row fields",
+    "draft": true
+  },
+  {
+    "id": "C-01",
+    "name": "parity-create-step-indicator-shows-step-one-of-two",
+    "route": "#/create-market",
+    "assertion": "Step dots `1 of 2`",
+    "draft": false
+  },
+  {
+    "id": "C-02",
+    "name": "parity-create-type-select-empty-default",
+    "route": "#/create-market",
+    "assertion": "Type radio rows, none selected",
+    "draft": false
+  },
+  {
+    "id": "C-03",
+    "name": "parity-create-next-disabled-until-type-chosen",
+    "route": "#/create-market",
+    "assertion": "`Next` disabled + tooltip",
+    "draft": false
+  },
+  {
+    "id": "C-04",
+    "name": "parity-create-requires-connected-wallet",
+    "route": "#/create-market",
+    "assertion": "Connect plate",
+    "draft": false
+  },
+  {
+    "id": "C-05",
+    "name": "parity-create-kleros-footer-visible",
+    "route": "#/create-market",
+    "assertion": "`SECURED BY KLEROS` footer",
+    "draft": false
+  },
+  {
+    "id": "C-06",
+    "name": "parity-create-steps-two-plus-not-yet-testable",
+    "route": "#/create-market",
+    "assertion": "Step-2 plate + `Open in Seer app ↗`",
+    "draft": false
+  },
+  {
+    "id": "CM-01",
+    "name": "parity-create-market-start-screen-visible",
+    "route": "#/create-market",
+    "assertion": "Create page start",
+    "draft": true
+  },
+  {
+    "id": "CM-02",
+    "name": "parity-create-market-type-categorical-selectable",
+    "route": "#/create-market",
+    "assertion": "`Categorical` row",
+    "draft": true
+  },
+  {
+    "id": "CM-03",
+    "name": "parity-create-market-type-scalar-selectable",
+    "route": "#/create-market",
+    "assertion": "`Scalar` row",
+    "draft": true
+  },
+  {
+    "id": "CM-04",
+    "name": "parity-create-market-type-multi-categorical-selectable",
+    "route": "#/create-market",
+    "assertion": "`Multi Categorical` row",
+    "draft": true
+  },
+  {
+    "id": "CM-05",
+    "name": "parity-create-market-type-multi-scalar-selectable",
+    "route": "#/markets/100/how-many-seats-in-frances-national-assembly-will-party-bloc-win-in-the-next-fren",
+    "assertion": "`Multi Scalar` row",
+    "draft": true
+  },
+  {
+    "id": "CM-06",
+    "name": "parity-create-market-next-control-visible",
+    "route": "#/create-market",
+    "assertion": "`Next`",
+    "draft": true
+  },
+  {
+    "id": "CM-07",
+    "name": "parity-create-market-policies-overlay-preserves-page",
+    "route": "#/create-market",
+    "assertion": "Policies overlay on create",
+    "draft": true
+  },
+  {
+    "id": "CM-08",
+    "name": "parity-create-market-app-overlay-preserves-page",
+    "route": "#/create-market",
+    "assertion": "App overlay on create",
+    "draft": true
+  },
+  {
+    "id": "CM-09",
+    "name": "parity-create-market-wallet-overlay-preserves-page",
+    "route": "#/create-market",
+    "assertion": "Account overlay on create",
+    "draft": true
+  },
+  {
+    "id": "CM-10",
+    "name": "parity-create-market-theme-toggle-visible",
+    "route": "#/create-market",
+    "assertion": "Theme toggle on create",
+    "draft": true
+  },
+  {
+    "id": "CL-01",
+    "name": "parity-collections-requires-sign-in",
+    "route": "#/collections/default",
+    "assertion": "Gate copy + `Sign in`",
+    "draft": false
+  },
+  {
+    "id": "CL-02",
+    "name": "parity-collections-empty-state",
+    "route": "#/collections/default",
+    "assertion": "`No markets in this collection.`",
+    "draft": false
+  },
+  {
+    "id": "CL-03",
+    "name": "parity-collections-signed-in-not-yet-testable",
+    "route": "#/collections/default",
+    "assertion": "Starred grid (local, A-15)",
+    "draft": false
+  },
+  {
+    "id": "COL-01",
+    "name": "parity-collections-default-route-visible",
+    "route": "#/collections/default",
+    "assertion": "Title `Default`",
+    "draft": true
+  },
+  {
+    "id": "COL-02",
+    "name": "parity-collections-sign-in-gate-copy",
+    "route": "#/collections/default",
+    "assertion": "Gate copy",
+    "draft": true
+  },
+  {
+    "id": "COL-03",
+    "name": "parity-collections-empty-state-visible",
+    "route": "#/collections/default",
+    "assertion": "Empty message",
+    "draft": true
+  },
+  {
+    "id": "COL-04",
+    "name": "parity-collections-my-collections-route",
+    "route": "#/collections/default",
+    "assertion": "`My collections` reaches route",
+    "draft": true
+  },
+  {
+    "id": "COL-05",
+    "name": "parity-collections-policies-overlay-preserves-page",
+    "route": "#/collections/default",
+    "assertion": "Policies overlay",
+    "draft": true
+  },
+  {
+    "id": "COL-06",
+    "name": "parity-collections-app-overlay-preserves-page",
+    "route": "#/collections/default",
+    "assertion": "App overlay",
+    "draft": true
+  },
+  {
+    "id": "COL-07",
+    "name": "parity-collections-wallet-overlay-preserves-page",
+    "route": "#/collections/default",
+    "assertion": "Account overlay",
+    "draft": true
+  },
+  {
+    "id": "COL-08",
+    "name": "parity-collections-theme-toggle-visible",
+    "route": "#/collections/default",
+    "assertion": "Theme toggle",
+    "draft": true
+  },
+  {
+    "id": "P-01",
+    "name": "parity-market-page-route-loads",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`#/markets/:chainId/:slug`",
+    "draft": false
+  },
+  {
+    "id": "P-02",
+    "name": "parity-market-page-breadcrumb",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Back + `Home / Market`",
+    "draft": false
+  },
+  {
+    "id": "P-03",
+    "name": "parity-market-page-status-strip-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "4 px status top border + pill 132",
+    "draft": false
+  },
+  {
+    "id": "P-04",
+    "name": "parity-market-page-status-reports-open",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Reports open` (amber dot)",
+    "draft": false
+  },
+  {
+    "id": "P-05",
+    "name": "parity-market-page-status-trading-open",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Trading Open` (green)",
+    "draft": false
+  },
+  {
+    "id": "P-06",
+    "name": "parity-market-page-status-pending-execution",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Pending execution`",
+    "draft": false
+  },
+  {
+    "id": "P-07",
+    "name": "parity-market-page-verification-icon",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Verification mark top-right",
+    "draft": false
+  },
+  {
+    "id": "P-08",
+    "name": "parity-market-page-favourite-star-toggle",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Star 36",
+    "draft": false
+  },
+  {
+    "id": "P-09",
+    "name": "parity-market-page-question-headline",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Avatar 56 + H1",
+    "draft": false
+  },
+  {
+    "id": "P-10",
+    "name": "parity-market-page-title-placeholder-preserved",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Placeholders literal",
+    "draft": false
+  },
+  {
+    "id": "P-11",
+    "name": "parity-market-meta-seer-logo",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "SEER mark in meta",
+    "draft": false
+  },
+  {
+    "id": "P-12",
+    "name": "parity-market-meta-type-label",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Type label",
+    "draft": false
+  },
+  {
+    "id": "P-13",
+    "name": "parity-market-meta-liquidity-value",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Liquidity value",
+    "draft": false
+  },
+  {
+    "id": "P-14",
+    "name": "parity-market-meta-liquidity-help-tooltip-copy",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Liquidity ⓘ copy + chart caption",
+    "draft": false
+  },
+  {
+    "id": "P-15",
+    "name": "parity-market-meta-volume-value",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Volume",
+    "draft": false
+  },
+  {
+    "id": "P-16",
+    "name": "parity-market-meta-pnl-value",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "P&L",
+    "draft": false
+  },
+  {
+    "id": "P-17",
+    "name": "parity-market-meta-verified-badge",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Verified` / `Verify it`",
+    "draft": false
+  },
+  {
+    "id": "P-18",
+    "name": "parity-market-scalar-estimate-headline",
+    "route": "#/markets/100/what-will-be-the-average-ethereum-basefee-in-gwei-for-the-period-131-january-202-4",
+    "assertion": "Scalar `Market Estimate`",
+    "draft": false
+  },
+  {
+    "id": "P-19",
+    "name": "parity-market-resolution-datetime-copy",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Resolution opening at …`",
+    "draft": false
+  },
+  {
+    "id": "P-20",
+    "name": "parity-market-multiscalar-question-list",
+    "route": "#/markets/100/how-many-seats-in-frances-national-assembly-will-party-bloc-win-in-the-next-fren",
+    "assertion": "Multi-scalar question rows",
+    "draft": false
+  },
+  {
+    "id": "P-21",
+    "name": "parity-market-multiscalar-hide-questions-toggle",
+    "route": "#/markets/100/how-many-seats-in-frances-national-assembly-will-party-bloc-win-in-the-next-fren",
+    "assertion": "`Hide questions`",
+    "draft": false
+  },
+  {
+    "id": "P-22",
+    "name": "parity-market-answer-on-reality-eth-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Answer on Reality.eth!`",
+    "draft": false
+  },
+  {
+    "id": "P-23",
+    "name": "parity-market-major-events-panel",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Major Events card",
+    "draft": false
+  },
+  {
+    "id": "P-24",
+    "name": "parity-market-conditional-badge",
+    "route": "#/markets/100/will-the-national-rallys-candidate-win-the-next-french-presidential-election",
+    "assertion": "Conditional banner title",
+    "draft": true
+  },
+  {
+    "id": "P-25",
+    "name": "parity-market-conditional-explanation-copy",
+    "route": "#/markets/100/will-the-national-rallys-candidate-win-the-next-french-presidential-election",
+    "assertion": "Conditional banner copy (verbatim)",
+    "draft": true
+  },
+  {
+    "id": "P-26",
+    "name": "parity-market-switch-to-gnosis-control",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Switch to Gnosis` / `Switch to Ethereum` CTA",
+    "draft": true
+  },
+  {
+    "id": "RA-01",
+    "name": "parity-report-answer-dialog-opens",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Dialog opens",
+    "draft": false
+  },
+  {
+    "id": "RA-02",
+    "name": "parity-report-answer-current-answer-row",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Current answer: Not answered yet`",
+    "draft": false
+  },
+  {
+    "id": "RA-03",
+    "name": "parity-report-answer-choose-answer-radio",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Choose an answer` radio + select",
+    "draft": false
+  },
+  {
+    "id": "RA-04",
+    "name": "parity-report-answer-mark-invalid-option",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Mark this question invalid`",
+    "draft": false
+  },
+  {
+    "id": "RA-05",
+    "name": "parity-report-answer-bond-display",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Bond `10 XDAI` in copy",
+    "draft": false
+  },
+  {
+    "id": "RA-06",
+    "name": "parity-report-answer-return-button",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Return`",
+    "draft": false
+  },
+  {
+    "id": "RA-07",
+    "name": "parity-report-answer-submit-button",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Answer` (gate → reject)",
+    "draft": false
+  },
+  {
+    "id": "CH-01",
+    "name": "parity-chart-range-buttons-present",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Range segmented",
+    "draft": false
+  },
+  {
+    "id": "CH-02",
+    "name": "parity-chart-help-icon",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Help ⓘ",
+    "draft": false
+  },
+  {
+    "id": "CH-03",
+    "name": "parity-chart-custom-opens-calendar-popover",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Custom popover",
+    "draft": false
+  },
+  {
+    "id": "CH-04",
+    "name": "parity-chart-custom-presets",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Presets",
+    "draft": false
+  },
+  {
+    "id": "CH-05",
+    "name": "parity-chart-custom-cancel-save",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Cancel/Save",
+    "draft": false
+  },
+  {
+    "id": "CH-06",
+    "name": "parity-chart-export-icon",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Export CSV",
+    "draft": false
+  },
+  {
+    "id": "CH-07",
+    "name": "parity-chart-legend-latest-percentages",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Gutter end labels carry the latest %",
+    "draft": false
+  },
+  {
+    "id": "CH-08",
+    "name": "parity-chart-prev-next-arrows",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "‹ ›",
+    "draft": false
+  },
+  {
+    "id": "CH-09",
+    "name": "parity-chart-step-line-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Step-line canvas",
+    "draft": false
+  },
+  {
+    "id": "CH-10",
+    "name": "parity-chart-y-axis-range-behaviour",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "**Fixed:** 0–100 default; zoom opt-in",
+    "draft": false
+  },
+  {
+    "id": "CH-11",
+    "name": "parity-chart-end-label-pills",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Gutter labels `Yes 84.2`",
+    "draft": false
+  },
+  {
+    "id": "CH-12",
+    "name": "parity-chart-end-label-pill-tick-collision",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "**Fixed:** no label/tick overlap",
+    "draft": false
+  },
+  {
+    "id": "CH-13",
+    "name": "parity-chart-crosshair-hover-tooltip",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Crosshair tooltip",
+    "draft": false
+  },
+  {
+    "id": "CH-14",
+    "name": "parity-chart-x-axis-irregular-labels",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "**Fixed:** d3 time ticks, year at boundary",
+    "draft": false
+  },
+  {
+    "id": "CH-15",
+    "name": "parity-chart-origin-black-square-artifact",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "**Fixed:** no origin glyph",
+    "draft": false
+  },
+  {
+    "id": "CH-16",
+    "name": "parity-chart-plots-pool-price-not-trades",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Caption `Pool price, not trades`",
+    "draft": false
+  },
+  {
+    "id": "O-01",
+    "name": "parity-outcome-row-label-percent-radio",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "OutcomeRow radio `#1 Yes 84.2%`",
+    "draft": false
+  },
+  {
+    "id": "O-02",
+    "name": "parity-outcome-invalid-token-value-and-zero-percent",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Invalid row `0%` + token cell (A-12)",
+    "draft": false
+  },
+  {
+    "id": "O-03",
+    "name": "parity-outcome-select-updates-ticket",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Select → ticket outcome",
+    "draft": false
+  },
+  {
+    "id": "O-04",
+    "name": "parity-outcome-add-liquidity-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Action strip `Add Liquidity`",
+    "draft": false
+  },
+  {
+    "id": "O-05",
+    "name": "parity-outcome-view-pool-details-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`View pool details`",
+    "draft": false
+  },
+  {
+    "id": "O-06",
+    "name": "parity-outcome-new-conditional-market-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`New conditional market` → create `?parent=`",
+    "draft": false
+  },
+  {
+    "id": "I-01",
+    "name": "parity-pool-details-panel-opens",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Inline pool details",
+    "draft": false
+  },
+  {
+    "id": "I-02",
+    "name": "parity-pool-details-pool-id-truncated-address",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Pool Id:` mono + copy + ↗",
+    "draft": false
+  },
+  {
+    "id": "I-03",
+    "name": "parity-pool-details-liquidity-chart",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Liquidity Chart canvas 160",
+    "draft": false
+  },
+  {
+    "id": "I-04",
+    "name": "parity-pool-details-balances-table-ladder",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Ladder SHARES/TOTAL",
+    "draft": false
+  },
+  {
+    "id": "I-05",
+    "name": "parity-add-liquidity-dialog-opens",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Add Liquidity dialog",
+    "draft": false
+  },
+  {
+    "id": "I-06",
+    "name": "parity-add-liquidity-farming-rewards-copy",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Farming copy",
+    "draft": false
+  },
+  {
+    "id": "I-07",
+    "name": "parity-add-liquidity-available-pools-swapr-rate",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Swapr ~ 3.00K SEER / day` (when present)",
+    "draft": false
+  },
+  {
+    "id": "I-08",
+    "name": "parity-add-liquidity-rewards-end-date",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Rewards end:` / `Rewards ended on:`",
+    "draft": false
+  },
+  {
+    "id": "I-09",
+    "name": "parity-add-liquidity-external-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Add liquidity ↗` Swapr",
+    "draft": false
+  },
+  {
+    "id": "I-10",
+    "name": "parity-add-liquidity-learn-more-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Learn more about the farming program ↗`",
+    "draft": false
+  },
+  {
+    "id": "I-11",
+    "name": "parity-add-liquidity-return-button",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Return`",
+    "draft": false
+  },
+  {
+    "id": "I-12",
+    "name": "parity-add-liquidity-dialog-variants-render",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Variants active/ended",
+    "draft": false
+  },
+  {
+    "id": "I-13",
+    "name": "parity-add-liquidity-transaction-not-yet-testable",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Tx UI unobserved → external link is the action",
+    "draft": false
+  },
+  {
+    "id": "T-01",
+    "name": "parity-ticket-header-selected-outcome",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Ticket header outcome",
+    "draft": false
+  },
+  {
+    "id": "T-02",
+    "name": "parity-ticket-order-type-dropdown-market",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Market` order-type menu",
+    "draft": false
+  },
+  {
+    "id": "T-03",
+    "name": "parity-ticket-you-pay-input",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`You pay` input",
+    "draft": false
+  },
+  {
+    "id": "T-04",
+    "name": "parity-ticket-pay-token-select-sdai",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Token select `sDAI`",
+    "draft": false
+  },
+  {
+    "id": "T-05",
+    "name": "parity-ticket-pay-balance-display",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Balance: 0 sDAI`",
+    "draft": false
+  },
+  {
+    "id": "T-06",
+    "name": "parity-ticket-max-button",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Max`",
+    "draft": false
+  },
+  {
+    "id": "T-07",
+    "name": "parity-ticket-direction-arrow",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Direction arrow",
+    "draft": false
+  },
+  {
+    "id": "T-08",
+    "name": "parity-ticket-you-will-get-unrounded-value",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`1.1868` + exact `1.1868081659397476` on demand",
+    "draft": false
+  },
+  {
+    "id": "T-09",
+    "name": "parity-ticket-receive-outcome-selector",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Receive outcome select",
+    "draft": false
+  },
+  {
+    "id": "T-10",
+    "name": "parity-ticket-bridge-tokens-link",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Bridge link",
+    "draft": false
+  },
+  {
+    "id": "T-11",
+    "name": "parity-ticket-avg-price-field",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Avg price`",
+    "draft": false
+  },
+  {
+    "id": "T-12",
+    "name": "parity-ticket-price-after-buy-field",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Price after buy`",
+    "draft": false
+  },
+  {
+    "id": "T-13",
+    "name": "parity-ticket-potential-return-skeleton",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Potential return` + skeleton",
+    "draft": false
+  },
+  {
+    "id": "T-14",
+    "name": "parity-ticket-max-slippage-control",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Max slippage 1%` + ⚙ popover",
+    "draft": false
+  },
+  {
+    "id": "T-15",
+    "name": "parity-ticket-cta-enter-an-amount",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Enter an amount`",
+    "draft": false
+  },
+  {
+    "id": "T-16",
+    "name": "parity-ticket-cta-not-enough-balance-disabled",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Not enough balance.` disabled",
+    "draft": false
+  },
+  {
+    "id": "T-17",
+    "name": "parity-ticket-cta-trade-approve-not-yet-testable",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Trade`/`Approve` → mock reject",
+    "draft": false
+  },
+  {
+    "id": "T-18",
+    "name": "parity-ticket-more-accordion-toggle",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`More` disclosure",
+    "draft": false
+  },
+  {
+    "id": "MD-01",
+    "name": "parity-market-detail-route-loads",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-01",
+    "draft": false
+  },
+  {
+    "id": "MD-02",
+    "name": "parity-market-detail-breadcrumb-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-02",
+    "draft": false
+  },
+  {
+    "id": "MD-03",
+    "name": "parity-market-title-placeholders-preserved",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-09/P-10",
+    "draft": false
+  },
+  {
+    "id": "MD-04",
+    "name": "parity-market-status-reports-open-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-04",
+    "draft": false
+  },
+  {
+    "id": "MD-05",
+    "name": "parity-market-status-pending-execution-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-06",
+    "draft": false
+  },
+  {
+    "id": "MD-06",
+    "name": "parity-market-type-categorical-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-12",
+    "draft": false
+  },
+  {
+    "id": "MD-07",
+    "name": "parity-market-type-multi-scalar-visible",
+    "route": "#/markets/100/how-many-seats-in-frances-national-assembly-will-party-bloc-win-in-the-next-fren",
+    "assertion": "= P-12 (Multi Scalar)",
+    "draft": false
+  },
+  {
+    "id": "MD-08",
+    "name": "parity-market-conditional-badge-visible",
+    "route": "#/markets/100/will-the-national-rallys-candidate-win-the-next-french-presidential-election",
+    "assertion": "= P-24",
+    "draft": false
+  },
+  {
+    "id": "MD-09",
+    "name": "parity-market-verified-badge-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-17",
+    "draft": false
+  },
+  {
+    "id": "MD-10",
+    "name": "parity-market-liquidity-metric-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-13",
+    "draft": false
+  },
+  {
+    "id": "MD-11",
+    "name": "parity-market-volume-metric-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-15",
+    "draft": false
+  },
+  {
+    "id": "MD-12",
+    "name": "parity-market-pnl-metric-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-16",
+    "draft": false
+  },
+  {
+    "id": "MD-13",
+    "name": "parity-market-reality-answer-control-opens-report-modal",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-01",
+    "draft": false
+  },
+  {
+    "id": "MD-14",
+    "name": "parity-market-deadline-label-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Multi-scalar `Deadline:`",
+    "draft": false
+  },
+  {
+    "id": "MD-15",
+    "name": "parity-market-hide-questions-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-21",
+    "draft": false
+  },
+  {
+    "id": "MD-16",
+    "name": "parity-market-question-rows-show-answered-too-soon",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Answer: Answered too soon`",
+    "draft": false
+  },
+  {
+    "id": "MD-17",
+    "name": "parity-market-reopen-question-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Reopen question ↗`",
+    "draft": false
+  },
+  {
+    "id": "MD-18",
+    "name": "parity-market-conditional-explanation-copy-visible",
+    "route": "#/markets/100/will-the-national-rallys-candidate-win-the-next-french-presidential-election",
+    "assertion": "= P-25",
+    "draft": false
+  },
+  {
+    "id": "MD-19",
+    "name": "parity-market-wallet-state-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Connected/disconnected ticket + comments",
+    "draft": false
+  },
+  {
+    "id": "MD-20",
+    "name": "parity-market-switch-to-gnosis-control",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= P-26",
+    "draft": false
+  },
+  {
+    "id": "MD-21",
+    "name": "parity-market-policies-overlay-preserves-page",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Policies overlay on page",
+    "draft": false
+  },
+  {
+    "id": "MD-22",
+    "name": "parity-market-app-overlay-preserves-page",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "App overlay",
+    "draft": false
+  },
+  {
+    "id": "MD-23",
+    "name": "parity-market-wallet-overlay-preserves-page",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Account overlay",
+    "draft": false
+  },
+  {
+    "id": "MD-24",
+    "name": "parity-market-theme-toggle-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Theme toggle",
+    "draft": false
+  },
+  {
+    "id": "MD-25",
+    "name": "parity-market-outcome-row-label-percent",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= O-01",
+    "draft": false
+  },
+  {
+    "id": "MD-26",
+    "name": "parity-market-outcome-token-display",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= O-02",
+    "draft": false
+  },
+  {
+    "id": "MD-27",
+    "name": "parity-market-multi-scalar-renders-approx-seats",
+    "route": "#/markets/100/how-many-seats-in-frances-national-assembly-will-party-bloc-win-in-the-next-fren",
+    "assertion": "Multi-scalar `~182 seats`",
+    "draft": false
+  },
+  {
+    "id": "MD-28",
+    "name": "parity-market-outcome-add-liquidity-opens-modal",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= O-04/I-05",
+    "draft": false
+  },
+  {
+    "id": "MD-29",
+    "name": "parity-market-outcome-view-pool-details-expands",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-01",
+    "draft": false
+  },
+  {
+    "id": "MD-30",
+    "name": "parity-market-outcome-hide-pool-details-collapses",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Hide pool details`",
+    "draft": false
+  },
+  {
+    "id": "MD-31",
+    "name": "parity-market-outcome-new-conditional-market-control",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= O-06",
+    "draft": false
+  },
+  {
+    "id": "MD-32",
+    "name": "parity-market-chart-time-controls-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= CH-01",
+    "draft": false
+  },
+  {
+    "id": "MD-33",
+    "name": "parity-market-chart-hover-shows-timestamp",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= CH-13",
+    "draft": false
+  },
+  {
+    "id": "MD-34",
+    "name": "parity-market-custom-range-picker-presets",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Presets + `Previous Month`/`Next Month`",
+    "draft": false
+  },
+  {
+    "id": "MD-35",
+    "name": "parity-market-custom-range-picker-calendar-grid",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Month label + `Su…Sa` grid",
+    "draft": false
+  },
+  {
+    "id": "MD-36",
+    "name": "parity-market-custom-range-picker-cancel-save-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Cancel/Save",
+    "draft": false
+  },
+  {
+    "id": "MD-37",
+    "name": "parity-market-open-interest-breakdown-control",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Meta `Open interest` ⓘ breakdown",
+    "draft": false
+  },
+  {
+    "id": "MD-38",
+    "name": "parity-market-breakdown-open-interest-value",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "OI `7.22K LEPEN_NRYES ($7.68K)`",
+    "draft": false
+  },
+  {
+    "id": "MD-39",
+    "name": "parity-market-breakdown-volume-traded-notional",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`… traded, notional …`",
+    "draft": false
+  },
+  {
+    "id": "MD-40",
+    "name": "parity-market-breakdown-per-outcome-liquidity",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Per-outcome pool liquidity",
+    "draft": false
+  },
+  {
+    "id": "MD-41",
+    "name": "parity-market-outcome-chart-canvas-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= CH-09",
+    "draft": false
+  },
+  {
+    "id": "MD-42",
+    "name": "parity-market-trade-selected-outcome-label",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= T-01",
+    "draft": false
+  },
+  {
+    "id": "MD-43",
+    "name": "parity-market-trade-you-pay-token-label-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Pay token label (`sDAI`/`LEPEN_NRYES`)",
+    "draft": false
+  },
+  {
+    "id": "MD-44",
+    "name": "parity-market-trade-default-pay-amount-zero",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Default `0`",
+    "draft": false
+  },
+  {
+    "id": "MD-45",
+    "name": "parity-market-trade-max-button-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= T-06",
+    "draft": false
+  },
+  {
+    "id": "MD-46",
+    "name": "parity-market-trade-you-will-get-outcome-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`You will get` outcome",
+    "draft": false
+  },
+  {
+    "id": "MD-47",
+    "name": "parity-market-trade-avg-price-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= T-11",
+    "draft": false
+  },
+  {
+    "id": "MD-48",
+    "name": "parity-market-trade-potential-return-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`0.00 sDAI (0.00%)`",
+    "draft": false
+  },
+  {
+    "id": "MD-49",
+    "name": "parity-market-trade-calculate-potential-return",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Calculate your potential return`",
+    "draft": false
+  },
+  {
+    "id": "MD-50",
+    "name": "parity-market-trade-max-slippage-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= T-14",
+    "draft": false
+  },
+  {
+    "id": "MD-51",
+    "name": "parity-market-trade-amount-input-and-prompt-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Enter an amount` + `Amount`",
+    "draft": false
+  },
+  {
+    "id": "MD-52",
+    "name": "parity-market-trade-more-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= T-18",
+    "draft": false
+  },
+  {
+    "id": "MD-53",
+    "name": "parity-market-trade-mint-tab-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Mint` tab",
+    "draft": false
+  },
+  {
+    "id": "MD-54",
+    "name": "parity-market-trade-merge-tab-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Merge` tab",
+    "draft": false
+  },
+  {
+    "id": "MD-55",
+    "name": "parity-market-trade-redeem-tab-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Redeem` tab",
+    "draft": false
+  },
+  {
+    "id": "MD-56",
+    "name": "parity-market-trade-balance-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Balance:`",
+    "draft": false
+  },
+  {
+    "id": "MD-57",
+    "name": "parity-market-trade-collateral-choices-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`sDAI`/`xDAI` select",
+    "draft": false
+  },
+  {
+    "id": "MD-58",
+    "name": "parity-market-trade-mint-action-button-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Action button",
+    "draft": false
+  },
+  {
+    "id": "MD-59",
+    "name": "parity-market-major-events-upcoming-count-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`1 UPCOMING`",
+    "draft": false
+  },
+  {
+    "id": "MD-60",
+    "name": "parity-market-reality-resolution-event-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Event row strings",
+    "draft": false
+  },
+  {
+    "id": "TAB-01",
+    "name": "parity-market-comments-tab-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Comments`",
+    "draft": false
+  },
+  {
+    "id": "TAB-02",
+    "name": "parity-market-comments-gate-copy",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Gate copy",
+    "draft": false
+  },
+  {
+    "id": "TAB-03",
+    "name": "parity-market-connect-to-comment-button-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Connect to comment`",
+    "draft": false
+  },
+  {
+    "id": "TAB-04",
+    "name": "parity-market-comments-empty-state",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Empty state",
+    "draft": false
+  },
+  {
+    "id": "TAB-05",
+    "name": "parity-market-comment-signing-error",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Signing in...` → `User rejected the request.`",
+    "draft": false
+  },
+  {
+    "id": "TAB-06",
+    "name": "parity-market-related-conditional-markets-tab-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Related Conditional Markets`",
+    "draft": false
+  },
+  {
+    "id": "TAB-07",
+    "name": "parity-market-related-markets-count-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Count `(2)`",
+    "draft": false
+  },
+  {
+    "id": "TAB-08",
+    "name": "parity-market-related-markets-search-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Search by outcome:`",
+    "draft": false
+  },
+  {
+    "id": "TAB-09",
+    "name": "parity-market-related-markets-conditional-copy",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Conditional on … being \"Yes\"/\"No\"`",
+    "draft": false
+  },
+  {
+    "id": "TAB-10",
+    "name": "parity-market-related-markets-status-and-answer",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Child status + Answer link",
+    "draft": false
+  },
+  {
+    "id": "TAB-11",
+    "name": "parity-market-top-holders-tab-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Top Holders`",
+    "draft": false
+  },
+  {
+    "id": "TAB-12",
+    "name": "parity-market-top-holders-yes-table-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Yes table",
+    "draft": false
+  },
+  {
+    "id": "TAB-13",
+    "name": "parity-market-top-holders-no-table-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "No table",
+    "draft": false
+  },
+  {
+    "id": "TAB-14",
+    "name": "parity-market-top-holders-invalid-table-renders",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Invalid table",
+    "draft": false
+  },
+  {
+    "id": "TAB-15",
+    "name": "parity-market-holder-balance-formatting",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`K`, decimals, `<0.001`",
+    "draft": false
+  },
+  {
+    "id": "TAB-16",
+    "name": "parity-market-activity-tab-and-my-activity-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Activity` + `My activity`",
+    "draft": false
+  },
+  {
+    "id": "TAB-17",
+    "name": "parity-market-activity-row-format",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Row format",
+    "draft": false
+  },
+  {
+    "id": "TAB-18",
+    "name": "parity-market-activity-actions-bought-sold-split-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Bought`/`Sold`/`Split`",
+    "draft": false
+  },
+  {
+    "id": "TAB-19",
+    "name": "parity-market-activity-amount-formats",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Amount formats",
+    "draft": false
+  },
+  {
+    "id": "MOD-01",
+    "name": "parity-report-answer-modal-opens",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-01",
+    "draft": false
+  },
+  {
+    "id": "MOD-02",
+    "name": "parity-report-answer-copy-bond",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "Verbatim copy",
+    "draft": false
+  },
+  {
+    "id": "MOD-03",
+    "name": "parity-report-answer-current-answer-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-02",
+    "draft": false
+  },
+  {
+    "id": "MOD-04",
+    "name": "parity-report-answer-choose-answer-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-03",
+    "draft": false
+  },
+  {
+    "id": "MOD-05",
+    "name": "parity-report-answer-mark-invalid-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-04",
+    "draft": false
+  },
+  {
+    "id": "MOD-06",
+    "name": "parity-report-answer-return-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-06",
+    "draft": false
+  },
+  {
+    "id": "MOD-07",
+    "name": "parity-report-answer-action-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= RA-07",
+    "draft": false
+  },
+  {
+    "id": "MOD-08",
+    "name": "parity-add-liquidity-modal-opens",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-05",
+    "draft": false
+  },
+  {
+    "id": "MOD-09",
+    "name": "parity-add-liquidity-farming-copy",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-06",
+    "draft": false
+  },
+  {
+    "id": "MOD-10",
+    "name": "parity-add-liquidity-available-pools-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Available Pools:`",
+    "draft": false
+  },
+  {
+    "id": "MOD-11",
+    "name": "parity-add-liquidity-rewards-ended-text",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Rewards ended on: …`",
+    "draft": false
+  },
+  {
+    "id": "MOD-12",
+    "name": "parity-add-liquidity-action-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-09",
+    "draft": false
+  },
+  {
+    "id": "MOD-13",
+    "name": "parity-add-liquidity-learn-more-link-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-10",
+    "draft": false
+  },
+  {
+    "id": "MOD-14",
+    "name": "parity-add-liquidity-return-control-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-11",
+    "draft": false
+  },
+  {
+    "id": "MOD-15",
+    "name": "parity-pool-details-expansion-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-01",
+    "draft": false
+  },
+  {
+    "id": "MOD-16",
+    "name": "parity-pool-details-liquidity-chart-label-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Liquidity Chart`",
+    "draft": false
+  },
+  {
+    "id": "MOD-17",
+    "name": "parity-pool-details-pool-id-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "= I-02",
+    "draft": false
+  },
+  {
+    "id": "MOD-18",
+    "name": "parity-pool-details-pool-balances-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Pool Balances:`",
+    "draft": false
+  },
+  {
+    "id": "MOD-19",
+    "name": "parity-pool-details-shares-total-series-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`SHARES`/`TOTAL`",
+    "draft": false
+  },
+  {
+    "id": "MOD-20",
+    "name": "parity-pool-details-last-value-visible",
+    "route": "#/markets/100/will-marine-le-pen-be-the-national-rallys-candidate-in-the-next-french-president",
+    "assertion": "`Last: 0.7454`",
+    "draft": false
+  },
+  {
+    "id": "DATA-01",
+    "name": "parity-data-get-pnl-leaderboard-params",
+    "route": "#/",
+    "assertion": "`leaderboard.ts` params",
+    "draft": false
+  },
+  {
+    "id": "DATA-02",
+    "name": "parity-data-leaderboard-response-metadata-contract",
+    "route": "#/",
+    "assertion": "response meta",
+    "draft": false
+  },
+  {
+    "id": "DATA-03",
+    "name": "parity-data-leaderboard-row-contract",
+    "route": "#/",
+    "assertion": "row fields",
+    "draft": false
+  },
+  {
+    "id": "DATA-04",
+    "name": "parity-data-get-market-fields-contract",
+    "route": "#/",
+    "assertion": "`get-market` fields (`markets.ts`)",
+    "draft": false
+  },
+  {
+    "id": "DATA-05",
+    "name": "parity-data-markets-search-fields-contract",
+    "route": "#/",
+    "assertion": "`markets-search` fields",
+    "draft": false
+  },
+  {
+    "id": "DATA-06",
+    "name": "parity-data-markets-charts-pool-fields",
+    "route": "#/",
+    "assertion": "`history.ts` chart/pool fields",
+    "draft": false
+  },
+  {
+    "id": "DATA-07",
+    "name": "parity-data-subgraph-pools-fields",
+    "route": "#/",
+    "assertion": "Subgraph pool fields (ladder)",
+    "draft": false
+  },
+  {
+    "id": "DATA-08",
+    "name": "parity-data-wallet-reverse-lookup-fallback",
+    "route": "#/",
+    "assertion": "Reverse lookup → truncated address",
+    "draft": false
+  },
+  {
+    "id": "DATA-09",
+    "name": "parity-data-wallet-list-contract",
+    "route": "#/",
+    "assertion": "Connect dialog wallet list (mock)",
+    "draft": false
+  },
+  {
+    "id": "N-01",
+    "name": "hero-rotates-6s-swap-300ms",
+    "route": "#/",
+    "assertion": "Slim hero",
+    "draft": false
+  },
+  {
+    "id": "N-02",
+    "name": "rail-collapsed-56-expands-on-hover-overlay",
+    "route": "#/",
+    "assertion": "Collapsed rail",
+    "draft": false
+  },
+  {
+    "id": "N-03",
+    "name": "tags-remove-applies-immediately-url",
+    "route": "#/",
+    "assertion": "Active tags",
+    "draft": false
+  },
+  {
+    "id": "N-04",
+    "name": "drawer-overlays-no-grid-reflow",
+    "route": "#/",
+    "assertion": "Hover drawer",
+    "draft": false
+  },
+  {
+    "id": "N-05",
+    "name": "quickbuy-live-you-pay-you-get-pays",
+    "route": "#/",
+    "assertion": "Quick-buy",
+    "draft": false
+  },
+  {
+    "id": "N-06",
+    "name": "card-whole-click-navigates",
+    "route": "#/",
+    "assertion": "Whole-card click",
+    "draft": false
+  },
+  {
+    "id": "N-07",
+    "name": "card-verification-marks-shapes-tooltips",
+    "route": "#/",
+    "assertion": "Verification marks (4)",
+    "draft": false
+  },
+  {
+    "id": "N-08",
+    "name": "flow-07-mobile-search-trade-sheet",
+    "route": "#/",
+    "assertion": "Mobile FAB + sheet tabs",
+    "draft": false
+  },
+  {
+    "id": "N-09",
+    "name": "quality-05-tour-lifecycle",
+    "route": "#/",
+    "assertion": "Tour",
+    "draft": false
+  }
+]

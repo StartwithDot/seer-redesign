@@ -1,0 +1,19 @@
+.guided-tour[open] { position: fixed; inset: 0; width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--text); overflow: hidden; }
+.guided-tour::backdrop { background: transparent; }
+.tour-shade { position: absolute; inset: 0; pointer-events: none; }
+.tour-dim { fill: var(--bg); fill-opacity: .84; }
+.tour-coach { position: absolute; padding: 20px; min-height: 196px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 0 0 1px var(--line); }
+.tour-coach p { margin: 0; font-size: 18px; line-height: 1.4; min-height: 52px; }
+.tour-progress { display: flex; gap: 12px; align-items: center; color: var(--text-2); font-size: 12px; }
+.tour-progress > div { display: flex; gap: 4px; flex: 1; }
+.tour-progress i { width: 8px; height: 8px; border-radius: 50%; background: var(--text-3); }
+.tour-progress i.current { background: var(--violet); }
+.tour-actions { display: flex; gap: 8px; margin-top: auto; }
+.tour-actions .button { min-height: 40px; }
+.tour-actions .button:first-child { margin-right: auto; }
+.tour-actions button:disabled { opacity: .4; }
+
+.tour-coach::before { content: ''; position: absolute; width: 12px; height: 12px; background: var(--card); transform: rotate(45deg); }
+.coach-below::before { top: -6px; left: 24px; }
+.coach-above::before { bottom: -6px; left: 24px; }
+.coach-left::before { right: -6px; top: 24px; }

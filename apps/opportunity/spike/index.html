@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sieve spike</title>
+<style>html,body{margin:0;background:#101013}canvas{display:block;width:1000px;height:420px}</style></head>
+<body><canvas id="c"></canvas>
+<script src="node_modules/matter-js/build/matter.min.js"></script>
+<script>
+// Spike: "The Sieve". 235 submissions fall through a peg field; each is pulled toward its tier lane.
+// Tiers mirror the live audit (003): 8 review-lane leaders, ~53 priced, 44 floor-tied (0.4%), 130 unpriced.
+const q = new URLSearchParams(location.search);
+const ENGINE = q.get('engine') || 'verlet', N = +(q.get('n') || 235), DPR = +(q.get('dpr') || 2), SECS = +(q.get('secs') || 6);
+const W = 1000, H = 420;
+const c = document.getElementById('c'); c.width = W * DPR; c.height = H * DPR;
+const ctx = c.getContext('2d'); ctx.scale(DPR, DPR);
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+const rnd = rng(7);
+// odds: rank^-0.57 scaled so rank1 = 5.9, rank 61 -> floor 0.4, ranks > 105 unpriced (0)
+const odds = Array.from({ length: N }, (_, i) => (i >= 105 * N / 235 ? 0 : Math.max(0.4, 5.9 * Math.pow(i + 1, -0.57))));
+const tier = i => (i < 8 ? 0 : odds[i] > 0.4 ? 1 : odds[i] > 0 ? 2 : 3);
+const laneX = [W * 0.86, W * 0.62, W * 0.36, W * 0.12];
+const COLORS = ['#7B3AFF', '#9C6FFF', '#A8A8B3', '#67676F'];
+const radius = i => (odds[i] === 0 ? 2.5 : 3 + 9 * Math.sqrt(odds[i] / 5.9));
+const pegs = []; for (let row = 0; row < 6; row++) for (let k = 0; k < 40; k++) pegs.push({ x: 40 + k * 24 + (row % 2) * 12, y: 120 + row * 28, r: 2.5 });
+const P = Array.from({ length: N }, (_, i) => ({ x: 30 + rnd() * (W - 60), y: -rnd() * 300 - 10, px: 0, py: 0, r: radius(i), i }));
+P.forEach(p => { p.px = p.x; p.py = p.y; });
+const FLOOR = H - 6;
+let step, bodies;
+if (ENGINE === 'matter') {
+  const { Engine, Bodies, Composite, Body } = Matter;
+  const eng = Engine.create({ gravity: { y: 0.6 } });
+  const stat = pegs.map(g => Bodies.circle(g.x, g.y, g.r, { isStatic: true, restitution: 0.4 }));
+  bodies = P.map(p => Bodies.circle(p.x, p.y, p.r, { restitution: 0.3, friction: 0, frictionAir: 0.02 }));
+  Composite.add(eng.world, [...stat, ...bodies, Bodies.rectangle(W / 2, H + 10, W * 2, 30, { isStatic: true }), Bodies.rectangle(-10, H / 2, 20, H * 2, { isStatic: true }), Bodies.rectangle(W + 10, H / 2, 20, H * 2, { isStatic: true })]);
+  step = () => {
+    bodies.forEach((b, k) => { const p = P[k]; if (b.position.y > 300) Body.applyForce(b, b.position, { x: (laneX[tier(p.i)] - b.position.x) * 2e-7 * b.mass, y: 0 }); });
+    Engine.update(eng, 1000 / 60);
+    bodies.forEach((b, k) => { P[k].x = b.position.x; P[k].y = b.position.y; });
+  };
+} else {
+  const CELL = 28, cols = Math.ceil(W / CELL) + 1, rows = Math.ceil((H + 60) / CELL) + 1;
+  step = () => {
+    for (const p of P) { // verlet integrate
+      const vx = (p.x - p.px) * 0.985, vy = (p.y - p.py) * 0.985; p.px = p.x; p.py = p.y;
+      const ax = p.y > 300 ? (laneX[tier(p.i)] - p.x) * 2.2e-4 : 0;
+      p.x += vx + ax; p.y += vy + 0.18;
+      if (p.x < p.r) p.x = p.r; if (p.x > W - p.r) p.x = W - p.r; if (p.y > FLOOR - p.r) { p.y = FLOOR - p.r; p.py = p.y + (p.y - p.py) * 0.2; }
+      for (const g of pegs) { const dx = p.x - g.x, dy = p.y - g.y, d = Math.hypot(dx, dy), m = p.r + g.r; if (d < m && d > 1e-6) { p.x = g.x + dx / d * m; p.y = g.y + dy / d * m; } }
+    }
+    const grid = new Map(); // spatial hash broadphase
+    for (const p of P) { const key = (p.y / CELL | 0) * cols + (p.x / CELL | 0); (grid.get(key) || grid.set(key, []).get(key)).push(p); }
+    for (const p of P) { const cx = p.x / CELL | 0, cy = p.y / CELL | 0;
+      for (let oy = -1; oy <= 1; oy++) for (let ox = -1; ox <= 1; ox++) { const arr = grid.get((cy + oy) * cols + cx + ox); if (!arr) continue;
+        for (const o of arr) { if (o.i <= p.i) continue; const dx = o.x - p.x, dy = o.y - p.y, m = o.r + p.r, d2 = dx * dx + dy * dy; if (d2 < m * m && d2 > 1e-9) { const d = Math.sqrt(d2), s = (m - d) / d * 0.5; p.x -= dx * s; p.y -= dy * s; o.x += dx * s; o.y += dy * s; } } } }
+  };
+}
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#1A1A1E'; for (const g of pegs) { ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832); ctx.fill(); }
+  for (const p of P) { ctx.fillStyle = COLORS[tier(p.i)]; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill(); }
+}
+const frames = [], work = []; let t0 = 0;
+function loop(t) {
+  const a = performance.now(); step(); draw(); work.push(performance.now() - a);
+  if (t0) frames.push(t - t0); t0 = t;
+  if (t < SECS * 1000 + 500) requestAnimationFrame(loop); else {
+    frames.splice(0, 30); work.splice(0, 30);
+    const avg = frames.reduce((s, x) => s + x, 0) / frames.length, w = work.reduce((s, x) => s + x, 0) / work.length;
+    const sorted = [...frames].sort((x, y) => x - y), p95 = sorted[Math.floor(sorted.length * 0.95)];
+    window.__result = { engine: ENGINE, n: N, dpr: DPR, fps: +(1000 / avg).toFixed(1), p95FrameMs: +p95.toFixed(1), workMs: +w.toFixed(2) };
+  }
+}
+requestAnimationFrame(loop);
+</script></body></html>

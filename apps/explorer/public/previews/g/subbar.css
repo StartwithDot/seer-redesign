@@ -1,0 +1,24 @@
+/* Explorer overrides for the shared sub header (seer-subbar.css). Loaded after app.css. */
+:root{--subnav-h:56px;--tb-h:56px}
+body #header.sb{height:var(--subnav-h);top:var(--seer-header-h,56px);box-shadow:0 1px 0 var(--line)}
+#header .subnav.sb-row{height:56px;padding:0 var(--sb-pad,24px);max-width:none;flex-wrap:nowrap;gap:16px}
+#header .sn-nav{width:auto;gap:4px}
+#header .sn-nav .sb-tab{height:36px;min-height:36px;padding:0 14px;border-radius:10px;font-size:14px;color:var(--text-2);background:transparent}
+#header .sn-nav .sb-tab:hover{color:var(--text);background:var(--nested)}
+#header .sn-nav .sb-tab.current{color:var(--text);background:transparent}
+#header .sn-nav .sb-tab::after{display:block!important;content:"";left:14px;right:14px;bottom:3px;top:auto;height:2px;background:var(--violet)}
+#header .sn-nav .sb-tab.current::after{transform:scaleX(1)}
+#header .sn-tools{display:flex;margin-left:auto;gap:8px;flex:none}
+#header .sn-search{width:clamp(200px,24vw,380px);order:0;flex:none}
+#header .sn-mode{order:0;margin-left:0}
+#header .sn-icon{display:inline-flex}
+@media (max-width:700px){
+ body #header.sb{height:var(--subnav-h)}
+ #header .subnav.sb-row{flex-wrap:nowrap;padding:0 16px}
+ #header .sn-tools{display:flex}
+ #header .sn-search{width:160px;flex:0 0 160px;height:36px}
+ #header .sn-icon{display:inline-flex;width:36px;height:36px}
+ #header .sn-nav .sb-tab{height:36px;min-height:36px;padding:0 12px}
+ .seg button,.sn-mode button{height:32px;min-height:32px}
+}
+@media (max-width:700px){#header .sn-nav .sb-tab,#header .sn-search,#header .sn-icon{height:40px;min-height:40px}#header .sn-icon{width:40px}.seg button,.sn-mode button{height:36px;min-height:36px}}

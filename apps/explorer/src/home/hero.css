@@ -1,0 +1,16 @@
+.trending-hero { min-height: 32px; display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; color: var(--text-2); font-size: 14px; }
+.trending-label { white-space: nowrap; }
+.hero-window { min-width: 0; flex: 1; }
+.hero-content { min-width: 0; display: flex; align-items: baseline; gap: 12px; }
+.hero-market { color: var(--text-2); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hero-numeral { display: flex; gap: 4px; white-space: nowrap; }
+.hero-numeral strong { font-size: 14px; font-weight: 500; }
+.hero-counter { flex: 0 0 auto; align-self: center; min-height: 32px; padding: 0; background: transparent; color: var(--text-2); font-size: 12px; white-space: nowrap; }
+@media(max-width:767px) { .hero-numeral > span, .hero-separator { display: none; } .hero-counter { min-height: 40px; } }
+.asker-strip { display: flex; margin: 0 0 16px; padding: 0; font-size: 12px; line-height: 16px; }
+.asker-strip > div { flex: 1 1 0; min-width: 0; display: flex; align-items: baseline; gap: 8px; padding: 8px 16px; border-left: 1px solid var(--home-line); }
+.asker-strip > div:first-child { padding-left: 0; border-left: 0; }
+.asker-strip dt { margin: 0; flex: 0 0 auto; color: var(--text-2); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.asker-strip dd { margin: 0; min-width: 0; color: var(--text); }
+.card-asker { display: block; margin-top: 2px; color: var(--text-2); font-size: 12px; line-height: 16px; }
+@media(max-width:1099px) { .asker-strip { flex-direction: column; } .asker-strip > div { padding: 6px 0; border-left: 0; flex-direction: column; gap: 2px; } }

@@ -1,0 +1,1 @@
+cd "$(dirname "$0")" && npx --prefix /Users/leo/Documents/POIDH esbuild main.js --bundle --format=iife --minify --alias:three=/Users/leo/Documents/POIDH/deliver/home4/lib/three.module.js --loader:.svg=text --outfile=../dist/glass.js --log-level=warning

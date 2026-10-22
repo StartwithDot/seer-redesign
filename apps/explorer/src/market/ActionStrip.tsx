@@ -1,0 +1,2 @@
+import type { Market } from '../data/types';
+export function ActionStrip({market:m,index,expanded,onPool,onLiquidity}:{market:Market;index:number;expanded:boolean;onPool:()=>void;onLiquidity:()=>void}) { return <div className="outcome-actions"><button onClick={onLiquidity}>Add Liquidity</button><button onClick={onPool}>{expanded?'Hide pool details':'View pool details'}</button><a href={`#/create-market?parent=${m.id}&outcome=${index}`}>New conditional market</a></div>; }

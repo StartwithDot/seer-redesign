@@ -1,0 +1,2 @@
+import { Segmented } from '../components/Segmented';
+export function RangeControl({value,onChange,onCustom}:{value:string;onChange:(s:string)=>void;onCustom:(el:HTMLElement)=>void}){return <div className="chart-ranges"><Segmented label="Range" value={/^[0-9]+-/.test(value)?'Custom':value} options={['1D','1W','1M','All','Custom'].map(value=>({value,label:value}))} onChange={s=>{if(s!=='Custom')onChange(s);}}/><button className="custom-trigger" aria-label="Custom" onClick={e=>onCustom(e.currentTarget)}>Custom</button></div>;}

@@ -1,0 +1,98 @@
+/* The outer border box includes gutters; the shared inner canvas caps at 1760px. */
+.live-board-hero { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.hero-header { min-height: 72px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.hero-header h1 { font-size: clamp(26px, 2.4vw, 40px); line-height: 1.1; font-weight: 500; letter-spacing: -.04em; text-wrap: balance; margin-right: auto; }
+.asker-strip { display: flex; align-items: center; margin: 0; font-size: 12px; line-height: 1.4; }
+.asker-strip > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; padding-inline: 16px; border-left: 1px solid var(--line); }
+.asker-strip > div:first-child { padding-left: 0; border-left: 0; }
+.asker-strip dt { margin: 0; color: var(--text-3); text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+.asker-strip dd { margin: 0; color: var(--text); }
+@media (max-width: 999px) { .asker-strip { flex-direction: column; align-items: stretch; gap: 8px; } .asker-strip > div { flex-direction: column; gap: 2px; padding: 0; border-left: 0; } }
+.hero-summary, .hero-summary > span, .hero-actions { display: flex; align-items: center; gap: 12px; }
+.hero-summary { color: var(--text-2); font-size: 12px; }
+.hero-summary > span { gap: 4px; white-space: nowrap; }
+.hero-actions { flex-shrink: 0; }
+.signal-board-grid { display: grid; grid-template-columns: minmax(360px, 4fr) minmax(0, 8fr); gap: 16px; height: clamp(440px, 52vh, 560px); }
+.signal-list-card { min-width: 0; min-height: 0; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
+.signal-list-heading { display: flex; align-items: center; gap: 8px; padding: 16px 20px; height: 56px; flex-shrink: 0; font-size: 12px; color: var(--text-2); }
+.signal-list-heading > span { margin-left: auto; }
+.active-dot { width: 4px; height: 4px; background: var(--violet); border-radius: 50%; animation: signal-active 2.4s var(--ease-out) infinite; }
+@keyframes signal-active { 50% { opacity: .35; } }
+.signal-list { margin: 0; padding: 0; list-style: none; position: relative; overflow-y: auto; min-height: 0; flex: 1; scrollbar-width: thin; mask-image: linear-gradient(transparent, black 4px, black calc(100% - 4px), transparent); }
+.signal-row { --signal-color: var(--verdict-neutral); position: relative; width: 100%; min-height: 72px; height: 72px; display: grid; grid-template-columns: 32px minmax(0, 1fr) 64px 76px 60px 24px; align-items: center; gap: 8px; text-align: left; padding: 12px 16px; background: transparent; font-size: 12px; }
+.signal-include { --signal-color: var(--verdict-include); }
+.signal-exclude { --signal-color: var(--verdict-exclude); }
+.signal-row:hover, .signal-row:has(.signal-select[aria-current='true']) { background: var(--nested); }
+.signal-row-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.signal-impact { text-align: right; color: var(--signal-color); }
+.signal-row .lean-chip { padding: 4px; font-size: 11px; }
+.selected-signal-bar { position: absolute; inset: 8px auto 8px 0; width: 3px; background: var(--signal-color); border-radius: 4px; }
+.signal-progress { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--signal-color); transform-origin: left; animation: signal-rotate 8s linear forwards; }
+@keyframes signal-rotate { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.signal-chevron { color: var(--signal-color); opacity: .45; transition: opacity var(--t-hover) var(--ease-out); }
+.signal-row:hover .signal-chevron, .signal-row:focus-within .signal-chevron, .signal-row:has(.signal-select[aria-current="true"]) .signal-chevron { opacity: 1; }
+
+.live-board { padding: 0; overflow: hidden; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.board-question { display: flex; align-items: center; gap: 12px; padding: 12px 20px; min-height: 64px; }
+.board-avatar { display: flex; flex-shrink: 0; }
+.board-avatar .avatar { width: 28px !important; height: 28px !important; }
+.board-question > span:nth-child(2) { font-size: 12px; color: var(--text-2); white-space: nowrap; }
+.board-question h2 { font-size: 13px; font-weight: 500; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; min-width: 0; flex: 1; }
+.board-question .lean-chip, .board-question .button { flex-shrink: 0; }
+#board-signal { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.board-chart, .board-chart .fork-chart { display: flex; flex: 1; min-height: 300px; }
+.board-chart .fork-canvas { height: auto; min-height: 300px; flex: 1; }
+.live-board .signal-data { padding: 0 20px; height: 64px; flex-shrink: 0; justify-content: center; }
+.live-board .signal-tiles { gap: 0; }
+.live-board .signal-tiles > div { position: relative; padding: 0 16px; background: transparent; border-radius: 0; gap: 4px; }
+.live-board .signal-tiles > div:first-child { padding-left: 0; }
+.live-board .signal-tiles > div + div { border-left: 1px solid var(--line); }
+.live-board .signal-tiles .rolling-number { font-size: 20px; }
+.live-board .micro-gauge { position: absolute; bottom: -8px; left: 16px; right: 16px; width: auto; margin: 0; height: 4px; }
+.board-switcher { display: none; }
+.glyph-strip { display: flex; align-items: center; justify-content: center; gap: 64px; height: 56px; }
+.glyph-strip > div { position: relative; display: flex; align-items: center; gap: 12px; }
+.glyph-strip svg { width: 28px; height: 28px; }
+.glyph-strip span { color: var(--text-2); font-size: 12px; white-space: nowrap; }
+.resolve-connector { position: absolute; left: -52px; width: 40px !important; height: 4px !important; }
+/* A single signal uses one compact list row, without an empty list well. */
+.signal-single .signal-list-card { align-self: start; height: 128px; }
+@media (min-width: 1000px) and (max-width: 1199px) { .hero-header { gap: 12px; } .hero-header h1 { flex-basis: 100%; } .board-question { gap: 8px; padding-inline: 16px; } .board-question .lean-chip { display: none; } }
+@media (max-width: 999px) {
+ .hero-header { align-items: flex-start; gap: 16px; } .hero-header h1 { flex-basis: 100%; } .hero-actions { margin-left: auto; flex-wrap: wrap; }
+ .signal-board-grid { display: flex; flex-direction: column; height: auto; }
+ .board-switcher { display: flex; align-items: center; gap: 4px; min-width: 0; }
+ .board-switcher .icon-button { flex-shrink: 0; font-size: 24px; }
+ .board-chips { position: relative; display: flex; gap: 8px; min-width: 0; overflow-x: auto; scrollbar-width: none; mask-image: linear-gradient(to right, transparent, black 8px, black calc(100% - 8px), transparent); }
+ .board-chips .chip { flex-shrink: 0; gap: 8px; color: var(--text-2); }
+ .board-chips [aria-selected='true'] { background: var(--violet-soft); color: var(--violet-text); }
+ .live-board { height: 440px; flex: none; }
+ .signal-list-card, .signal-single .signal-list-card { order: 2; height: 128px; width: 100%; flex: none; }
+ .signal-list { display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; }
+ .signal-row { flex: 0 0 360px; scroll-snap-align: start; }
+ .signal-list-heading { height: 48px; padding-block: 12px; }
+ .glyph-strip { gap: 32px; } .resolve-connector { left: -28px; width: 24px !important; }
+}
+@media (max-width: 699px) {
+ .hero-header { flex-direction: column; } .hero-header h1 { flex-basis: auto; } .hero-actions { margin-left: 0; }
+ .board-question { gap: 8px; padding-inline: 16px; flex-wrap: wrap; }
+ .board-question h2 { order: 4; flex-basis: 100%; } .board-question .lean-chip { margin-left: auto; } .board-question .button { padding-inline: 8px; }
+ .live-board { height: 464px; } .live-board .signal-data { padding-inline: 16px; }
+ .live-board .signal-tiles > div { padding-inline: 8px; } .live-board .signal-tiles .rolling-number { font-size: 20px; }
+ .signal-row { flex-basis: 100%; grid-template-columns: 32px minmax(0, 1fr) 64px 76px 52px 24px; padding-inline: 12px; gap: 4px; }
+ .glyph-strip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .active-dot, .signal-progress { animation: none; } }
+@media (min-width: 1000px) {
+ .signal-list { display: flex; flex-direction: column; }
+ .signal-row { flex: 1 0 72px; }
+ .signal-single .signal-board-grid { grid-template-columns: minmax(0, 1fr); height: auto; }
+ .signal-single .live-board { height: 440px; }
+}
+
+.signal-select { grid-column: 1 / -2; display: grid; grid-template-columns: subgrid; align-items: center; min-width: 0; height: 72px; margin-block: -12px; padding: 12px 0; background: transparent; text-align: left; font-size: inherit; border-radius: 0; }
+.signal-select:hover { background: transparent; }
+.board-question .board-open { width: 88px; min-width: 88px; height: 40px; background: var(--violet-soft); color: var(--violet-text); transition: transform var(--t-hover, 150ms) var(--ease-out), background var(--t-hover, 150ms); }
+.board-question .board-open:hover { background: color-mix(in srgb, var(--violet-soft) 82%, var(--violet-text)); }
+.board-question .button.board-open { padding-inline: 12px; }
+.hero-header .hero-ask { margin-right: auto; }

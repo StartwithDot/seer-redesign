@@ -1,0 +1,5 @@
+import { useState } from 'react';
+import type { Market } from '../data/types';
+import { address } from '../data/format';
+import { explorer, reality } from '../data/links';
+export function IdsBlock({market:m}:{market:Market}){const[copied,setCopied]=useState('');const rows=[['Market',m.id,explorer(m.chainId,m.id)],['Condition Id',m.conditionId,explorer(m.chainId,m.id)],['Question Id',m.questionId,reality(m)],['Collateral',m.collateralToken,explorer(m.chainId,m.collateralToken,'token')],['Creator',m.creator,explorer(m.chainId,m.creator)]];return <section className="market-card market-ids">{rows.map(([label,value,url])=><div key={label}><span>{label}</span><code title={value??''}>{address(value??'')}</code><button className="icon-button" aria-label={`Copy ${label}`} onClick={()=>{void navigator.clipboard.writeText(value??'');setCopied(label??'');setTimeout(()=>setCopied(''),1200);}}>{copied===label?'Copied':'⧉'}</button>{url&&<a className="icon-button" aria-label={label+' ↗'} href={url} target="_blank" rel="noreferrer">↗</a>}</div>)}</section>;}

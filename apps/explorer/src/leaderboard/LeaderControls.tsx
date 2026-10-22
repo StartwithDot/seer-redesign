@@ -1,0 +1,10 @@
+import { useState } from 'react';
+import type { LeaderParams } from '../data/leaderboard';
+import { HoverMenu } from '../components/HoverMenu';
+import { Sheet } from '../components/Sheet';
+import { useWallet } from '../data/wallet';
+export function LeaderControls({ params, change, onRank }: { params: LeaderParams; change: (next: Partial<LeaderParams>) => void; onRank: () => void }) {
+ const [query,setQuery]=useState(params.q??''), [filters,setFilters]=useState(false); const wallet=useWallet();
+ const groups=<><HoverMenu label="App" selected={[params.app]} options={['All','Foresight','Opportunity Markets','Deepfunding'].map((label,i)=>({label,value:['all','foresight','opportunity','deepfunding'][i]}))} onChange={v=>change({app:v[0]})}/><HoverMenu label="Chain" selected={[params.chain]} options={['All','Ethereum','OP Mainnet','Gnosis','Base'].map((label,i)=>({label,value:['all','1','10','100','8453'][i]}))} onChange={v=>change({chain:v[0]})}/></>;
+ return <div className="leader-controls"><div className="leader-period" role="group" aria-label="Period">{['1d','1w','1m','all'].map(period=><button className={period===params.period?'selected':''} key={period} aria-pressed={period===params.period} onClick={()=>change({period})}>{period.toUpperCase()}</button>)}</div><button className="button leader-mobile-filters" aria-expanded={filters} onClick={()=>setFilters(!filters)}>Filters</button><div className="leader-filter-groups">{groups}</div>{filters&&<Sheet label="Filters" onClose={()=>setFilters(false)}><header className="sheet-heading">Filters<button className="icon-button" aria-label="Close" onClick={()=>setFilters(false)}>×</button></header><div className="leader-sheet-groups">{groups}</div></Sheet>}{wallet.connected&&<button className="button" onClick={onRank}>Your Rank</button>}<form onSubmit={e=>{e.preventDefault();change({q:query});}}><input aria-label="Search by username or address" placeholder="Search by username or address" value={query} onChange={e=>setQuery(e.target.value)}/><button className="button" type="submit">Search</button></form></div>;
+}

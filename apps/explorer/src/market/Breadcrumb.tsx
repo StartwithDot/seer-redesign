@@ -1,0 +1,1 @@
+export function Breadcrumb() { return <nav className="market-breadcrumb" aria-label="Breadcrumb"><a className="icon-button" aria-label="Back" href="#/">‹</a><a href="#/">Home</a><span>/</span><span>Market</span></nav>; }

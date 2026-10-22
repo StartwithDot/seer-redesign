@@ -1,0 +1,4 @@
+import type { Market } from '../data/types';
+import { Dialog } from '../components/Dialog';
+import { swapr, links } from '../data/links';
+export function AddLiquidityDialog({market:m,index,onClose}:{market:Market;index:number;onClose:()=>void}) { return <Dialog title="Add Liquidity" onClose={onClose}><h3>Farming Rewards</h3><p>Earn farming rewards (SEER) by providing liquidity to existing markets.</p><h3>Available Pools:</h3><div className="liquidity-pool"><strong>Swapr</strong>{m.rewards?<span>Active</span>:<span>Rewards ended on: January 4 2026, 22:31</span>}</div><a className="button primary" href={swapr(m.wrappedTokens[index],m.collateralToken)} target="_blank" rel="noreferrer">Add liquidity ↗</a><a className="market-link" href={links.farming} target="_blank" rel="noreferrer">Learn more about the farming program ↗</a><footer><button className="button" onClick={onClose}>Return</button></footer></Dialog>; }

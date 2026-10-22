@@ -1,0 +1,14 @@
+@import "./mock-0.css";
+@import "./mock-1.css";
+@import "./mock-2.css";
+@import "./layout.css";
+@import "./details.css";
+@import "./pass2.css";
+@import "./pass3.css";
+/* Text, numbers, chips and buttons use EF tokens only; lime survives solely as a graph line colour. */
+.stage-time .headline{top:8px;right:16px;z-index:2;background:var(--card);padding:4px 10px;border-radius:8px}
+.stage-time .headline .l{display:none}
+.stage-time .headline .n b{font-size:22px;line-height:26px}
+.stage-time .headline .n span{font-size:12px;min-width:0}
+.stage-time .headline>div:last-child,.stage-time .headline .q{font-size:12px}
+.stage-time{padding-top:44px;overflow-y:auto;overflow-x:hidden}
