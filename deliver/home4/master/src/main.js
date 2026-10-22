@@ -151,7 +151,7 @@ function place() {
     const pe = sec.querySelector('.perch'); if (!pe) return;
     const nm = sec.dataset.layout, L = LAYOUTS[nm](W, H);
     let x = L.fx0 - 64, y = L.y0 - 14;
-    if (nm === 'protocol') x = L.fx0 - (m ? 32 : 84) - 34;
+    if (nm === 'protocol') x = m ? L.fx0 - 66 : Math.max(37 + 0.208 * W, L.fx0 - Math.max(446, 0.31 * W));
     if (nm === 'hero') { x = m ? 30 : Math.max(60, wheelEl.getBoundingClientRect().left - 90); }
     if (nm === 'close' && m) { x = 0.2 * W; y = L.y0 - 14; }
     pe.style.left = Math.max(24, x) + 'px'; pe.style.top = y + 'px';

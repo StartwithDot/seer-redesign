@@ -40,7 +40,7 @@ export const LAYOUTS = {
   protocol(W, H) {
     const m = isMob(W), z = zone(W, H);
     return { y0: Y0(W, H), fx0: (m ? 0.2 : 0.36) * W, fx1: (m ? 0.4 : 0.62) * W, xe: (m ? 0.6 : 0.7) * W,
-      ends: Array.from({ length: N }, (_, i) => lin(z.y0 + 14, z.y1 - 14, i, N)), tone: 0, thick: 1, labels: 'protocol' };
+      ends: Array.from({ length: N }, (_, i) => lin(z.y0 + 14, z.y1 - 14, i, N)), tone: 0, thick: 1, labels: 'protocol', perchDx: m ? 0 : Math.min(0, 495 - 0.36 * W) };
   },
   seerapp(W, H) {
     const m = isMob(W), z = zone(W, H);

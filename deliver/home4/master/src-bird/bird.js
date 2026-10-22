@@ -332,7 +332,7 @@ function init(opts) {
     const ci = sp.names.indexOf('close'), rc = sp.rects[ci];
     const pc = rc ? clamp(-rc.top / Math.max(1, rc.height - vh)) : 0;
     const eF = sm(0.22, 0.52, pc), merge = sm(0.5, 0.66, pc);
-    const perch = { x: cur.fx0 - (mob ? 34 : 70), y: cur.y0 - 16 + (cur.perchDy || 0) };
+    const perch = { x: cur.fx0 - (mob ? 34 : 70) + (cur.perchDx || 0), y: cur.y0 - 16 + (cur.perchDy || 0) };
     const fb = finaleBox(), fm = opts.finaleMark || { x: -0.24, y: -0.02 };
     let target = perch;
     if (fb && rc) { const stTop = rc.top > 0 ? rc.top : Math.min(0, rc.bottom - vh); target = { x: fb.x0 + fb.w * (0.5 + fm.x), y: stTop + fb.y0 + fb.h * (0.5 + fm.y) }; }

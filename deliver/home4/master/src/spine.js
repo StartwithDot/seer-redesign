@@ -65,7 +65,7 @@ export function initSpine(canvas, secEls) {
   }
 
   function blend(W, H, ws) {
-    const out = { xs: new Array(N).fill(0), y0: 0, fx0: 0, fx1: 0, xe: 0, tone: 0, thick: 0, reach: 0, ends: new Array(N).fill(0), perchDy: 0, focusA: 0, focus: -1, labels: [], trunk: null };
+    const out = { xs: new Array(N).fill(0), y0: 0, fx0: 0, fx1: 0, xe: 0, tone: 0, thick: 0, reach: 0, ends: new Array(N).fill(0), perchDy: 0, perchDx: 0, focusA: 0, focus: -1, labels: [], trunk: null };
     spine.names.forEach((nm, k) => {
       const w = ws[k]; if (w < 1e-4 || !LAYOUTS[nm]) return;
       const L = LAYOUTS[nm](W, H);
@@ -74,7 +74,7 @@ export function initSpine(canvas, secEls) {
       const fo = (e.fanOpen ?? 1) * vz;
       const reach = (e.reach ?? 1) * vz;
       out.y0 += L.y0 * w; out.fx0 += L.fx0 * w; out.fx1 += L.fx1 * w; out.xe += L.xe * w;
-      out.perchDy += (L.perchDy || 0) * w; out.tone += L.tone * w; out.thick += L.thick * w; out.reach += reach * w;
+      out.perchDy += (L.perchDy || 0) * w; out.perchDx += (L.perchDx || 0) * w; out.tone += L.tone * w; out.thick += L.thick * w; out.reach += reach * w;
       for (let i = 0; i < N; i++) {
         out.xs[i] += (e.endsX ? e.endsX[i] : L.xe) * w;
         let y = L.y0 + (L.ends[i] - L.y0) * fo;

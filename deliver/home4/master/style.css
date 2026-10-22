@@ -289,3 +289,5 @@ h2 .ln{display:block}
 /* /SHORT-DESKTOP */
 
 @media (min-width:820px){h1{white-space:nowrap}}
+#footLine{display:none}
+@media (min-width:1430px){:root{--copy-w:42vw}}
