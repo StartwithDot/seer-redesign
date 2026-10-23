@@ -291,3 +291,98 @@ h2 .ln{display:block}
 @media (min-width:820px){h1{white-space:nowrap}}
 #footLine{display:none}
 @media (min-width:1430px){:root{--copy-w:42vw}}
+
+/* ECOSYSTEM: normal-flow section between the finale and the footer. Isolated: every rule is scoped to .eco */
+.eco{position:relative;z-index:6;background:var(--bg);padding:clamp(80px,9vw,120px) 0 clamp(64px,7vw,96px);overflow:clip;--eg:clamp(16px,1.2vw,20px)}
+.eco-wires{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;overflow:visible;pointer-events:none}
+.eco-in{position:relative;z-index:1;padding:0 var(--gut)}
+.eco-copy{margin-bottom:clamp(64px,6vw,96px)}
+.eco-h .ln{overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.eco-h .ln>span{display:inline-block}
+.eco .lead{margin-bottom:0}
+.eco-grid{list-style:none;margin:0;padding:0;display:grid;gap:var(--eg);grid-template-columns:repeat(5,minmax(0,1fr))}
+.eco-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:24px;border-radius:20px;background:linear-gradient(180deg,#1A1A1E,#101013);box-shadow:inset 0 0 0 1px rgba(122,60,255,.3),0 0 0 rgba(122,60,255,0);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.eco-card:hover,.eco-card:focus-within{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(185,155,255,.78),0 18px 44px rgba(0,0,0,.45),0 0 36px rgba(122,60,255,.22)}
+.eco-who{margin:0 0 14px;font:600 11.5px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lav)}
+.eco-card h3{margin:0 0 10px;font:600 clamp(22px,1.55vw,34px)/1.1 var(--sans);letter-spacing:-.025em;color:#fff}
+.eco-q{margin:0 0 22px;font:400 15px/1.45 var(--sans);color:var(--ink2);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;min-height:2.9em}
+.eco-viz{display:block;width:100%;height:clamp(56px,3.6vw,84px);margin:auto 0 22px;overflow:visible}
+.eco-link{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;margin:-10px 0 -10px;font:600 15px/1 var(--sans);color:#fff;text-decoration:underline transparent 1.5px;text-underline-offset:6px;transition:text-decoration-color .2s,color .2s;border-radius:6px}
+.eco-link svg{width:14px;height:10px;fill:none;stroke:var(--lav);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.eco-link:hover{text-decoration-color:rgba(255,255,255,.8)}
+.eco-link:hover svg,.eco-link:focus-visible svg{transform:translateX(3px)}
+.eco-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.eco-cap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:clamp(28px,3vw,44px) 0 0;font:500 14px/1.3 var(--sans);color:var(--ink2)}
+.eco-cap span{padding:6px 12px;border-radius:999px;border:1px solid rgba(185,155,255,.3);font:600 11px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#e6dcff}
+.eco-cap em{font-style:normal;margin-left:4px}
+/* mini visuals */
+.eco-viz *{transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .35s}
+.v-app circle{fill:var(--lav)}
+.v-app .t{fill:rgba(243,239,255,.2)}
+.v-app .b{fill:#7A3CFF;transform-box:fill-box;transform-origin:0 50%;transform:scaleX(.8)}
+.v-app g:nth-child(2) .b{fill:#9c6fff;transition-delay:.05s}
+.v-app g:nth-child(3) .b{fill:#b99bff;transition-delay:.1s}
+.eco-card:hover .v-app .b{transform:scaleX(1)}
+.v-deep path{fill:none;stroke:#b99bff;stroke-width:1.1;opacity:.75}
+.v-deep path:nth-child(3){stroke:#fff;stroke-width:1.6;opacity:1}
+.v-deep circle{fill:#fff}
+.v-deep .fan{transform-origin:4px 32px;transform:scaleY(.78)}
+.eco-card:hover .v-deep .fan{transform:scaleY(1)}
+.v-fut path{fill:none;stroke:#b99bff;stroke-width:1.6}
+.v-fut .dn path{stroke:rgba(185,155,255,.55)}
+.v-fut circle{fill:#fff}
+.v-fut text{font:600 9px var(--sans);letter-spacing:.08em;fill:var(--ink2)}
+.eco-card:hover .v-fut .up{transform:translateY(-4px)}
+.eco-card:hover .v-fut .dn{transform:translateY(4px)}
+.v-opp circle{fill:rgba(185,155,255,.38);transform-box:fill-box;transform-origin:center}
+.v-opp .pk{fill:#fff;filter:drop-shadow(0 0 4px #7A3CFF)}
+.eco-card:hover .v-opp circle{opacity:.45}
+.eco-card:hover .v-opp .pk{opacity:1;transform:scale(1.3)}
+.v-risk .area{fill:rgba(122,60,255,.16)}
+.v-risk .crv{fill:none;stroke:#b99bff;stroke-width:1.6;stroke-dasharray:1 1;stroke-dashoffset:0}
+.v-risk .base{fill:none;stroke:rgba(243,239,255,.18);stroke-width:1}
+.eco-card:hover .v-risk .crv{animation:ecoRedraw .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes ecoRedraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+/* wires */
+.eco-wires path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.eco-wires .wg{stroke:#7A3CFF;stroke-width:7;opacity:.5}
+.eco-wires .wc{stroke:#cdb9ff;stroke-width:1.5}
+.eco-wires .wp{stroke:#fff;stroke-width:2.4;stroke-dasharray:.07 2;stroke-dashoffset:.07}
+.eco-wires .nd{fill:#fff}
+.eco-wires .ndg{fill:#7A3CFF;opacity:.55}
+/* entrance (only armed by eco.js when motion is allowed) */
+.eco.armed .eco-h .ln>span{transform:translateY(108%);filter:blur(7px);opacity:0}
+.eco.armed .eco-rv,.eco.armed .eco-cap{opacity:0;transform:translateY(12px)}
+.eco.armed .eco-card{opacity:0;translate:0 24px;scale:.97}
+.eco.armed .eco-wires .dr{stroke-dasharray:1 1;stroke-dashoffset:1}
+.eco.armed .eco-wires .nds{opacity:0}
+.eco.armed.in .eco-h .ln>span{transform:none;filter:blur(0);opacity:1;transition:transform .8s cubic-bezier(.215,.61,.355,1),filter .8s,opacity .8s}
+.eco.armed.in .eco-h .ln:nth-child(2)>span{transition-delay:.1s}
+.eco.armed.in .eco-rv,.eco.armed.in .eco-cap{opacity:1;transform:none;transition:opacity .6s ease-out,transform .6s ease-out}
+.eco.armed.in .eco-rv:first-child{transition-delay:.2s}
+.eco.armed.in .lead.eco-rv{transition-delay:.3s}
+.eco.armed.in .eco-cap{transition-delay:1.5s}
+.eco.armed.in .eco-card{opacity:1;translate:0 0;scale:1;transition:opacity .52s ease-out var(--cd,0s),translate .52s cubic-bezier(.2,.8,.2,1) var(--cd,0s),scale .52s cubic-bezier(.2,.8,.2,1) var(--cd,0s),transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.eco.armed.in .eco-wires .dr{stroke-dashoffset:0;transition:stroke-dashoffset var(--wt,.9s) cubic-bezier(.45,0,.2,1) var(--wd,0s)}
+.eco.armed.in .eco-wires .nds{opacity:1;transition:opacity .4s ease-out var(--wd,0s)}
+.eco.in .eco-wires .wp{animation:ecoPulse 1.1s cubic-bezier(.4,0,.6,1) var(--wd,0s) 1 both}
+@keyframes ecoPulse{0%{stroke-dashoffset:.07;opacity:1}90%{opacity:1}100%{stroke-dashoffset:-1;opacity:0}}
+@media (min-width:900px) and (max-width:1499px){
+  .eco-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .eco-card{grid-column:span 2}
+  .eco-card:nth-child(4){grid-column:2/4}
+  .eco-card:nth-child(5){grid-column:4/6}
+}
+@media (min-width:600px) and (max-width:899px){
+  .eco-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .eco-card{grid-column:span 2}
+  .eco-card:nth-child(5){grid-column:2/4}
+}
+@media (max-width:599px){
+  .eco-grid{grid-template-columns:minmax(0,1fr);padding-left:var(--eg)}
+  .eco-card{padding:20px}
+  .eco-copy{margin-bottom:56px}
+}
+@media (min-width:1700px){.eco-q{font-size:clamp(15px,.9vw,19px)}.eco-who{font-size:clamp(11.5px,.65vw,14px)}.eco-link{font-size:clamp(15px,.85vw,18px)}.eco-cap{font-size:clamp(14px,.8vw,17px)}}
+@media (prefers-reduced-motion:reduce){.eco *,.eco *::before{transition:none!important;animation:none!important}}
+/* /ECOSYSTEM */

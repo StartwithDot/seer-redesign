@@ -13,6 +13,7 @@ import { makeBg } from './bgfx.js';
 import logoSvg from '../assets/logo.svg';
 import { initHeader, initMenu, initHeroHover, initHeadings, initFooterLine } from './shell.js';
 import { LAYOUTS, heroGeom, deepZone, finaleZone, N } from './layouts.js';
+import { initEco } from './eco.js';
 
 const gsap = G.gsap || G.default;
 const ScrollTrigger = ST.ScrollTrigger || ST.default;
@@ -173,6 +174,7 @@ if (window.ResizeObserver) { let rt = 0; new ResizeObserver(() => { clearTimeout
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { layoutAll(); ScrollTrigger.refresh(); });
 
 initHeroHover(); initHeadings(); initFooterLine();
+try { initEco(); } catch (e) { console.warn('eco', e); }
 const scenes = makeScenes();
 import_arrive();
 function import_arrive() { const prev = spine.onArrive; spine.onArrive = (i) => { if ((spine.weights[0] || 0) > 0.6) hitBar(i); if (arriveMap.seerapp) arriveMap.seerapp(i); if (arriveMap.opportunity) arriveMap.opportunity(i); }; }
