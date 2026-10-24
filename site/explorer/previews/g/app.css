@@ -957,3 +957,16 @@ dialog .cf-act a.primary{background:var(--violet);color:#fff}
 .trade .amount-box input::-webkit-inner-spin-button,.trade .amount-box input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .trade .amount-box:focus-within{box-shadow:inset 0 0 0 2px var(--violet)}
 .trade .amount-box:has(input[aria-invalid=true]){box-shadow:inset 0 0 0 2px var(--red)}
+
+/* Open trade button on tiles (replaces the layers/type icon) */
+.tl-open{width:32px;height:32px;margin:-4px -6px 0 0;display:grid;place-items:center;color:var(--text-3);border-radius:10px;flex:none;transition:color 160ms var(--ease-out),background 160ms var(--ease-out)}
+.tl-open svg{width:16px;height:16px;transition:transform 160ms var(--ease-out)}
+.ix-tile:hover .tl-open,.ix-tile:focus-within .tl-open{color:var(--text-2)}
+.tl-open:hover,.tl-open:focus-visible{color:#fff;background:var(--violet,#7B3AFF)}
+.tl-open:hover svg,.tl-open:focus-visible svg{transform:translate(2px,-2px)}
+@media (prefers-reduced-motion:reduce){.tl-open,.tl-open svg{transition:none}.tl-open:hover svg{transform:none}}
+/* Right-hand inspector/trade panel scrolls internally; primary action stays reachable */
+.ix-panel{overflow-y:auto;overflow-x:hidden;overscroll-behavior:auto;scrollbar-width:thin;scrollbar-color:var(--line,#2a2a31) transparent}
+.ix-panel::-webkit-scrollbar{width:6px}.ix-panel::-webkit-scrollbar-thumb{background:var(--line,#2a2a31);border-radius:6px}
+.ix-panel:has(.pn-details:not([hidden])){overflow:hidden}
+.ix-panel .pn-trade .tk-connect{position:sticky;bottom:0;z-index:3;box-shadow:0 -14px 14px -6px var(--card)}
