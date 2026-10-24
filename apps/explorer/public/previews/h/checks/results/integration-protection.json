@@ -1,0 +1,128 @@
+{
+  "checkedAt": "2026-10-24T22:20:14.252Z",
+  "repository": "https://github.com/StartwithDot/seer-redesign.git",
+  "base": "cebb9ad60ce06ceae9e33d6048d1fe446f77eb4f",
+  "branch": "codex/explorer-deep-integration",
+  "existingFilesChecked": 702,
+  "existingFilesChanged": [
+    "package-lock.json"
+  ],
+  "landingChanged": false,
+  "originalWorkspaceModified": false,
+  "originalRemoteChanged": false,
+  "committed": false,
+  "pushed": false,
+  "deepFixtures": 16,
+  "deepApplicationSourceFilesMatchOriginal": 53,
+  "deepBuiltFilesMirrored": 31,
+  "explorerRuntimeFilesMirrored": 90,
+  "explorerAndCombined": [
+    {
+      "name": "open-trade",
+      "cases": 5,
+      "pass": true
+    },
+    {
+      "name": "scroll-panel",
+      "cases": 9,
+      "pass": true
+    },
+    {
+      "name": "dropdowns",
+      "cases": 5,
+      "pass": true
+    },
+    {
+      "name": "parity",
+      "cases": 44,
+      "pass": true
+    },
+    {
+      "name": "alignment",
+      "cases": 13,
+      "pass": true
+    },
+    {
+      "name": "contrast",
+      "cases": 74,
+      "pass": true
+    },
+    {
+      "name": "perf",
+      "cases": 2,
+      "pass": true
+    },
+    {
+      "name": "combined",
+      "cases": 4,
+      "pass": true
+    }
+  ],
+  "deepFunctional": [
+    {
+      "name": "parity",
+      "cases": 5,
+      "pass": true
+    },
+    {
+      "name": "flows",
+      "cases": 16,
+      "pass": true
+    },
+    {
+      "name": "navigation",
+      "cases": 8,
+      "pass": true
+    }
+  ],
+  "deepNetwork": {
+    "cases": 64,
+    "unexpected": 0,
+    "remoteAvatarFallbackEvents": 16
+  },
+  "deepPerformance": {
+    "workloads": 7,
+    "settled": 3,
+    "failures": 0,
+    "p95s": [
+      {
+        "name": "98-series chart replay",
+        "p95": 13.900000000000091
+      },
+      {
+        "name": "nearest-line hover",
+        "p95": 7.099999999998545
+      },
+      {
+        "name": "Split to Swarm transition",
+        "p95": 7.099999999998545
+      },
+      {
+        "name": "Swarm five layers and picking",
+        "p95": 7.099999999998545
+      },
+      {
+        "name": "Swarm 98-repository replay",
+        "p95": 14
+      },
+      {
+        "name": "Replay after navigating away; Canvas unmounted",
+        "p95": 7.099999999998545
+      },
+      {
+        "name": "3517-outcome inner wheel scroll",
+        "p95": 7.099999999999909
+      }
+    ]
+  },
+  "screenshotsReviewed": 8,
+  "existingFilesByteIdentical": 701,
+  "onlyExistingChange": {
+    "path": "package-lock.json",
+    "addedLines": 43,
+    "removedLines": 0,
+    "addedPackageEntries": 4,
+    "existingPackageEntriesChanged": 0,
+    "rootNpmCiDryRun": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "deployment",
+  "testedAt": "2026-10-24T17:18:13.709Z",
+  "pass": true,
+  "checks": [
+    {
+      "label": "canonical static deployment loads locally and keeps Explorer links in H",
+      "pass": true
+    },
+    {
+      "label": "canonical Open trade and full record preserve local assets",
+      "pass": true
+    }
+  ]
+}

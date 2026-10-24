@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../../../../'),base=process.env.INTEGRATION_BASE||'cebb9ad60ce06ceae9e33d6048d1fe446f77eb4f';
+const allow=['apps/explorer/public/previews/h/','site/explorer/previews/h/','apps/deep-h/','site/deep/previews/h/'];
+const raw=execFileSync('git',['diff','--name-status','--no-renames',base,'--'],{cwd:root,encoding:'utf8'}).trim();const changes=raw?raw.split('\n').map(line=>{const [status,...name]=line.split('\t');return {status,path:name.join('\t')};}):[];
+assert.ok(changes.every(r=>(r.status==='A'&&allow.some(p=>r.path.startsWith(p)))||(r.status==='M'&&r.path==='package-lock.json')),'Only H additions and the necessary root lockfile registration are permitted.');
+const outside=execFileSync('git',['status','--porcelain=v1','--untracked-files=all','--','.',...allow.map(p=>':(exclude)'+p),':(exclude)package-lock.json'],{cwd:root,encoding:'utf8'}).trim();assert.equal(outside,'','Protected upstream files or unrelated additions changed.');
+const fs=await import('node:fs/promises');
+const before=JSON.parse(execFileSync('git',['show',base+':package-lock.json'],{cwd:root,encoding:'utf8'})),after=JSON.parse(await fs.readFile(path.join(root,'package-lock.json'),'utf8'));
+for(const [key,value]of Object.entries(before.packages))assert.deepEqual(after.packages[key],value,'Existing locked package changed: '+key);
+const additions=Object.keys(after.packages).filter(k=>!(k in before.packages)).sort();assert.deepEqual(additions,['apps/deep-h','apps/deep-h/node_modules/@seer/ef','apps/deep-h/vendor/ef','node_modules/@seer/deep-h'].sort(),'Unexpected dependency additions');
+for(const key of Object.keys(before).filter(k=>k!=='packages'))assert.deepEqual(after[key],before[key]);
+console.log(JSON.stringify({base,additions:changes.filter(r=>r.status==='A').length,existingFilesChanged:1,onlyExistingChange:"package-lock.json",existingDependencyEntriesChanged:0,landingChanged:false,existingDeepChanged:false}));

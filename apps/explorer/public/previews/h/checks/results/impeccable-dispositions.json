@@ -1,0 +1,43 @@
+{
+  "baseline": {
+    "total": 14,
+    "rules": {
+      "overused-font": 4,
+      "gradient-text": 2,
+      "bounce-easing": 4,
+      "pulsing-dot": 2,
+      "dark-glow": 1,
+      "repeating-stripes-gradient": 1
+    }
+  },
+  "final": {
+    "total": 1,
+    "applicableFailures": 0
+  },
+  "dispositions": [
+    {
+      "rule": "overused-font",
+      "action": "Retain supplied Inter Tight brand face; user brief explicitly pins it."
+    },
+    {
+      "rule": "gradient-text",
+      "action": "No gradient text in shipping H."
+    },
+    {
+      "rule": "bounce-easing",
+      "action": "Finite calibrated scale spring only; no ornamental bounce easing."
+    },
+    {
+      "rule": "pulsing-dot",
+      "action": "No ambient pulse; carousel progress encodes elapsed time."
+    },
+    {
+      "rule": "dark-glow",
+      "action": "Tonal solid surfaces replace glow."
+    },
+    {
+      "rule": "repeating-stripes-gradient",
+      "action": "Outcome pattern uses SVG defs, not gradient backgrounds."
+    }
+  ]
+}

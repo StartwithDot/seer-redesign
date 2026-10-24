@@ -1,0 +1,18 @@
+[
+  {
+    "check": "scroll-surfaces",
+    "exit": 0
+  },
+  {
+    "check": "scroll",
+    "exit": 0
+  },
+  {
+    "check": "alignment",
+    "exit": 0
+  },
+  {
+    "check": "network",
+    "exit": 0
+  }
+]

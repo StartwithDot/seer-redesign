@@ -1,0 +1,34 @@
+[
+  {
+    "check": "final-functional-verified",
+    "exit": 0
+  },
+  {
+    "check": "supplemental",
+    "exit": 0
+  },
+  {
+    "check": "menu-matrix",
+    "exit": 0
+  },
+  {
+    "check": "shared-header",
+    "exit": 0
+  },
+  {
+    "check": "semantic-controls",
+    "exit": 0
+  },
+  {
+    "check": "states-refinements",
+    "exit": 0
+  },
+  {
+    "check": "network",
+    "exit": 0
+  },
+  {
+    "check": "performance",
+    "exit": 0
+  }
+]

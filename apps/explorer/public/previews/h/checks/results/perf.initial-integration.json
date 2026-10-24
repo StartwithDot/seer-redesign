@@ -1,0 +1,22 @@
+{
+  "name": "perf",
+  "testedAt": "2026-10-24T17:20:13.706Z",
+  "pass": false,
+  "checks": [
+    {
+      "label": "41-tile scroll and hover frame trace",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"frames\":179,\"medianMs\":13.800000000000182,\"p95Ms\":34.69999999999982,\"maxMs\":97.19999999999982,\"averageFps\":61.82433599281595,\"over20ms\":68}\n    at file:///C:/Users/josep/.codex/visualizations/2026/10/23/01a16aba-f867-7f22-8bf7-181a80d51949/upstream-integration/seer-redesign/apps/explorer/public/previews/h/checks/perf.mjs:7:396\n    at async check (file:///C:/Users/josep/.codex/visualizations/2026/10/23/01a16aba-f867-7f22-8bf7-181a80d51949/upstream-integration/seer-redesign/apps/explorer/public/previews/h/checks/lib.mjs:19:123)\n    at async file:///C:/Users/josep/.codex/visualizations/2026/10/23/01a16aba-f867-7f22-8bf7-181a80d51949/upstream-integration/seer-redesign/apps/explorer/public/previews/h/checks/perf.mjs:4:2\n    at async suite (file:///C:/Users/josep/.codex/visualizations/2026/10/23/01a16aba-f867-7f22-8bf7-181a80d51949/upstream-integration/seer-redesign/apps/explorer/public/previews/h/checks/lib.mjs:19:299)\n    at async file:///C:/Users/josep/.codex/visualizations/2026/10/23/01a16aba-f867-7f22-8bf7-181a80d51949/upstream-integration/seer-redesign/apps/explorer/public/previews/h/checks/perf.mjs:3:1"
+    },
+    {
+      "label": "reduced motion stops carousel autoplay and keeps final instruments",
+      "pass": true,
+      "data": {
+        "reduced": true,
+        "timer": null,
+        "active": 0,
+        "animations": 0
+      }
+    }
+  ]
+}

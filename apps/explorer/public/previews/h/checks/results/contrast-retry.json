@@ -1,0 +1,18 @@
+{
+  "name": "contrast-retry",
+  "testedAt": "2026-10-24T17:21:59.726Z",
+  "pass": true,
+  "checks": [
+    {
+      "label": "light quick-custom",
+      "pass": true,
+      "data": {
+        "textSamples": 544,
+        "minText": 4.78,
+        "graphics": 107,
+        "minGraphic": 3.63,
+        "failures": []
+      }
+    }
+  ]
+}
