@@ -353,7 +353,7 @@ app.innerHTML=`<section class="create-view"><a class="meta" href="#/">← Market
 document.querySelectorAll('[name="market-type"]').forEach(n=>n.onchange=()=>{state.createType=n.value;$('#create-next').disabled=false;$('#create-next').title='';});
 $('#create-next').onclick=()=>{if(!two){createStep=2;drawCreate();$('#create-next').focus();}else openOnSeer();};
 if(two)$('#create-back').onclick=()=>{createStep=1;drawCreate();};}
-function openOnSeer(){modal('Open on Seer','<p>Creating markets happens on Seer, where you connect your wallet on Gnosis and fill in the question, outcomes, dates and resolution source.</p><a href="https://app.seer.pm" target="_blank" rel="noopener noreferrer">Open on Seer ↗</a>');}
+function openOnSeer(){modal('Open on Seer','<p>Creating markets happens on Seer, where you connect your wallet on Gnosis and fill in the question, outcomes, dates and resolution source.</p><a href="../explorer/" target="_blank" rel="noopener noreferrer">Open on Seer ↗</a>');}
 
 const histories=new Map();
 async function loadHistory(){await Promise.all(['market-chart','markets-charts'].map(async name=>{try{const response=await fetch('../data/'+name+'.json');if(!response.ok)return;const fixture=await response.json();const raw=fixture.data?._raw_truncated;if(!raw)return;const endpointId=fixture._endpoint.match(/marketId=(0x[0-9a-f]+)/i)?.[1];

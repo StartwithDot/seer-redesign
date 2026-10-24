@@ -3,6 +3,7 @@ import * as ST from '../vendor/ScrollTrigger.min.js';
 import * as DS from '../vendor/DrawSVGPlugin.min.js';
 import '../vendor/lenis.min.js';
 import starSvg from '../assets/star.svg';
+import logoSvg from '../assets/logo.svg';
 import { clamp, lerp, ss, sstep, reduced } from './util.js';
 import { initSpine, spine } from './spine.js';
 import { makeScenes } from './scenes.js';
@@ -10,10 +11,9 @@ import { arrive as arriveMap } from './chapters.js';
 import { fx } from './neon.js';
 import { buildWheel } from './wheel.js';
 import { makeBg } from './bgfx.js';
-import logoSvg from '../assets/logo.svg';
 import { initHeader, initMenu, initHeroHover, initHeadings, initFooterLine } from './shell.js';
 import { LAYOUTS, heroGeom, deepZone, finaleZone, N } from './layouts.js';
-import { initEco } from './eco.js';
+import { initEco, measureEco } from './eco.js';
 
 const gsap = G.gsap || G.default;
 const ScrollTrigger = ST.ScrollTrigger || ST.default;
@@ -37,16 +37,13 @@ if (!reduced) {
   }));
 }
 
-// ---- header stays fixed; gains a backdrop after the bird takes off
+// ---- header stays fixed; gains a backdrop after 40px of scroll
 initHeader(); initMenu();
 
-// ---- nav logo (real vector). #nav-mark = raven + star, #nav-word = SEER
+// ---- nav logo (original vector lockup, fill currentColor)
 (function () {
   const NS = 'http://www.w3.org/2000/svg', svg = $('#nav-svg');
-  const ds = [...logoSvg.matchAll(/ d="([^"]+)"/g)].map((m) => m[1]);
-  const mk = (id, from, to) => { const g = document.createElementNS(NS, 'g'); g.id = id; g.setAttribute('fill', '#fff'); ds.slice(from, to).forEach((d) => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); g.appendChild(p); }); svg.appendChild(g); };
-  mk('nav-word', 0, 4); mk('nav-mark', 4, 11);
-  const raven = svg.cloneNode(true); raven.removeAttribute('id'); raven.querySelector('#nav-word').remove(); raven.querySelector('#nav-mark').removeAttribute('id'); raven.setAttribute('viewBox','0 0 64 64'); document.querySelector('#finale-logo').appendChild(raven);
+  [...logoSvg.matchAll(/ d="([^"]+)"/g)].forEach((mm) => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', mm[1]); p.setAttribute('fill', 'currentColor'); svg.appendChild(p); });
 })();
 
 // ---- panel tone-on-tone art
@@ -135,28 +132,19 @@ if (!reduced) {
 // ---- spine + object canvases
 const secEls = $$('[data-layout]');
 const sp = initSpine($('#spine'), secEls);
+spine.ext.footer = { reach: 0, fanOpen: 0 };
 const objC = $('#obj'), octx = objC.getContext('2d');
 const bgC = $('#bgfx'), bctx = bgC.getContext('2d');
 function sizeObj() {
   const dpr = Math.min(2, devicePixelRatio || 1);
-  [objC, bgC].forEach((c) => { c.width = Math.round(innerWidth * dpr); c.height = Math.round(innerHeight * dpr); c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px'; });
+  [objC, bgC, $('#ecoTop')].forEach((c) => { c.width = Math.round(innerWidth * dpr); c.height = Math.round(innerHeight * dpr); c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px'; });
   spine.dpr = dpr;
 }
-// slots (deep 3D + finale logo) and bird perches
+// slots (deep 3D + finale logo)
 function place() {
   const W = innerWidth, H = innerHeight;
   const put = (el, z) => { el.style.left = z.x0 + 'px'; el.style.top = z.y0 + 'px'; el.style.width = z.x1 - z.x0 + 'px'; el.style.height = z.y1 - z.y0 + 'px'; };
   put($('#finale-logo'), finaleZone(W, H));
-  const m = W < 820;
-  $$('.sec').forEach((sec) => {
-    const pe = sec.querySelector('.perch'); if (!pe) return;
-    const nm = sec.dataset.layout, L = LAYOUTS[nm](W, H);
-    let x = L.fx0 - 64, y = L.y0 - 14;
-    if (nm === 'protocol') x = m ? L.fx0 - 66 : Math.max(37 + 0.208 * W, L.fx0 - Math.max(446, 0.31 * W));
-    if (nm === 'hero') { x = m ? 30 : Math.max(60, wheelEl.getBoundingClientRect().left - 90); }
-    if (nm === 'close' && m) { x = 0.2 * W; y = L.y0 - 14; }
-    pe.style.left = Math.max(24, x) + 'px'; pe.style.top = y + 'px';
-  });
 }
 function layoutAll() {
   sizeObj();
@@ -168,9 +156,9 @@ function layoutAll() {
   measureHero(); place();
 }
 layoutAll();
-addEventListener('resize', () => { layoutAll(); sp.resize(); ScrollTrigger.refresh(); });
-ScrollTrigger.addEventListener('refresh', () => sp.measure());
-if (window.ResizeObserver) { let rt = 0; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => sp.measure(), 120); }).observe(document.body); }
+addEventListener('resize', () => { layoutAll(); measureEco(); sp.resize(); ScrollTrigger.refresh(); });
+ScrollTrigger.addEventListener('refresh', () => { measureEco(); sp.measure(); });
+if (window.ResizeObserver) { let rt = 0; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(() => { measureEco(); sp.measure(); }, 120); }).observe(document.body); }
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { layoutAll(); ScrollTrigger.refresh(); });
 
 initHeroHover(); initHeadings(); initFooterLine();
@@ -179,7 +167,7 @@ const scenes = makeScenes();
 import_arrive();
 function import_arrive() { const prev = spine.onArrive; spine.onArrive = (i) => { if ((spine.weights[0] || 0) > 0.6) hitBar(i); if (arriveMap.seerapp) arriveMap.seerapp(i); if (arriveMap.opportunity) arriveMap.opportunity(i); }; }
 const bgs = makeBg(); delete bgs.opportunity; delete bgs.futarchy;
-const NOOFF = new Set(['protocol', 'seerapp', 'futarchy', 'close', 'deep']);
+const NOOFF = new Set(['protocol', 'seerapp', 'futarchy', 'close', 'deep', 'ecosystem']);
 const state = {};
 Object.keys(scenes).forEach((k) => {
   const el = document.getElementById(k);
@@ -227,7 +215,7 @@ gsap.ticker.add((_, deltaMs) => {
         octx.clip();
         const off = r.top > 0 ? r.top : Math.min(0, r.bottom - H); octx.translate(0, off);
         fx.a = 1;
-      } else fx.a = clamp(Math.pow(wk, 1.3) * 1.15);
+      } else fx.a = clamp(Math.pow(wk, 1.3) * 1.15) * (k === 'close' && spine.names[spine.nx] === 'footer' ? 1 - sstep(0.02, 0.4, spine.u) : 1);
       if (k !== 'futarchy' || (r.top <= 0 && r.bottom >= H)) sc.draw(octx, W, H, time, dt, s.p, s.en);
       octx.restore();
     });

@@ -13,7 +13,7 @@ export function tube(ctx, col, w, alpha, build) {
   ctx.save();
   ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   const ga = col.ga ?? 1;
-  ctx.globalCompositeOperation = 'lighter';
+  ctx.globalCompositeOperation = 'source-over';
   ctx.strokeStyle = col.glow; ctx.lineWidth = w * 7; ctx.globalAlpha = alpha * 0.06 * ga; build(ctx); ctx.stroke();
   ctx.lineWidth = w * 3.4; ctx.globalAlpha = alpha * 0.12 * ga; build(ctx); ctx.stroke();
   ctx.globalCompositeOperation = 'source-over';
@@ -25,7 +25,7 @@ export function tube(ctx, col, w, alpha, build) {
 export function glowDot(ctx, col, x, y, r, alpha = 1) {
   alpha *= fx.a;
   ctx.save();
-  ctx.globalCompositeOperation = 'lighter';
+  ctx.globalCompositeOperation = 'source-over';
   ctx.fillStyle = col.glow; ctx.globalAlpha = alpha * 0.28 * (col.ga ?? 1);
   ctx.beginPath(); ctx.arc(x, y, r * 3.2, 0, 7); ctx.fill();
   ctx.globalAlpha = alpha * 0.4 * (col.ga ?? 1);

@@ -1,5 +1,5 @@
 import { clamp, lerp, smoother, mixRGB, rgba, isMob, rng, reduced } from './util.js';
-import { LAYOUTS, N, zone } from './layouts.js';
+import { LAYOUTS, N, zone, ecoGeom } from './layouts.js';
 
 const C = {
   core0: [246, 240, 255], core1: [255, 255, 255],
@@ -32,13 +32,14 @@ export function initSpine(canvas, secEls) {
   addEventListener('resize', resize);
 
   // cached document geometry: no layout reads in the frame loop
-  const chap = secEls.map((e) => e.tagName === 'SECTION');
+  const chap = secEls.map((e) => e.tagName === 'SECTION' || e.classList.contains('foot'));
   let docTop = [], docH = [];
   function measure() {
     const sy = window.scrollY;
     docTop = secEls.map((e) => e.getBoundingClientRect().top + sy);
     docH = secEls.map((e) => e.offsetHeight);
     spine.docTop = docTop; spine.docH = docH;
+    spine.copyB = secEls.map((e) => { const c = e.querySelector('.copy'); return c ? c.offsetTop + c.offsetHeight : 0; });
   }
   measure();
   spine.measure = measure;
@@ -52,7 +53,7 @@ export function initSpine(canvas, secEls) {
     for (let i = k + 1; i < n; i++) if (chap[i]) { nx = i; break; }
     const ws = new Array(n).fill(0), vis = new Array(n).fill(1);
     ws[k] = 1;
-    spine.u = 0;
+    spine.u = 0; spine.nx = nx;
     if (nx >= 0) {
       const u = clamp(1 - (docTop[nx] - sy) / H);
       const e = smoother(clamp((u - 0.08) / 0.84));
@@ -65,7 +66,7 @@ export function initSpine(canvas, secEls) {
   }
 
   function blend(W, H, ws) {
-    const out = { xs: new Array(N).fill(0), y0: 0, fx0: 0, fx1: 0, xe: 0, tone: 0, thick: 0, reach: 0, ends: new Array(N).fill(0), perchDy: 0, perchDx: 0, focusA: 0, focus: -1, labels: [], trunk: null };
+    const out = { xs: new Array(N).fill(0), y0: 0, fx0: 0, fx1: 0, xe: 0, tone: 0, thick: 0, reach: 0, ends: new Array(N).fill(0), perchDy: 0, perchDx: 0, alpha: 0, focusA: 0, focus: -1, labels: [], trunk: null };
     spine.names.forEach((nm, k) => {
       const w = ws[k]; if (w < 1e-4 || !LAYOUTS[nm]) return;
       const L = LAYOUTS[nm](W, H);
@@ -74,7 +75,7 @@ export function initSpine(canvas, secEls) {
       const fo = (e.fanOpen ?? 1) * vz;
       const reach = (e.reach ?? 1) * vz;
       out.y0 += L.y0 * w; out.fx0 += L.fx0 * w; out.fx1 += L.fx1 * w; out.xe += L.xe * w;
-      out.perchDy += (L.perchDy || 0) * w; out.perchDx += (L.perchDx || 0) * w; out.tone += L.tone * w; out.thick += L.thick * w; out.reach += reach * w;
+      out.perchDy += (L.perchDy || 0) * w; out.perchDx += (L.perchDx || 0) * w; out.tone += L.tone * w; out.thick += L.thick * w; out.reach += reach * w; out.alpha += (L.alpha ?? 1) * w;
       for (let i = 0; i < N; i++) {
         out.xs[i] += (e.endsX ? e.endsX[i] : L.xe) * w;
         let y = L.y0 + (L.ends[i] - L.y0) * fo;
@@ -85,6 +86,13 @@ export function initSpine(canvas, secEls) {
       if (e.focus != null && e.focus >= 0 && w > 0.3) { out.focus = e.focus; out.focusA = Math.max(out.focusA, (e.focusA || 0)); }
       if (e.trunkLabel && w > 0.02 && (!out.trunk || w > out.trunk.w)) out.trunk = { text: e.trunkLabel, a: (e.trunkLabelA ?? 1) * Math.pow(w, 2), w, below: !!e.trunkBelow };
     });
+    // the entering Risk / final chapter text must never be crossed by the trunk: ride below the text block while it scrolls in
+    const nx = spine.nx;
+    if (nx >= 0 && (spine.names[nx] === 'risk' || spine.names[nx] === 'close' || (spine.names[nx] === 'ecosystem' && ecoGeom.pin)) && spine.rects && spine.copyB) {
+      const rc = spine.rects[nx], st = rc.top > 0 ? rc.top : Math.min(0, rc.bottom - H);
+      const push = st + spine.copyB[nx] + 66, f = smoother(clamp((spine.u - 0.08) / 0.42));
+      out.y0 = lerp(out.y0, Math.max(out.y0, push), f);
+    }
     return out;
   }
 
@@ -125,6 +133,7 @@ export function initSpine(canvas, secEls) {
     spine.weights = ws;
     const p = blend(W, H, ws);
     spine.cur = p;
+    { const a = p.alpha.toFixed(2); if (canvas._a !== a) { canvas.style.opacity = a; canvas._a = a; } }
     const mob = isMob(W);
     const sc = mob ? 0.8 : 1;
     const tone = clamp(p.tone, 0, 1);
@@ -148,8 +157,8 @@ export function initSpine(canvas, secEls) {
 
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     const passes = [
-      { w: 24, a: 0.05 * glowK, col: rgba(glowC, 1), op: 'lighter' },
-      { w: 12, a: 0.1 * glowK, col: rgba(glowC, 1), op: 'lighter' },
+      { w: 24, a: 0.05 * glowK, col: rgba(glowC, 1), op: 'source-over' },
+      { w: 12, a: 0.1 * glowK, col: rgba(glowC, 1), op: 'source-over' },
       { w: 5.5, a: 0.5, col: rgba(midC, 1), op: 'source-over' },
       { w: 2.1, a: 1, col: core, op: 'source-over' },
     ];
@@ -158,7 +167,7 @@ export function initSpine(canvas, secEls) {
       ctx.lineWidth = ps.w * sc * p.thick;
       ctx.strokeStyle = ps.col;
       ctx.globalAlpha = ps.a;
-      const combined = ps.op === 'lighter' && p.focus < 0;
+      const combined = ps.w >= 12 && p.focus < 0;
       if (combined) {
         ctx.globalAlpha = ps.a;
         ctx.beginPath(); ctx.moveTo(-10, p.y0); ctx.lineTo(trunkEnd, p.y0);
@@ -202,7 +211,7 @@ export function initSpine(canvas, secEls) {
         if (x1 < -5) break;
         const a = Math.pow(1 - s / segs, 1.6) * dim;
         const y1 = yAt(p, pk.line, x1, t), y2 = yAt(p, pk.line, x2, t);
-        ctx.globalCompositeOperation = 'lighter';
+        ctx.globalCompositeOperation = 'source-over';
         ctx.strokeStyle = rgba(glowC, 0.5 * a); ctx.lineWidth = 9 * sc;
         ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
         ctx.globalCompositeOperation = 'source-over';
@@ -215,7 +224,7 @@ export function initSpine(canvas, secEls) {
     // nodes: root + end caps
     if (xLimit >= p.fx0) {
       const pulse = 0.5 + 0.5 * Math.sin(t * 2.4);
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = 'source-over';
       ctx.fillStyle = rgba(glowC, 0.18 + 0.12 * pulse); ctx.beginPath(); ctx.arc(p.fx0, p.y0, (10 + 3 * pulse) * sc, 0, 7); ctx.fill();
       ctx.globalCompositeOperation = 'source-over';
       ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(p.fx0, p.y0, 3.4 * sc, 0, 7); ctx.fill();
@@ -225,7 +234,7 @@ export function initSpine(canvas, secEls) {
       for (let i = 0; i < N; i++) {
         const y = p.ends[i], f = spine.flash[i];
         const dim = p.focus >= 0 ? (i === p.focus ? 1 : 1 - 0.8 * clamp(p.focusA, 0, 1)) : 1;
-        ctx.globalCompositeOperation = 'lighter';
+        ctx.globalCompositeOperation = 'source-over';
         ctx.fillStyle = rgba(glowC, (0.2 + 0.5 * f) * dim); ctx.beginPath(); ctx.arc(reachI(i), y, (6 + 6 * f) * sc, 0, 7); ctx.fill();
         ctx.globalCompositeOperation = 'source-over';
         ctx.fillStyle = `rgba(255,255,255,${dim})`; ctx.beginPath(); ctx.arc(reachI(i), y, 2.8 * sc, 0, 7); ctx.fill();

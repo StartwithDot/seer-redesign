@@ -29,18 +29,18 @@ function makeEnv(renderer) {
   return rt.texture;
 }
 
+const LW = 138, LH = 64, LCX = 69, LCY = 32;
 function buildLogo(material) {
   const data = new SVGLoader().parse(logoSvg);
   const holder = new THREE.Group();
   data.paths.forEach((p) => {
-    p.toShapes(true).forEach((shape) => {
-      const geo = new THREE.ExtrudeGeometry(shape, { depth: 5, bevelEnabled: true, bevelThickness: 0.9, bevelSize: 0.5, bevelSegments: 3, curveSegments: 14 });
+    p.toShapes().forEach((shape) => {
+      const geo = new THREE.ExtrudeGeometry(shape, { depth: 7, bevelEnabled: true, bevelThickness: 1.5, bevelSize: 0.9, bevelOffset: -0.9, bevelSegments: 8, curveSegments: 28 });
+      geo.computeVertexNormals();
       holder.add(new THREE.Mesh(geo, material));
     });
   });
-  const box = new THREE.Box3().setFromObject(holder);
-  const c = box.getCenter(new THREE.Vector3());
-  holder.children.forEach((m) => m.position.set(-c.x, -c.y, -c.z));
+  holder.children.forEach((m) => m.position.set(-LCX, -LCY, -3.5));
   const pivot = new THREE.Group(); pivot.add(holder); pivot.scale.set(1, -1, 1);
   const root = new THREE.Group(); root.add(pivot);
   return root;
@@ -169,52 +169,30 @@ let pulseLevel = 0;
 function logoPulse(s) { pulseLevel = Math.max(0, Math.min(1, +s || 0)); pulseSubs.forEach((f) => f(pulseLevel)); }
 
 function mountLogo(el, opts = {}) {
-  const floorOn = opts.floor !== false;
   return scaffold(el, (api) => {
-    if (floorOn) { const m = 'linear-gradient(#000 62%,transparent 98%)'; renderer_cv(api).style.webkitMaskImage = m; renderer_cv(api).style.maskImage = m; }
-    const logoMat = new THREE.MeshPhysicalMaterial({ color: 0xc9c0ee, metalness: 1, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.03, envMapIntensity: 1.7, emissive: 0x7b3ff2, emissiveIntensity: 0 });
+    const cv = renderer_cv(api);
+    cv.style.filter = 'drop-shadow(0 0 14px rgba(150,100,255,.55)) drop-shadow(0 0 46px rgba(110,60,240,.4))';
+    api.renderer.toneMapping = THREE.ACESFilmicToneMapping; api.renderer.toneMappingExposure = 1.5;
+    const logoMat = new THREE.MeshPhysicalMaterial({ color: 0xf3f0ff, metalness: 0.9, roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 3.6, emissive: 0xb8a4ff, emissiveIntensity: 0.6 });
     const logoRoot = buildLogo(logoMat);
-    const mirror = logoRoot.clone(true);
     const logoRig = new THREE.Group(); logoRig.add(logoRoot);
-    const mirrorWrap = new THREE.Group(); mirrorWrap.scale.y = -1; mirrorWrap.add(mirror);
-    const mirrorRig = new THREE.Group(); mirrorRig.add(mirrorWrap);
-    const floorMat = new THREE.ShaderMaterial({
-      transparent: true, depthWrite: false,
-      vertexShader: 'varying vec2 vUv; void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-      fragmentShader: 'varying vec2 vUv; void main(){float a=mix(0.84,1.0,smoothstep(0.0,0.5,1.0-vUv.y)); gl_FragColor=vec4(0.039,0.039,0.039,a);}',
-    });
-    const floor = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), floorMat);
-    const g = new THREE.Group();
-    g.add(mirrorRig, floor, logoRig);
-    api.scene.add(g);
-    let k = 1, hh = 64, W = 2, H = 2;
-    const baseRim = api.rim.intensity, baseEnv = 1.7;
+    api.scene.add(logoRig);
+    api.key.intensity = 2.6; api.rim.intensity = 4; api.rim.color.set(0xb79cff);
+    const fill = new THREE.DirectionalLight(0xffffff, 1.6); fill.position.set(400, -300, 800); api.scene.add(fill);
+    let k = 1;
+    const baseRim = api.rim.intensity, baseEnv = 3.6;
     let target = pulseLevel, cur = pulseLevel;
     const sub = (v) => { target = v; };
     pulseSubs.add(sub);
-    if (el.__seerLogoPulse === undefined) el.__seerLogoPulse = (v) => { target = Math.max(0, Math.min(1, v)); };
     return {
-      resize(w, h) {
-        W = w; H = h;
-        k = Math.min(w * 0.86 / 138, h * (floorOn ? 0.42 : 0.8) / 64);
-        logoRoot.scale.setScalar(k); mirror.scale.setScalar(k);
-        hh = 64 * k;
-        floor.scale.set(138 * k * 1.3, hh * 0.4, 1);
-        mirrorRig.visible = floor.visible = floorOn && w >= 500;
-        g.position.y = floorOn ? h * 0.17 : 0;
-      },
+      resize(w, h) { k = Math.min(w * 0.76 / LW, h * 0.8 / LH); logoRoot.scale.setScalar(k); },
       frame(t, dt, ptr) {
         cur += (target - cur) * Math.min(1, dt * 8 + (reduce() ? 1 : 0));
-        api.rim.intensity = baseRim + cur * 6;
-        logoMat.emissiveIntensity = cur * 0.55;
-        logoMat.envMapIntensity = baseEnv + cur * 1.1;
-        const bob = Math.sin(t * 0.9) * 8 * (k / 3);
-        logoRig.position.y = bob;
-        logoRig.rotation.set(-ptr.y * 0.22 + Math.sin(t * 0.7) * 0.05, (ptr.x + Math.sin(t * 0.35) * 0.45 + 0.3) * 0.55 + Math.sin(t * 0.5) * 0.28, Math.sin(t * 0.6) * 0.02);
-        const floorY = -hh / 2 - 44 * (k / 3);
-        mirrorRig.position.set(0, 2 * floorY - bob, -70 * (k / 3));
-        mirror.rotation.copy(logoRig.rotation);
-        floor.position.set(0, floorY - hh * 0.2, -35 * (k / 3));
+        api.rim.intensity = baseRim + cur * 5;
+        logoMat.emissiveIntensity = 0.6 + cur * 0.4;
+        logoMat.envMapIntensity = baseEnv + cur * 0.9;
+        logoRig.position.y = Math.sin(t * 0.9) * 5 * (k / 2);
+        logoRig.rotation.set(-ptr.y * 0.12 + Math.sin(t * 0.7) * 0.03, ptr.x * 0.3 + Math.sin(t * 0.35) * 0.16, Math.sin(t * 0.6) * 0.008);
       },
     };
   });

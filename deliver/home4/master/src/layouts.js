@@ -1,4 +1,4 @@
-import { lin, isMob, lerp } from './util.js';
+import { lin, isMob, lerp, clamp, smoother } from './util.js';
 export const N = 10;
 
 export function zone(W, H) {
@@ -27,8 +27,8 @@ export function deepZone(W, H) {
 // Finale: the glass logo fills this box
 export function finaleZone(W, H) {
   return isMob(W)
-    ? { x0: 0.4 * W, x1: 0.95 * W, y0: (H < 700 ? 0.55 : 0.56) * H, y1: (H < 700 ? 0.68 : 0.68) * H }
-    : { x0: 0.64 * W, x1: 0.9 * W, y0: 0.2 * H, y1: 0.5 * H };
+    ? { x0: 0.44 * W, x1: 0.98 * W, y0: (H < 700 ? 0.54 : 0.55) * H, y1: 0.69 * H }
+    : { x0: 0.58 * W, x1: 0.96 * W, y0: 0.17 * H, y1: 0.5 * H };
 }
 
 export const LAYOUTS = {
@@ -73,7 +73,7 @@ export const LAYOUTS = {
     const cp = typeof document !== 'undefined' && document.querySelector('#risk .copy'), pl = cp && cp.querySelector('.pill');
     if (pl) top = Math.min(Math.max(top, cp.offsetTop + pl.offsetTop + pl.offsetHeight + 44), z.y1 - (m ? 34 : 54) - 90);
     return { y0: top, fx0: (m ? 0.1 : 0.3) * W, fx1: (m ? 0.3 : 0.46) * W, xe: z.x0 - 6,
-      ends: Array.from({ length: N }, (_, i) => top + ((i < 3 ? 0 : i < 6 ? 1 : 2) - 1) * gap), tone: 1, thick: 0.42, top, gap, perchDy: m ? -10 : -14 };
+      ends: Array.from({ length: N }, (_, i) => top + ((i < 3 ? 0 : i < 6 ? 1 : 2) - 1) * gap), tone: 0, thick: 0.42, top, gap, perchDy: m ? -10 : -14 };
   },
   close(W, H) {
     const m = isMob(W), z = finaleZone(W, H);
@@ -82,4 +82,34 @@ export const LAYOUTS = {
     return { y0: 0.83 * H, fx0: 0.4 * W, fx1: 0.5 * W, xe: 0.5 * W,
       ends: Array.from({ length: N }, (_, i) => lin(0.2 * H, 0.5 * H, i, N)), tone: 0, thick: 1 };
   },
+};
+
+// ---- Ecosystem: geometry is measured from the DOM by eco.js (stage-local px) and turned into screen space here
+export const FOOT_Y = 56;
+export const ecoGeom = { ok: false, pin: true, docTop: 0, h: 0, footTop: 0, fanX: 0, railX: 12, y0L: 0, cards: [], s: 0 };
+export function ecoStageTop(H) {
+  const rt = ecoGeom.docTop - window.scrollY, rb = rt + ecoGeom.h;
+  return ecoGeom.pin ? (rt > 0 ? rt : Math.min(0, rb - H)) : rt;
+}
+LAYOUTS.ecosystem = function (W, H) {
+  const g = ecoGeom;
+  if (!g.ok) return { y0: 0.5 * H, fx0: 0.2 * W, fx1: 0.2 * W + 20, xe: 0.2 * W + 40, ends: Array(N).fill(0.5 * H), tone: 0, thick: 1 };
+  const st = ecoStageTop(H);
+  let y0, fx0, alpha = 1;
+  if (g.pin) { y0 = Math.max(0, g.docTop - window.scrollY) + g.y0L; fx0 = g.fanX; }
+  else {
+    // flow mode: the trunk enters at the rail top, parks off-screen while the rail rides the page, then meets the rail exit at the section bottom
+    const rt = g.docTop - window.scrollY, rb = rt + g.h, exitY = rb - 30, Z = 500;
+    const t = smoother(clamp((H + 60 + Z - exitY) / Z));
+    y0 = lerp(Math.max(rt + g.y0L, -60), exitY, t); fx0 = g.railX;
+    if (t > 0.001) alpha = t < 0.999 ? 0 : smoother(clamp((0.86 * H - y0) / (0.04 * H)));
+    if (t >= 0.999) y0 = exitY;
+  }
+  g.alpha = alpha;
+  return { y0, fx0, fx1: fx0 + 20, xe: fx0 + 40, ends: Array(N).fill(y0), tone: 0, thick: 1, alpha };
+};
+// Footer: the trunk arrives at the footer line, then fans to the right edge (drawn by #footLine)
+LAYOUTS.footer = function (W, H) {
+  const F = ecoGeom.footTop - window.scrollY + FOOT_Y;
+  return { y0: F, fx0: 0.36 * W, fx1: 0.36 * W + 20, xe: 0.36 * W + 40, ends: Array(N).fill(F), tone: 0, thick: 1 };
 };

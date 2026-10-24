@@ -4,6 +4,7 @@ import { clamp, lerp, ss, sstep, rng, isMob, reduced } from './util.js';
 import { LAYOUTS, N, zone, gridGeom, deepZone, finaleZone } from './layouts.js';
 import { spine } from './spine.js';
 import { KMARK, KWORD } from './klerosdata.js';
+import { ecoScene } from './eco.js';
 import { PAL, pal, tube, glowDot, label, starShape, fx } from './neon.js';
 
 const TAU = Math.PI * 2;
@@ -323,7 +324,7 @@ function oppScene() {
         rr(ctx, -w / 2, -h / 2, w, h, m ? 4 : 9); ctx.fill();
         ctx.strokeStyle = settled ? '#fff' : `rgba(${blink > 0.1 ? '230,220,255' : '185,155,255'},${0.45 + 0.5 * blink})`; ctx.lineWidth = settled ? 2 : 1.2;
         rr(ctx, -w / 2 + 0.5, -h / 2 + 0.5, w - 1, h - 1, m ? 4 : 9); ctx.stroke();
-        if (blink > 0.1) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = a * blink * 0.5; ctx.shadowColor = '#7b3ff2'; ctx.shadowBlur = 14; ctx.strokeStyle = '#b99bff'; rr(ctx, -w / 2, -h / 2, w, h, m ? 4 : 9); ctx.stroke(); ctx.restore(); }
+        if (blink > 0.1) { ctx.save(); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = a * blink * 0.5; ctx.shadowColor = '#7b3ff2'; ctx.shadowBlur = 14; ctx.strokeStyle = '#b99bff'; rr(ctx, -w / 2, -h / 2, w, h, m ? 4 : 9); ctx.stroke(); ctx.restore(); }
         if (!win || mv < 0.7) {
           ctx.globalAlpha = a * (win ? 1 - sstep(0.5, 0.7, mv) : 1); ctx.fillStyle = '#fff';
           ctx.font = `600 ${m ? 10 : 13}px "Inter Tight", sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -418,7 +419,7 @@ function riskScene() {
       if (!reduced && prog > 0.08) { const ph = (t * 0.2) % 1.25; scanU = Math.min(1, ph / 1) * prog; if (ph > 1) scanU = -1; }
       if (scanU >= 0) {
         const sxp = cx0 + (cx1 - cx0) * scanU, a2 = wgt * Math.sin(Math.PI * Math.min(1, scanU / prog));
-        ctx.save(); ctx.globalCompositeOperation = 'lighter';
+        ctx.save(); ctx.globalCompositeOperation = 'source-over';
         const g = ctx.createLinearGradient(sxp - 46, 0, sxp, 0); g.addColorStop(0, 'rgba(123,63,242,0)'); g.addColorStop(1, `rgba(150,110,255,${0.2 * a2})`);
         ctx.fillStyle = g; ctx.fillRect(sxp - 46, top, 46, bot - top);
         ctx.globalAlpha = a2 * 0.8; ctx.fillStyle = '#d6caff'; ctx.fillRect(Math.round(sxp), top, 1, bot - top);
@@ -558,5 +559,5 @@ function closeScene() {
 export function makeScenes() {
   spine.onArrive = (i) => { for (const k in spine_arrive) spine_arrive[k](i); };
   Object.assign(spine_arrive, arrive);
-  return { protocol: protocolScene(), seerapp: ch.seerScene(), deep: ch.deepScene(), futarchy: ch.futarchyScene(), opportunity: ch.oppScene(), risk: riskScene(), close: ch.closeScene() };
+  return { protocol: protocolScene(), seerapp: ch.seerScene(), deep: ch.deepScene(), futarchy: ch.futarchyScene(), opportunity: ch.oppScene(), risk: riskScene(), close: ch.closeScene(), ecosystem: ecoScene() };
 }

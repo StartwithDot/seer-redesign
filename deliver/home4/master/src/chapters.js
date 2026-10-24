@@ -249,13 +249,13 @@ export function oppScene() {
           ctx.fillStyle = `rgba(123,63,242,${0.05 + 0.16 * blink})`; rr(ctx, -w / 2, -h / 2, w, h, rad); ctx.fill();
           ctx.strokeStyle = `rgba(${blink > 0.05 ? '150,100,255' : '123,63,242'},${0.45 + 0.55 * blink})`; ctx.lineWidth = 1 + 0.8 * blink;
           rr(ctx, -w / 2 + 0.5, -h / 2 + 0.5, w - 1, h - 1, rad); ctx.stroke();
-          if (blink > 0.05) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = a * blink * 0.55; ctx.strokeStyle = '#7b3ff2'; ctx.lineWidth = 5; rr(ctx, -w / 2 - 1, -h / 2 - 1, w + 2, h + 2, rad + 1); ctx.stroke(); ctx.globalAlpha = a * blink * 0.3; ctx.lineWidth = 11; ctx.stroke(); ctx.restore(); }
+          if (blink > 0.05) { ctx.save(); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = a * blink * 0.55; ctx.strokeStyle = '#7b3ff2'; ctx.lineWidth = 5; rr(ctx, -w / 2 - 1, -h / 2 - 1, w + 2, h + 2, rad + 1); ctx.stroke(); ctx.globalAlpha = a * blink * 0.3; ctx.lineWidth = 11; ctx.stroke(); ctx.restore(); }
         } else {
           ctx.fillStyle = `rgba(123,63,242,${0.14 + 0.5 * blink})`;
           rr(ctx, -w / 2, -h / 2, w, h, m ? 4 : 9); ctx.fill();
           ctx.strokeStyle = `rgba(${blink > 0.1 ? '230,220,255' : '185,155,255'},${0.45 + 0.5 * blink})`; ctx.lineWidth = 1.2;
           rr(ctx, -w / 2 + 0.5, -h / 2 + 0.5, w - 1, h - 1, m ? 4 : 9); ctx.stroke();
-          if (blink > 0.1) { ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = a * blink * 0.5; ctx.strokeStyle = '#b99bff'; ctx.lineWidth = 3; rr(ctx, -w / 2 - 1, -h / 2 - 1, w + 2, h + 2, m ? 5 : 10); ctx.stroke(); ctx.restore(); }
+          if (blink > 0.1) { ctx.save(); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = a * blink * 0.5; ctx.strokeStyle = '#b99bff'; ctx.lineWidth = 3; rr(ctx, -w / 2 - 1, -h / 2 - 1, w + 2, h + 2, m ? 5 : 10); ctx.stroke(); ctx.restore(); }
         }
         if (!win || mv < 0.7) {
           ctx.globalAlpha = a * (win ? 1 - sstep(0.5, 0.7, mv) : 1); ctx.fillStyle = '#fff';
@@ -276,7 +276,7 @@ export function oppScene() {
           const bw = w - 2 * px, byy = m ? 7 : 11, bh = m ? 2.5 : 3;
           ctx.fillStyle = 'rgba(255,255,255,.08)'; rr(ctx, -w / 2 + px, byy, bw, bh, bh / 2); ctx.fill();
           ctx.fillStyle = '#7B3FF2'; rr(ctx, -w / 2 + px, byy, Math.max(bh, bw * clamp(pc / 100)), bh, bh / 2); ctx.fill();
-          ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = a * ta * (0.25 + 0.4 * blink); ctx.fillStyle = '#7B3FF2'; rr(ctx, -w / 2 + px, byy - 1, Math.max(bh, bw * clamp(pc / 100)), bh + 2, bh); ctx.fill(); ctx.restore();
+          ctx.save(); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = a * ta * (0.25 + 0.4 * blink); ctx.fillStyle = '#7B3FF2'; rr(ctx, -w / 2 + px, byy - 1, Math.max(bh, bw * clamp(pc / 100)), bh + 2, bh); ctx.fill(); ctx.restore();
         }
         ctx.restore();
       });
@@ -394,7 +394,7 @@ export function closeScene() {
       const cur = spine.cur;
       if (wgt < 0.02 || !cur) return;
       const cx = (z.x0 + z.x1) / 2, cy = (z.y0 + z.y1) / 2;
-      const nodeX = cx - (m ? 92 : 190), nodeY = cy;
+      const nodeX = Math.max(cx - (z.x1 - z.x0) * 0.38 - 40, cur.xe + (m ? 30 : 76)), nodeY = cy;
       let sum = 0; const raw = base.map((b, i) => { const v = b * (1 + 0.08 * Math.sin(t * 0.8 + i * 1.9)); sum += v; return v; });
       const x0 = cur.xe + (m ? 6 : 10);
       if (!m) {
@@ -441,7 +441,7 @@ export function closeScene() {
         ctx.fillStyle = '#121218'; rr(ctx, px, py, pw, ph, ph / 2); ctx.fill();
         ctx.fillStyle = `rgba(123,63,242,${0.06 + 0.16 * h})`; rr(ctx, px, py, pw, ph, ph / 2); ctx.fill();
         ctx.strokeStyle = `rgba(${h > 0.05 ? '150,100,255' : '123,63,242'},${0.5 + 0.45 * h})`; ctx.lineWidth = 1; rr(ctx, px + 0.5, py + 0.5, pw - 1, ph - 1, ph / 2); ctx.stroke();
-        if (h > 0.05) { ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = use * fx.a * h * 0.5; ctx.strokeStyle = '#7b3ff2'; ctx.lineWidth = 4; rr(ctx, px, py, pw, ph, ph / 2); ctx.stroke(); }
+        if (h > 0.05) { ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = use * fx.a * h * 0.5; ctx.strokeStyle = '#7b3ff2'; ctx.lineWidth = 4; rr(ctx, px, py, pw, ph, ph / 2); ctx.stroke(); }
         ctx.restore();
         glyph(ctx, c.kind, px + (m ? 19 : 26), ty, t, use);
         label(ctx, c.l1, px + (m ? 36 : 48), ty - (m ? 6.5 : 8), { size: m ? 11 : 13.5, weight: 700, alpha: use });

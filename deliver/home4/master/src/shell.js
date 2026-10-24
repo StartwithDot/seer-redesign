@@ -4,6 +4,8 @@ import * as ST from '../vendor/ScrollTrigger.min.js';
 import * as SP from '../vendor/SplitText.min.js';
 import { clamp, reduced } from './util.js';
 import { tube, glowDot, fx, pal } from './neon.js';
+import { FOOT_Y } from './layouts.js';
+import { spine } from './spine.js';
 
 const gsap = G.gsap || G.default;
 const ScrollTrigger = ST.ScrollTrigger || ST.default;
@@ -172,25 +174,28 @@ export function initFooterLine() {
   const size = () => { dpr = Math.min(2, devicePixelRatio || 1); W = foot.clientWidth; H = 150; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px'; };
   size(); addEventListener('resize', size);
   new IntersectionObserver((e) => { vis = e[0].isIntersecting; }, { rootMargin: '200px' }).observe(foot);
-  const Y = 56, N = 4;
+  const Y = FOOT_Y, N = 4;
   // one line, fans into four parallel threads toward the right edge and leaves the viewport
   const yOf = (i, x) => { const f = clamp((x - W * 0.36) / (W * 0.34)); const s = f * f * (3 - 2 * f); return Y + (i - (N - 1) / 2) * 12 * s; };
-  const packets = Array.from({ length: 9 }, (_, k) => ({ x: (k / 9) * 1400, line: k % N, v: 220 + (k * 53) % 160, len: 90 + (k * 37) % 70 }));
+  const packets = Array.from({ length: 14 }, (_, k) => ({ x: (k / 14) * 1400, line: k % N, v: 300 + (k * 53) % 200, len: 90 + (k * 37) % 70 }));
   const col = pal(0);
   let t = 0;
   gsap.ticker.add((_, dms) => {
     if (!vis) return;
     const dt = Math.min(0.05, (dms || 16) / 1000); t += reduced ? 0 : dt;
+    const sOp = Math.min(1, (spine.weights[spine.names.indexOf('footer')] || 0) * 1.0); if (cv._op !== sOp) { cv.style.opacity = sOp.toFixed(3); cv._op = sOp; }
+    if (sOp < 0.01) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H); return; }
+    const xs = W * 0.36 - 6;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
     fx.a = 1;
     const pathFor = (i, x0, x1) => (c) => { c.beginPath(); c.moveTo(x0, yOf(i, x0)); for (let x = x0; x <= x1; x += 14) c.lineTo(x, yOf(i, x)); c.lineTo(x1, yOf(i, x1)); };
-    for (let i = 0; i < N; i++) tube(ctx, col, i === 1 || i === 2 ? 2.1 : 1.5, i === 1 || i === 2 ? 0.95 : 0.7, pathFor(i, -10, W + 20));
+    for (let i = 0; i < N; i++) tube(ctx, col, i === 1 || i === 2 ? 2.2 : 1.9, i === 1 || i === 2 ? 1 : 0.9, pathFor(i, xs, W + 20));
     if (reduced) return;
     packets.forEach((p) => {
-      p.x += p.v * dt; if (p.x - p.len > W + 40) { p.x = -20 - Math.random() * 300; p.line = (Math.random() * N) | 0; }
-      const x0 = Math.max(-10, p.x - p.len), x1 = Math.min(W + 20, p.x);
+      p.x += p.v * dt; if (p.x - p.len > W + 40) { p.x = xs - 20 - Math.random() * 300; p.line = (Math.random() * N) | 0; }
+      const x0 = Math.max(xs, p.x - p.len), x1 = Math.min(W + 20, p.x);
       if (x1 <= x0) return;
-      ctx.save(); ctx.globalCompositeOperation = 'lighter';
+      ctx.save(); ctx.globalCompositeOperation = 'source-over';
       const g = ctx.createLinearGradient(p.x - p.len, 0, p.x, 0); g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(1, 'rgba(255,255,255,.95)');
       ctx.strokeStyle = g; ctx.lineWidth = 2.4; ctx.lineCap = 'round'; pathFor(p.line, x0, x1)(ctx); ctx.stroke(); ctx.restore();
       glowDot(ctx, col, p.x, yOf(p.line, p.x), 2.1, 0.9);
