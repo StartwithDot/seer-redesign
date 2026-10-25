@@ -25,3 +25,17 @@
 @media (prefers-reduced-motion:reduce){.fan-question::before,.question-caption::before{animation:none}}
 /* one Create market button: the dock has it always; the hero shows it only in the trade lens */
 html:not([data-lens="trade"]) .hero-create{display:none!important}
+/* no ghost monograms behind numbers; soft violet backdrop when a market has no image */
+.fan-card .market-monogram,.live-card .market-monogram{display:none!important}
+.fan-card:not(:has(img.fan-market-image)){background:radial-gradient(120% 140% at 100% 0%,rgba(122,60,255,.22),transparent 60%),var(--s1)}
+.hero-questions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+.hero-questions>span{width:100%;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#67676F)}
+.hero-q{display:inline-flex;align-items:center;gap:10px;max-width:100%;height:44px;padding:0 8px 0 16px;border-radius:999px;background:var(--nested,#1F1F24);color:var(--text,#EDEDF2);font-size:13px;transition:background .25s,transform .25s}
+.hero-q span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:300px}
+.hero-q b{flex:none;font-weight:600;font-size:13px;padding:6px 10px;border-radius:999px;background:var(--btn2,#241E33);color:var(--btn2-text,#9C6FF2)}
+.hero-q:hover{background:#2A2536;transform:translateY(-2px)}
+.hero-search input[type=search]::-webkit-search-cancel-button{display:none}
+.hero-search .search-results h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#67676F);font-weight:500;margin:10px 16px 4px}
+.hero-search .search-results a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;font-size:14px;line-height:1.4;border-radius:10px}
+.hero-search .search-results a:hover,.hero-search .search-results a:focus-visible{background:var(--btn2,#241E33);outline:0}
+.hero-search .search-results{max-height:340px;overflow:auto;padding:8px;border-radius:16px}

@@ -47,3 +47,12 @@ body{font-size:15px;line-height:1.5}#main{max-width:none;padding:0;overflow:clip
 .home-hero{min-height:min(100vh,940px)}
 .audience-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:24px!important;width:100%}
 .audience-tile{width:auto!important;max-width:none!important}
+.live-card:not(:has(img.live-market-image)){background:radial-gradient(120% 70% at 100% 100%,rgba(122,60,255,.16),transparent 65%),var(--s1)}
+.live-section .live-visual{margin:20px 0 0!important}
+.live-section .live-card-bottom{margin-top:auto!important}
+.live-section .live-label{white-space:nowrap}
+.live-section .live-card-top{flex-wrap:wrap;gap:8px}
+.live-section .live-visual>*:nth-child(n+6){display:none}
+.live-section .live-cards{align-items:stretch}
+.live-section .live-visual{max-height:300px;overflow:hidden}
+.live-section .live-card{min-height:620px!important}
