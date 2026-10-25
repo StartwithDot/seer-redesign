@@ -166,7 +166,7 @@ h2 .ln{display:block}
 .answer b{color:#fff;font-weight:700;margin-left:6px}
 .cta{margin-top:0}
 
-.foot{position:relative;z-index:6;background:transparent;padding:136px var(--gut) 48px;display:grid;gap:48px;align-content:start;box-sizing:border-box}
+.foot{position:relative;z-index:6;background:transparent;padding:136px var(--gut) 48px;display:grid;gap:48px;align-content:space-between;min-height:100vh;min-height:100svh;box-sizing:border-box}
 .foot-big{margin:0;font:400 clamp(56px,9vw,150px)/.92 var(--sans);letter-spacing:-.042em}
 .foot-big em{color:#d9c9ff}
 .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}

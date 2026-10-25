@@ -174,7 +174,7 @@ export function initFooterLine() {
   const size = () => { dpr = Math.min(2, devicePixelRatio || 1); W = foot.clientWidth; H = 150; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.width = W + 'px'; cv.style.height = H + 'px'; };
   size(); addEventListener('resize', size);
   new IntersectionObserver((e) => { vis = e[0].isIntersecting; }, { rootMargin: '200px' }).observe(foot);
-  const Y = FOOT_Y, N = 4;
+  let Y = FOOT_Y; const N = 4;
   // one line, fans into four parallel threads toward the right edge and leaves the viewport
   const yOf = (i, x) => { const f = clamp((x - W * 0.36) / (W * 0.34)); const s = f * f * (3 - 2 * f); return Y + (i - (N - 1) / 2) * 12 * s; };
   const packets = Array.from({ length: 14 }, (_, k) => ({ x: (k / 14) * 1400, line: k % N, v: 300 + (k * 53) % 200, len: 90 + (k * 37) % 70 }));
@@ -185,7 +185,9 @@ export function initFooterLine() {
     const dt = Math.min(0.05, (dms || 16) / 1000); t += reduced ? 0 : dt;
     const sOp = Math.min(1, (spine.weights[spine.names.indexOf('footer')] || 0) * 1.0); if (cv._op !== sOp) { cv.style.opacity = sOp.toFixed(3); cv._op = sOp; }
     if (sOp < 0.01) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H); return; }
-    const xs = W * 0.36 - 6;
+    // follow the live trunk end so the neon line is continuous while the page scrolls into the footer
+    if (spine.cur) { const dy = spine.cur.y0 - foot.getBoundingClientRect().top; Y = Math.max(10, Math.min(H - 14, dy)); }
+    const xs = (spine.cur ? spine.cur.fx0 : W * 0.36) - 6;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
     fx.a = 1;
     const pathFor = (i, x0, x1) => (c) => { c.beginPath(); c.moveTo(x0, yOf(i, x0)); for (let x = x0; x <= x1; x += 14) c.lineTo(x, yOf(i, x)); c.lineTo(x1, yOf(i, x1)); };

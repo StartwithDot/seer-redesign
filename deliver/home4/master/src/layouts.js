@@ -85,7 +85,7 @@ export const LAYOUTS = {
 };
 
 // ---- Ecosystem: geometry is measured from the DOM by eco.js (stage-local px) and turned into screen space here
-export const FOOT_Y = 56;
+export const FOOT_Y = 96;
 export const ecoGeom = { ok: false, pin: true, docTop: 0, h: 0, footTop: 0, fanX: 0, railX: 12, y0L: 0, cards: [], s: 0 };
 export function ecoStageTop(H) {
   const rt = ecoGeom.docTop - window.scrollY, rb = rt + ecoGeom.h;
@@ -110,6 +110,7 @@ LAYOUTS.ecosystem = function (W, H) {
 };
 // Footer: the trunk arrives at the footer line, then fans to the right edge (drawn by #footLine)
 LAYOUTS.footer = function (W, H) {
-  const F = ecoGeom.footTop - window.scrollY + FOOT_Y;
+  const ft = document.querySelector('footer.foot');
+  const F = (ft ? ft.getBoundingClientRect().top : ecoGeom.footTop - window.scrollY) + FOOT_Y;
   return { y0: F, fx0: 0.36 * W, fx1: 0.36 * W + 20, xe: 0.36 * W + 40, ends: Array(N).fill(F), tone: 0, thick: 1 };
 };
