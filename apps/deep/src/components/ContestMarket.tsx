@@ -1,9 +1,14 @@
-import { useMemo, useState } from 'react';
-import { contests, type Contest, type ContestRow } from '../data/contests';
+import { useEffect, useMemo, useState } from 'react';
+import { contests, loadContest, type Contest, type ContestRow } from '../data/contests';
 import { updateQuery } from '../router';
 import { Menu } from './Menu';
 export function ContestOverview({archived}:{archived:boolean}){return <section className="contest-overview"><h2>{archived?'Archived contests':'All contests'}</h2><table><thead><tr><th>Contest</th><th>Kind</th><th>Status</th><th>Markets</th><th>Latest price range</th></tr></thead><tbody>{contests.filter(c=>!archived||!c.live).map(c=>{const prices=c.rows.flatMap(r=>r.price===null?[]:[r.price]);return <tr key={c.id}><td><a href={`#/?round=${c.id}`}>{c.name} →</a></td><td>{c.kind}</td><td>{c.live?'LIVE':'ENDED'}</td><td>{c.marketCount??'—'}</td><td>{prices.length?`${Math.min(...prices).toFixed(4)}–${Math.max(...prices).toFixed(4)}`:'—'}</td></tr>;})}</tbody></table><a href="#/leaderboard">Global leaderboard →</a></section>;}
-export function ContestMarket({contest,params}:{contest:Contest;params:URLSearchParams}){
+export function ContestMarket({contest:summary,params}:{contest:Contest;params:URLSearchParams}){
+ const [contest,setContest]=useState<Contest|null>(null);
+ useEffect(()=>{let live=true;setContest(null);void loadContest(summary.id).then(c=>{if(live)setContest(c);});return()=>{live=false;};},[summary.id]);
+ return contest?<ContestMarketView contest={contest} params={params}/>:null;
+}
+function ContestMarketView({contest,params}:{contest:Contest;params:URLSearchParams}){
  const [selected,setSelected]=useState<ContestRow|null>(null);const [leg,setLeg]=useState(false);const [hidden,setHidden]=useState(false);const [sort,setSort]=useState('price');const [hover,setHover]=useState('');
  const q=params.get('q')??'';const yes=contest.kind==='YES / NO',pair=yes||contest.kind==='UP / DOWN';const swarm=false;
  const rows=useMemo(()=>contest.rows.filter(r=>`${r.name} ${r.group??''}`.toLowerCase().includes(q.toLowerCase())).sort((a,b)=>sort==='name'?a.name.localeCompare(b.name):(b.price??-1)-(a.price??-1)),[contest,q,sort]);
