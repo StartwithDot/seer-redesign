@@ -970,3 +970,23 @@ dialog .cf-act a.primary{background:var(--violet);color:#fff}
 .ix-panel::-webkit-scrollbar{width:6px}.ix-panel::-webkit-scrollbar-thumb{background:var(--line,#2a2a31);border-radius:6px}
 .ix-panel:has(.pn-details:not([hidden])){overflow:hidden}
 .ix-panel .pn-trade .tk-connect{position:sticky;bottom:0;z-index:3;box-shadow:0 -14px 14px -6px var(--card)}
+
+/* Leaderboard: centred page layout (scoped to .leaderboard). */
+.leaderboard{margin:24px auto 0;width:100%;box-sizing:border-box}
+.leaderboard .leader-heading{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center}
+.leaderboard .leader-heading>div{grid-column:2}
+.leaderboard .leader-heading>button{grid-column:3;justify-self:end}
+.leaderboard .leader-controls{justify-content:center}
+.leaderboard #leader-status{text-align:center}
+.leaderboard .top-coins-row{margin-inline:auto}
+.leaderboard #leader-search{max-width:none;width:100%}
+.leaderboard .leader-table th,.leaderboard .leader-table td{text-align:center}
+.leaderboard .leader-table th:nth-child(2),.leaderboard .leader-table td:nth-child(2){text-align:left}
+.leaderboard .leader-table th button{text-align:center}
+.leaderboard .leader-table th:nth-child(2){padding-left:16px}
+.leaderboard .score-badge{margin-inline:auto}
+@media(max-width:600px){
+.leaderboard{margin-top:24px}
+.leaderboard .leader-heading{grid-template-columns:1fr;gap:12px;justify-items:center}
+.leaderboard .leader-heading>div,.leaderboard .leader-heading>button{grid-column:1;justify-self:center}
+}
