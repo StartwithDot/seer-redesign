@@ -1,0 +1,5 @@
+/* Global Seer header replaces the explorer's own top brand bar; the floating dock stays as the secondary nav */
+.standalone-brandbar{display:none!important}
+#header{height:0!important;min-height:0}
+body{padding-top:var(--seer-header-h,56px)}
+html{scroll-padding-top:calc(var(--seer-header-h,56px) + 16px)}

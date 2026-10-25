@@ -21,7 +21,8 @@ for name, src in APPS.items():
     if name == "explorer":
         shutil.copytree(R / src / "public/previews", S / name / "previews", dirs_exist_ok=True)
         for f in ("seer-shell.js", "seer-shell.css", "seer-subbar.css"): shutil.copy(R / "packages/ef" / f, S / name / "previews/g" / f)
-        (S / name / "index.html").write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seer Explorer</title><meta http-equiv="refresh" content="0;url=previews/g/"><script>location.replace("previews/g/");</script></head><body><a href="previews/g/">Open Explorer</a></body></html>')
+        for f in ("seer-shell.js", "seer-shell.css", "seer-subbar.css"): shutil.copy(R / "packages/ef" / f, S / name / "previews/v3" / f)
+        (S / name / "index.html").write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seer Explorer</title><meta http-equiv="refresh" content="0;url=previews/v3/"><script>location.replace("previews/v3/");</script></head><body><a href="previews/g/">Open Explorer</a></body></html>')
 # landing links -> local apps (Seer App is the explorer of all markets)
 LOCAL = {"app": "explorer/", "explorer": "explorer/", "deep": "deep/", "futarchy": "futarchy/", "opportunity": "opportunity/", "risk": "risk/"}
 def landing(t): return re.sub(r"https://(app|explorer|deep|futarchy|opportunity|risk)\.seer\.pm/?(?![\w./#?-])", lambda m: LOCAL[m.group(1)], t)
