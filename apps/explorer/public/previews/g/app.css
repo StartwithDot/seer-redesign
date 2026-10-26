@@ -990,3 +990,15 @@ dialog .cf-act a.primary{background:var(--violet);color:#fff}
 .leaderboard .leader-heading{grid-template-columns:1fr;gap:12px;justify-items:center}
 .leaderboard .leader-heading>div,.leaderboard .leader-heading>button{grid-column:1;justify-self:center}
 }
+
+/* Return to the new Explorer home from the full market explorer */
+.back-explorer{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px 0 10px;margin-right:12px;border-radius:999px;flex:none;font:500 14px/1 var(--font,'Inter Tight',system-ui,sans-serif);color:#9C6FF2;background:#241E33;text-decoration:none;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(156,111,242,.28);transition:background 160ms ease,color 160ms ease,box-shadow 160ms ease,transform 160ms ease}
+.back-explorer svg{transition:transform 180ms cubic-bezier(.16,1,.3,1)}
+.back-explorer:hover,.back-explorer:focus-visible{background:#7A3CFF;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.back-explorer:hover svg,.back-explorer:focus-visible svg{transform:translateX(-3px)}
+.back-explorer:active{transform:scale(.97)}
+.back-explorer:focus-visible{outline:2px solid #9C6FF2;outline-offset:2px}
+:root[data-theme=light] .back-explorer{background:#EFE9FC;color:#6C2BD9;box-shadow:inset 0 0 0 1px rgba(108,43,217,.22)}
+:root[data-theme=light] .back-explorer:hover,:root[data-theme=light] .back-explorer:focus-visible{background:#6C2BD9;color:#fff}
+@media (max-width:700px){.back-explorer{padding:0 10px;margin-right:8px}.back-explorer span{display:none}}
+@media (prefers-reduced-motion:reduce){.back-explorer,.back-explorer svg{transition:none}.back-explorer:hover svg{transform:none}}
