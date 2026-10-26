@@ -6043,7 +6043,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x5D6A571b0f663C33831E6f81DD3C3f554eca188B",
-    "productUrl": "/deep/#/repo/ethereum/py_ecc",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -6558,7 +6558,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xe263E7FEBB2ccFe1Ebb05f289CF858D3BEcEc83F",
-    "productUrl": "/deep/#/repo/blockscout/blockscout",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -7136,7 +7136,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xf799b67f0b8dA6eD75D6D31370346e2Dd6BE187D",
-    "productUrl": "/deep/#/repo/LFDT-web3j/web3j",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -7658,7 +7658,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xC7846582934c4c1d1156DDf44d988F6857B0f743",
-    "productUrl": "/deep/#/repo/herumi/mcl",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -8005,7 +8005,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xF74142573cd11D76501dFD51D5512fC6B8ca7933",
-    "productUrl": "/deep/#/repo/paulmillr/noble-curves",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -8534,7 +8534,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xb52C7e58DC48250B6CB4fBe5Ed251F617700BF06",
-    "productUrl": "/deep/#/repo/arkworks-rs/algebra",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -9007,7 +9007,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xb44e4aD21D40EFb87A87C0692e28c71c90D08d20",
-    "productUrl": "/deep/#/repo/flashbots/rbuilder",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -9494,7 +9494,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x808055e027caDa3FB6D2b84104cD46B6685C048e",
-    "productUrl": "/deep/#/repo/protofire/solhint",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -10030,7 +10030,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x0954B44c816f034C6c30A0B049F0Ceb6BDa6100a",
-    "productUrl": "/deep/#/repo/l2beat/l2beat",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -10426,7 +10426,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x9FC615e9A9E2066D3E8DDA5c1c5280461489d808",
-    "productUrl": "/deep/#/repo/Consensys/gnark-crypto",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -10948,7 +10948,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x1E405C9bcf5038770EFC4E5065Cd216f93658B80",
-    "productUrl": "/deep/#/repo/Vectorized/solady",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -11232,7 +11232,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x6a6a3326D701D464034D141BeCe8C21a06b7854b",
-    "productUrl": "/deep/#/repo/taikoxyz/taiko-mono",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -11740,7 +11740,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xc53217f3Ca3371921076c4e7Ea9457Ea3b758317",
-    "productUrl": "/deep/#/repo/flashbots/mev-boost",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -12248,7 +12248,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xFd9f5746c9451FeDc03FA9D334d84099b61017CA",
-    "productUrl": "/deep/#/repo/flashbots/mev-boost-relay",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -12700,7 +12700,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x018A386A46949FBc8781b1254636b3A76E60A57C",
-    "productUrl": "/deep/#/repo/ethereum/js-ethereum-cryptography",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -13264,7 +13264,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xdE89236aE23777BDf655344858c44fa581C470A3",
-    "productUrl": "/deep/#/repo/libp2p/libp2p",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -13730,7 +13730,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x74a00A7a338f0fA8cE7aFEdb27279A30CF24DF85",
-    "productUrl": "/deep/#/repo/supranational/blst",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -14259,7 +14259,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xC8db7Cdd4bc8006353Dd09D87ECab65f84c620E5",
-    "productUrl": "/deep/#/repo/wighawag/hardhat-deploy",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -14774,7 +14774,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x9525A58D53Bc9D395eF56Ec4c11E39370a88a304",
-    "productUrl": "/deep/#/repo/ethstaker/eth-docker",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -15317,7 +15317,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xd71B2FE2ff2C91d5D822Ce6399C646137723186A",
-    "productUrl": "/deep/#/repo/DefiLlama/DefiLlama-Adapters",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -15734,7 +15734,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x4B8Bda295e28375ed17ABc8D1472E9cCCaDc93aA",
-    "productUrl": "/deep/#/repo/DefiLlama/chainlist",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -16116,7 +16116,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x45dc37854A86F647cf45890f7167C0adc19814F2",
-    "productUrl": "/deep/#/repo/Certora/CertoraProver",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -16575,7 +16575,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x8dF828fcBA7Ec2B014742e202CF091807dF939E6",
-    "productUrl": "/deep/#/repo/Plonky3/Plonky3",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -17027,7 +17027,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xF8d574d0A7Dc92Deb6AE61aDAE9ad1219aaC2C73",
-    "productUrl": "/deep/#/repo/ChainSafe/bls",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -17647,7 +17647,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xD413F199FB40A5C85E96b3582DdA718570Ae7675",
-    "productUrl": "/deep/#/repo/intellij-solidity/intellij-solidity",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -18001,7 +18001,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xdD8e32840A811d26AaC9112F530490EE86d89BBC",
-    "productUrl": "/deep/#/repo/dappnode/DAppNode",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -18418,7 +18418,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x1773e3A7d522E80903E9914a88c815e126fB0F81",
-    "productUrl": "/deep/#/repo/wealdtech/ethdo",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -18772,7 +18772,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0xD756F4a29dE73f261F32185d0982c8e454Db3356",
-    "productUrl": "/deep/#/repo/lambdaclass/lambdaworks",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -19196,7 +19196,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x04F4D33c6aa72320a822bC0fCb32e097A45ae4F9",
-    "productUrl": "/deep/#/repo/smartcontracts/simple-optimism-node",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {
@@ -19788,7 +19788,7 @@
     "opensTs": null,
     "closesTs": null,
     "contract": "0x5Ba02d2373096140102B6d552e62f9d0f7c7c39D",
-    "productUrl": "/deep/#/repo/skalenetwork/libBLS",
+    "productUrl": "/deep/",
     "tradeable": "route",
     "history": [
       {

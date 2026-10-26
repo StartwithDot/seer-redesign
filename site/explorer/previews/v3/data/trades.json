@@ -7062,7 +7062,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ethereum/js-ethereum-cryptography"
+    "productUrl": "/deep/"
   },
   {
     "id": "00c47aaf64feafd847ed1e7f",
@@ -8035,7 +8035,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/arkworks-rs/algebra"
+    "productUrl": "/deep/"
   },
   {
     "id": "07458f25922ef501e2b8f2ae",
@@ -8067,7 +8067,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/supranational/blst"
+    "productUrl": "/deep/"
   },
   {
     "id": "0764e94dee8de6cfe2b5bf70",
@@ -9829,7 +9829,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/blockscout/blockscout"
+    "productUrl": "/deep/"
   },
   {
     "id": "13a08358818e89f3eae708c8",
@@ -10404,7 +10404,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ethereum/py_ecc"
+    "productUrl": "/deep/"
   },
   {
     "id": "1743fc251f5d885917316568",
@@ -10529,7 +10529,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Vectorized/solady"
+    "productUrl": "/deep/"
   },
   {
     "id": "18ca0bdf8c19d108a0b7c437",
@@ -10712,7 +10712,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ethereum/py_ecc"
+    "productUrl": "/deep/"
   },
   {
     "id": "19c67464411b39b7690ed1e6",
@@ -11226,7 +11226,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/libp2p/libp2p"
+    "productUrl": "/deep/"
   },
   {
     "id": "1bb6a49e97616faf2d75c297",
@@ -12733,7 +12733,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/dappnode/DAppNode"
+    "productUrl": "/deep/"
   },
   {
     "id": "2619e7c87f5214f575e170e0",
@@ -13128,7 +13128,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/LFDT-web3j/web3j"
+    "productUrl": "/deep/"
   },
   {
     "id": "281c7f055ee78e3a781e3903",
@@ -14049,7 +14049,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/libp2p/libp2p"
+    "productUrl": "/deep/"
   },
   {
     "id": "2f6f6673956bea7b2ac4a7a5",
@@ -14174,7 +14174,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/smartcontracts/simple-optimism-node"
+    "productUrl": "/deep/"
   },
   {
     "id": "3049fe66ca8da44ba99d80ae",
@@ -15123,7 +15123,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/DefiLlama/DefiLlama-Adapters"
+    "productUrl": "/deep/"
   },
   {
     "id": "359b8ea9da49d47c67f12536",
@@ -17565,7 +17565,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/taikoxyz/taiko-mono"
+    "productUrl": "/deep/"
   },
   {
     "id": "45b4c21c5608d74cd0dcc0c1",
@@ -17626,7 +17626,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/skalenetwork/libBLS"
+    "productUrl": "/deep/"
   },
   {
     "id": "45f0c690c82346fb59e1067a",
@@ -19531,7 +19531,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/dappnode/DAppNode"
+    "productUrl": "/deep/"
   },
   {
     "id": "53888b8891f4f6072128f468",
@@ -22141,7 +22141,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Certora/CertoraProver"
+    "productUrl": "/deep/"
   },
   {
     "id": "6221bc0e2a3922f8f762fb64",
@@ -22475,7 +22475,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/wealdtech/ethdo"
+    "productUrl": "/deep/"
   },
   {
     "id": "6400d15f9aa8fed64bb7dac5",
@@ -23279,7 +23279,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Certora/CertoraProver"
+    "productUrl": "/deep/"
   },
   {
     "id": "6893ad105c360aa407e82a32",
@@ -23459,7 +23459,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/l2beat/l2beat"
+    "productUrl": "/deep/"
   },
   {
     "id": "695724d401be6f452d3f822e",
@@ -23607,7 +23607,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/lambdaclass/lambdaworks"
+    "productUrl": "/deep/"
   },
   {
     "id": "6a4d46c09ee94072442f6f18",
@@ -23668,7 +23668,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/flashbots/mev-boost"
+    "productUrl": "/deep/"
   },
   {
     "id": "6ad7cadf53ba15063ba93575",
@@ -23941,7 +23941,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ethstaker/eth-docker"
+    "productUrl": "/deep/"
   },
   {
     "id": "6c7609059100697559e9e725",
@@ -24031,7 +24031,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/paulmillr/noble-curves"
+    "productUrl": "/deep/"
   },
   {
     "id": "6d37bd56d2d862ffb09a4c4e",
@@ -24156,7 +24156,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ChainSafe/bls"
+    "productUrl": "/deep/"
   },
   {
     "id": "6e11b0115ea7341d9510c3dd",
@@ -24795,7 +24795,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ChainSafe/bls"
+    "productUrl": "/deep/"
   },
   {
     "id": "7296ee953e187ac5eac8172f",
@@ -25219,7 +25219,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/wealdtech/ethdo"
+    "productUrl": "/deep/"
   },
   {
     "id": "76112e2e646644d1405f96d8",
@@ -26932,7 +26932,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/intellij-solidity/intellij-solidity"
+    "productUrl": "/deep/"
   },
   {
     "id": "814a50456d43208438dcc320",
@@ -27620,7 +27620,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/l2beat/l2beat"
+    "productUrl": "/deep/"
   },
   {
     "id": "84a979aa2b29c860c112e434",
@@ -27681,7 +27681,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Consensys/gnark-crypto"
+    "productUrl": "/deep/"
   },
   {
     "id": "8500a72d50aface4417926c4",
@@ -28015,7 +28015,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/flashbots/mev-boost"
+    "productUrl": "/deep/"
   },
   {
     "id": "86b6defb9e8a157a961e7bce",
@@ -29522,7 +29522,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/intellij-solidity/intellij-solidity"
+    "productUrl": "/deep/"
   },
   {
     "id": "8e3b9df0c5c5ccfc82f30c21",
@@ -29554,7 +29554,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/protofire/solhint"
+    "productUrl": "/deep/"
   },
   {
     "id": "8e8b0db86c2b56d6609a40a8",
@@ -30213,7 +30213,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/lambdaclass/lambdaworks"
+    "productUrl": "/deep/"
   },
   {
     "id": "93581ed5e2c63841f1e494ff",
@@ -30637,7 +30637,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/taikoxyz/taiko-mono"
+    "productUrl": "/deep/"
   },
   {
     "id": "95d29f4437326c4e92b31f70",
@@ -31096,7 +31096,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/blockscout/blockscout"
+    "productUrl": "/deep/"
   },
   {
     "id": "9847237c99bfc14d8757dcce",
@@ -34107,7 +34107,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/skalenetwork/libBLS"
+    "productUrl": "/deep/"
   },
   {
     "id": "aace67afe00bb93263dcf95f",
@@ -34563,7 +34563,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/supranational/blst"
+    "productUrl": "/deep/"
   },
   {
     "id": "ad6cb1d93acbe1950e0edb5d",
@@ -35167,7 +35167,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/smartcontracts/simple-optimism-node"
+    "productUrl": "/deep/"
   },
   {
     "id": "b15e6e1f80a9003dca7247f7",
@@ -36462,7 +36462,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/LFDT-web3j/web3j"
+    "productUrl": "/deep/"
   },
   {
     "id": "bb1161921ce1979e3796cb8d",
@@ -37621,7 +37621,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/wighawag/hardhat-deploy"
+    "productUrl": "/deep/"
   },
   {
     "id": "c2b59d7d1d01c0c6c35f1bc1",
@@ -37984,7 +37984,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/arkworks-rs/algebra"
+    "productUrl": "/deep/"
   },
   {
     "id": "c514f13f72ed85fa1be3b96a",
@@ -39236,7 +39236,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ethereum/js-ethereum-cryptography"
+    "productUrl": "/deep/"
   },
   {
     "id": "cea60245711a578e6a91e0e5",
@@ -39297,7 +39297,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/flashbots/mev-boost-relay"
+    "productUrl": "/deep/"
   },
   {
     "id": "cee3fc94c82d95447ecefdb8",
@@ -39483,7 +39483,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Plonky3/Plonky3"
+    "productUrl": "/deep/"
   },
   {
     "id": "cf59e72ecf46bfb7ad9a0062",
@@ -39631,7 +39631,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/flashbots/mev-boost-relay"
+    "productUrl": "/deep/"
   },
   {
     "id": "d09d0102182da439a4396109",
@@ -39817,7 +39817,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/DefiLlama/DefiLlama-Adapters"
+    "productUrl": "/deep/"
   },
   {
     "id": "d19a1cd6828762aea3adf94c",
@@ -40569,7 +40569,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/flashbots/rbuilder"
+    "productUrl": "/deep/"
   },
   {
     "id": "d6594154ebd89736ad6ee524",
@@ -42102,7 +42102,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/DefiLlama/chainlist"
+    "productUrl": "/deep/"
   },
   {
     "id": "e05c2be0ba1321d533b0b420",
@@ -42430,7 +42430,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/paulmillr/noble-curves"
+    "productUrl": "/deep/"
   },
   {
     "id": "e23c9e429a330f09dce4490f",
@@ -42491,7 +42491,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/flashbots/rbuilder"
+    "productUrl": "/deep/"
   },
   {
     "id": "e263db38018d6212f8a8b9de",
@@ -42639,7 +42639,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Plonky3/Plonky3"
+    "productUrl": "/deep/"
   },
   {
     "id": "e34a25f207ecc7e9a6c224bc",
@@ -42912,7 +42912,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/wighawag/hardhat-deploy"
+    "productUrl": "/deep/"
   },
   {
     "id": "e51a14c29aa49fd060713794",
@@ -43092,7 +43092,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/herumi/mcl"
+    "productUrl": "/deep/"
   },
   {
     "id": "e79e25b3a2193f5d95a77499",
@@ -43272,7 +43272,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/herumi/mcl"
+    "productUrl": "/deep/"
   },
   {
     "id": "e8c865b6bcce052fe7938160",
@@ -44134,7 +44134,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Consensys/gnark-crypto"
+    "productUrl": "/deep/"
   },
   {
     "id": "ee465fc08b84ae45955a316e",
@@ -44195,7 +44195,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/Vectorized/solady"
+    "productUrl": "/deep/"
   },
   {
     "id": "eed68548f77922621137abe9",
@@ -44976,7 +44976,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/ethstaker/eth-docker"
+    "productUrl": "/deep/"
   },
   {
     "id": "f37b577d2928659669920975",
@@ -45391,7 +45391,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/DefiLlama/chainlist"
+    "productUrl": "/deep/"
   },
   {
     "id": "f61f4f2f9d38c800b08caff1",
@@ -46178,7 +46178,7 @@
     "chain": "OP Mainnet",
     "chainId": 10,
     "marketKnown": true,
-    "productUrl": "/deep/#/repo/protofire/solhint"
+    "productUrl": "/deep/"
   },
   {
     "id": "faabd7f48cc3bef633f7027f",

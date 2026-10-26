@@ -1,7 +1,7 @@
 // Hand-off from the explorer (v3) to the full Seer trading app (explorer-v2) for native Seer markets.
 // v2 owns trading, quotes and market creation; v3 owns discovery and understanding.
 const embedded = (() => { try { return self !== top; } catch { return true; } })();
-const base = embedded ? '/explorer?v=2' : '/p/explorer-v2/index.html';
+const base = '/explorer/previews/g/';
 export const tradeUrl = (m) => `${base}#/market/${encodeURIComponent(m.sourceId || String(m.id).replace(/^seer-\d+-/, ''))}`;
 export const createUrl = () => `${base}#/create`;
 export const leaderboardUrl = () => `${base}#/leaderboard`;
