@@ -1,0 +1,6 @@
+// Track only entries observed within this Explorer document.
+let current=location.hash||'#/',previous=null,returning=false;
+addEventListener('hashchange',e=>{const old=new URL(e.oldURL).hash||'#/';previous=returning?null:old;returning=false;current=location.hash||'#/'});
+function goBack(){if(previous?.startsWith('#/')){returning=true;history.back()}else location.hash='#/'}
+export function mountBack(main){main.querySelectorAll('.back-link').forEach(el=>el.remove());if((location.hash.slice(1).split('?')[0]||'/')==='/')return;const nav=document.createElement('nav');nav.className='explorer-back-wrap';nav.setAttribute('aria-label','Back to Explorer');nav.innerHTML='<a class="explorer-back" href="#/"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></span>Explorer</a>';nav.querySelector('a').addEventListener('click',e=>{e.preventDefault();goBack()});main.prepend(nav)}
+document.addEventListener('keydown',e=>{if(e.key!=='Escape'||e.defaultPrevented||document.querySelector('dialog[open],details[open],[role="menu"]:not([hidden]),[aria-expanded="true"]')||e.target.matches('input,textarea,select,[contenteditable="true"]'))return;if((location.hash.slice(1).split('?')[0]||'/')!=='/'){e.preventDefault();goBack()}});

@@ -28,14 +28,53 @@ html:not([data-lens="trade"]) .hero-create{display:none!important}
 /* no ghost monograms behind numbers; soft violet backdrop when a market has no image */
 .fan-card .market-monogram,.live-card .market-monogram{display:none!important}
 .fan-card:not(:has(img.fan-market-image)){background:radial-gradient(120% 140% at 100% 0%,rgba(122,60,255,.22),transparent 60%),var(--s1)}
-.hero-questions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
-.hero-questions>span{width:100%;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#67676F)}
-.hero-q{display:inline-flex;align-items:center;gap:10px;max-width:100%;height:44px;padding:0 8px 0 16px;border-radius:999px;background:var(--nested,#1F1F24);color:var(--text,#EDEDF2);font-size:13px;transition:background .25s,transform .25s}
-.hero-q span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:300px}
-.hero-q b{flex:none;font-weight:600;font-size:13px;padding:6px 10px;border-radius:999px;background:var(--btn2,#241E33);color:var(--btn2-text,#9C6FF2)}
-.hero-q:hover{background:#2A2536;transform:translateY(-2px)}
+/* Compact question strip: two fitted rows on desktop, a snap rail on mobile. */
+.hero-questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:center;width:100%;max-width:none;margin-top:16px}
+.hero-questions>span{display:none}
+.hero-q{display:flex;align-items:center;gap:8px;min-width:0;width:100%;height:40px;padding:0 8px 0 12px;border:1px solid var(--hair);border-radius:999px;background:color-mix(in srgb,var(--s1) 94%,transparent);color:var(--text);font-size:12px;transition:background .2s,transform .2s,border-color .2s;animation:question-enter .4s var(--ease-out) both;animation-delay:calc(var(--chip-index)*60ms)}
+.hero-q span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.hero-q-dot{flex:none;width:5px;height:5px;border-radius:50%;background:var(--lilac)}
+.hero-q b{flex:none;font-weight:600;font-size:12px;font-variant-numeric:tabular-nums;padding:4px 8px;border-radius:999px;background:var(--s3);color:var(--lilac)}
+.hero-q:hover{background:var(--s2);border-color:var(--lilac);color:var(--text);transform:translateY(-2px)}
+@keyframes question-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .hero-search input[type=search]::-webkit-search-cancel-button{display:none}
-.hero-search .search-results h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#67676F);font-weight:500;margin:10px 16px 4px}
-.hero-search .search-results a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;font-size:14px;line-height:1.4;border-radius:10px}
-.hero-search .search-results a:hover,.hero-search .search-results a:focus-visible{background:var(--btn2,#241E33);outline:0}
-.hero-search .search-results{max-height:340px;overflow:auto;padding:8px;border-radius:16px}
+.hero-search.search-wrap{position:relative;overflow:visible;z-index:10;background:var(--s1);box-shadow:none}
+.hero-search .search-results{position:absolute;left:-1px;right:-1px;top:calc(100% + 8px);width:auto;max-height:min(320px,40svh);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scroll-padding:8px;padding:8px;border:1px solid var(--hair);border-radius:16px;background:var(--s1);color:var(--text);box-shadow:var(--shadow);z-index:30}
+.hero-search .search-results h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:8px 12px}
+.hero-search .search-results a{display:block;position:relative;padding:12px 40px 12px 12px;min-height:44px;font-size:14px;line-height:20px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
+.hero-search .search-results a svg{position:absolute;right:12px;top:14px;width:16px;height:16px;color:var(--muted)}
+.hero-search .search-results a:hover,.hero-search .search-results a:focus-visible{background:var(--s3);color:var(--lilac);outline:2px solid var(--lilac);outline-offset:-2px}
+/* Opening results reserves space so the question rail never sits underneath. */
+.hero-search:has(.search-results:not([hidden])){margin-bottom:calc(min(320px,40svh) + 16px)}
+.home-hero{padding:40px 0 64px;min-height:0;align-items:start;overflow:visible;gap:32px}
+.hero-copy{padding:24px 0 0;min-width:0}
+.home-page .hero-copy h1{font-size:clamp(44px,4.8vw,68px);min-height:0;margin-bottom:24px}
+.hero-copy .eyebrow{margin-bottom:24px}
+.hero-switches{gap:8px;margin:24px 0 0}
+.hero-mode-caption{height:auto;min-height:36px;margin:16px 0}
+.hero-search.search-wrap{margin-top:0;min-height:64px}
+.hero-utilities{margin-top:16px}
+.signal-fan{height:672px}
+.fan-products{top:0;bottom:auto;grid-template-rows:repeat(5,128px);gap:8px;left:54%}
+.fan-caption{bottom:-24px}
+.fan-card,.fan-card.is-active{opacity:1;transform:none;box-shadow:none;background:var(--s1);border:1px solid var(--hair)}
+.fan-card.is-active{border-color:var(--lilac);background:var(--s3)}
+.fan-card:hover{background:var(--s2)}
+.fan-card .fan-market-image{opacity:.08!important;filter:grayscale(1)!important}
+.fan-card.is-active .fan-market-image{opacity:.08!important}
+.fan-question{background:var(--s1)!important;border-color:var(--hair)!important;box-shadow:none}
+.fan-question::before,.fan-question::after{display:none}
+.question-caption::before{background:var(--lilac);animation:none;box-shadow:none}
+.hero-planet{background:none;box-shadow:none}
+.hero-rays{display:none}
+.hero-search>button{color:var(--on-accent);background:var(--violet)}
+@media(max-width:1100px) and (min-width:801px){.home-hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}.fan-products{left:36%}.fan-question{width:30%;padding:12px}.question-caption{font-size:10px!important;letter-spacing:0}.cycling-question{font-size:12px}.fan-card{padding-inline:10px}.fan-saved{font-size:10px}.hero-q{gap:6px;padding-left:8px}.hero-q b{padding-inline:6px}}
+@media(max-width:800px){.home-hero{gap:48px;padding:32px 0 56px}.hero-copy{padding:0;max-width:none}.signal-fan{height:840px;max-width:none}.fan-question{width:100%;height:104px;top:0}.fan-products{left:24px;top:144px;right:0}.fan-caption{bottom:0}.hero-copy .hero-intro{max-width:32ch}.home-page .hero-copy h1{font-size:clamp(44px,8vw,64px)}}
+@media(max-width:560px){.hero-questions{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;gap:8px;padding:4px 0 8px;margin-top:12px;scrollbar-width:thin}.hero-q{flex:0 0 88%;scroll-snap-align:start}.hero-switches{flex-wrap:wrap}.hero-search input{font-size:13px}.hero-utilities{margin-top:8px}.fan-card .fan-market-image{overflow:hidden}.home-page .hero-copy h1{font-size:44px}.hero-copy .eyebrow{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.hero-q{animation:none;transition:none}}
+
+.home-hero .fan-card:not(:has(img.fan-market-image)){background:var(--s1)}
+.home-hero .fan-card.is-active{background:var(--s3)}
+.home-hero .fan-card:hover{background:var(--s2)}
+.home-hero .fan-card.is-active .fan-micro{display:none}
+.home-hero .fan-card.is-active .fan-detail{padding-right:0}

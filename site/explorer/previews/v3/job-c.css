@@ -1,0 +1,25 @@
+/* Job C: surfaces use the same theme tokens as the text above them. */
+:root{--art-surface:#201b30;--art-opacity:.38;--back-surface:color-mix(in srgb,var(--s1) 85%,transparent)}
+[data-theme=light]{--art-surface:#f1ebfb;--art-opacity:.3}
+.home-page .audience-art{filter:none;opacity:1;background:var(--art-surface);border:1px solid var(--hair);border-radius:9px;overflow:hidden}
+.home-page .audience-art>img{filter:grayscale(1);opacity:.8}
+[data-theme=light] .home-page .audience-art>img{filter:grayscale(1) invert(1) sepia(.25) saturate(1.8) hue-rotate(215deg);mix-blend-mode:multiply;opacity:.85}
+.fan-card .fan-market-image,.fan-card.is-active .fan-market-image{opacity:var(--art-opacity)!important;filter:saturate(.6)!important;mask-image:linear-gradient(90deg,transparent,#000)!important;width:58%!important}
+.fan-card .fan-saved{position:relative;background:color-mix(in srgb,var(--s1) 92%,transparent);border-radius:4px;padding-inline:4px;color:var(--muted)}
+.fan-card>span:not(.fan-market-image),.fan-card>strong{position:relative;z-index:1}
+.home-page .live-card{perspective:1000px;overflow:hidden}
+.live-face{display:flex;flex-direction:column;flex:1;min-height:0;isolation:isolate;backface-visibility:hidden;transform-origin:center}
+.home-page .live-face .live-market-image{opacity:var(--art-opacity)!important;filter:saturate(.55)!important;width:100%!important;height:46%!important;top:auto!important;bottom:0;z-index:-1;mask-image:linear-gradient(0deg,#000,transparent)!important}
+.live-face .live-card-copy{min-height:190px}.live-face .live-card-copy h3{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.live-face .live-card-bottom{margin-top:auto}
+.flip-pager{display:flex;justify-content:center;gap:6px;position:relative;margin-top:12px;z-index:2}
+.flip-pager button{width:28px;height:28px;min-height:28px;padding:10px;border:0;background:transparent;display:grid;place-items:center}
+.flip-pager button:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--muted);opacity:.4}.flip-pager button[aria-pressed=true]:before{background:var(--lilac);opacity:1}
+.hero-planet{animation:seer-orbit 52s ease-in-out infinite!important;transform-origin:50% 50%}.hero-owner-image{animation:seer-glow 46s ease-in-out infinite!important}
+@keyframes seer-orbit{0%,100%{transform:rotate(-5deg) translate(0,0)}50%{transform:rotate(5deg) translate(12px,-10px)}}
+@keyframes seer-glow{0%,100%{transform:translate(0,0);opacity:.12}50%{transform:translate(12px,-8px);opacity:.2}}
+[data-theme=light] .hero-owner-image{animation-name:seer-light-glow!important}
+@keyframes seer-light-glow{0%,100%{transform:translate(0,0);opacity:.06}50%{transform:translate(12px,-8px);opacity:.12}}
+.explorer-back-wrap{max-width:1240px;margin:24px auto 0;padding-inline:0}.explorer-back{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px;border:1px solid var(--hair);border-radius:100px;background:var(--back-surface);backdrop-filter:blur(12px);color:var(--muted);font-size:13px;min-height:42px;transition:color 150ms,background 150ms}.explorer-back>span{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--s3)}.explorer-back svg{width:18px;height:18px;transition:transform 150ms}.explorer-back:hover{color:var(--lilac);background:var(--s2)}.explorer-back:hover svg{transform:translateX(-2px)}.explorer-back:focus-visible,.flip-pager button:focus-visible{outline:2px solid var(--lilac);outline-offset:3px}.markets-page .signal-index{padding-top:0}.explorer-back-wrap+section,.explorer-back-wrap+.secondary{padding-top:24px!important}
+@media(max-width:1320px){.explorer-back-wrap{margin-inline:40px}}@media(max-width:800px){.explorer-back-wrap{margin-inline:24px}}@media(max-width:480px){.explorer-back-wrap{margin-inline:20px}}
+@media(prefers-reduced-motion:reduce){.hero-planet,.hero-owner-image{animation:none!important}.explorer-back,.explorer-back svg{transition:none}}
+.home-page .live-section .live-card{height:820px!important;min-height:820px!important}.live-face .live-visual{flex:1}.live-face .signal-chart{max-height:100px}.live-face .live-card-top{min-height:48px;flex-wrap:wrap;gap:8px}.live-face .live-card-copy{height:184px;flex-shrink:0;padding-top:20px}.live-face .live-card-bottom{flex-shrink:0}.flip-pager{flex-shrink:0}

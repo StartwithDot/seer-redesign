@@ -56,3 +56,16 @@ body{font-size:15px;line-height:1.5}#main{max-width:none;padding:0;overflow:clip
 .live-section .live-cards{align-items:stretch}
 .live-section .live-visual{max-height:300px;overflow:hidden}
 .live-section .live-card{min-height:620px!important}
+/* Home surface parity and room to scroll the final content above the dock. */
+#main{overflow:visible;padding-bottom:calc(var(--dock-clearance) + env(safe-area-inset-bottom,0px))}
+.home-page .audience-tile,.home-page .live-card,.home-page .live-card:not(:has(img.live-market-image)){background:var(--s1)}
+.home-page .live-card:hover{box-shadow:var(--shadow)}
+.home-page .hero-planet{box-shadow:none;background:none}
+.home-page .live-market-image{opacity:.08!important}
+.home-page .ef-ecosystem .ecosystem-products a{--tint:var(--lilac);border-color:var(--hair);background:var(--s1)}
+.home-page .ef-ecosystem .ecosystem-lines path{stroke:var(--lilac)!important}
+.home-page .up,.home-page .ix-row .up{color:var(--positive-text)}
+.home-page .down,.home-page .ix-row .down{color:var(--negative-text)}
+.bottom-dock{box-shadow:var(--shadow);bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+@media(max-width:1024px){.home-page .audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:560px){.home-page .audience-grid{grid-template-columns:1fr!important}.home-page .audience-tile{min-width:0}.home-page .section-heading{flex-wrap:wrap;gap:16px}.home-page .back-to-top{bottom:calc(var(--dock-clearance) + env(safe-area-inset-bottom,0px))}}
